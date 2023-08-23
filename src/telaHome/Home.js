@@ -1,8 +1,10 @@
-import { TouchableOpacity, View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet, Image } from 'react-native';
+import Botao from '../componentes/Botao';
+import EstilosBotao from '../estilos/EstilosBotao';
 
 export default Home = () => {
     return (
-        <View style={styles.container}>
+        <View style={styles.container}>   
             {/* Container de foto de usuaria */}
             <View style={styles.containerFoto}> 
 
@@ -10,41 +12,41 @@ export default Home = () => {
 
             {/* Container de botoes da tela home */}
             <View style={styles.containerBotoes}>  
-                <TouchableOpacity 
-                onPress={()=>{}}
-                style={styles.botoes}>
-                    <Text>Perfil</Text>
-                </TouchableOpacity>
+                <Botao
+                onpress={()=>{}}
+                estiloBotao={[EstilosBotao.botaoHome, {borderTopLeftRadius: 20}]}
+                textoBotao="Perfil"
+                imagemBotao={require('../assets/perfil.png')}/>
 
-                <TouchableOpacity 
-                onPress={()=>{}}
-                style={styles.botoes}>
-                    <Text>Formulário</Text>
-                </TouchableOpacity>
+                <Botao
+                onpress={()=>{}}
+                estiloBotao={[EstilosBotao.botaoHome, {borderTopRightRadius: 20}]}
+                textoBotao="Formulário"
+                imagemBotao={require('../assets/formulario.png')}/>
 
-                <TouchableOpacity 
-                onPress={()=>{}}
-                style={styles.botoes}>
-                    <Text>Contatos</Text>
-                </TouchableOpacity>
+                <Botao
+                onpress={()=>{}}
+                estiloBotao={EstilosBotao.botaoHome}
+                textoBotao="Contatos"
+                imagemBotao={require('../assets/contatos.png')}/>
 
-                <TouchableOpacity 
-                onPress={()=>{}}
-                style={styles.botoes}>
-                    <Text>Denúncias</Text>
-                </TouchableOpacity>
+                <Botao
+                onpress={()=>{}}
+                estiloBotao={EstilosBotao.botaoHome}
+                textoBotao="Denúncias"
+                imagemBotao={require('../assets/denuncias.png')}/>
 
-                <TouchableOpacity 
-                onPress={()=>{}}
-                style={styles.botoes}>
-                    <Text>Informações</Text>
-                </TouchableOpacity>
+                <Botao
+                onpress={()=>{}}
+                estiloBotao={EstilosBotao.botaoHome}
+                textoBotao="Informaçoes"
+                imagemBotao={require('../assets/informacoes.png')}/>
 
-                <TouchableOpacity 
-                onPress={()=>{}}
-                style={styles.botoes}>
-                    <Text>Sobre</Text>
-                </TouchableOpacity>
+                <Botao
+                onpress={()=>{}}
+                estiloBotao={EstilosBotao.botaoHome}
+                textoBotao="Sobre"
+                imagemBotao={require('../assets/sobre.png')}/>
             </View>
         </View>
     )
@@ -68,13 +70,13 @@ const styles = StyleSheet.create({
         justifyContent:'center',
 
     },
-    botoes:{
-        height:100,
-        width:'50%',
-        backgroundColor:'#FFDFDF',
-        alignItems:'center',
-        justifyContent:'center',
-        borderWidth: 1,
+    // botoes:{
+    //     height:100,
+    //     width:'50%',
+    //     backgroundColor:'#FFDFDF',
+    //     alignItems:'center',
+    //     justifyContent:'center',
+    //     borderWidth: 1,
         
-    }
+    // }
 })

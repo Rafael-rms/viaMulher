@@ -38,10 +38,9 @@ export default function Login({navigation}) {
           <Text style={styles.registrarTexto}>  Cadastre-se</Text>
           </TouchableOpacity>
         </View>
-
         <Botao 
-        onpress={()=>navigation.navigate('TelaPerfil')}
-        textoBotao="Login"
+        onpress={()=>navigation.navigate('Home')}
+        textoBotao="Entrar"
         estiloBotao={EstilosBotao.botao}
         />
 

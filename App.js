@@ -24,6 +24,9 @@ export default function App() {
     //   name ="RecSenha" component={RecSenha}
     //   options={{headerShown:false}}/>
 
+    //   <Stack.Screen 
+    //   name ="Home" component={Home}/>
+
     // </Stack.Navigator>
     // </NavigationContainer>
     <Home/>

@@ -8,7 +8,7 @@ const EstilosEntrada = StyleSheet.create({
         //borderColor: "black",
         padding: 16,
         margin: 5,
-        minWidth: 380,
+        minWidth: 330,
         maxWidth: 300,
       },     
 })

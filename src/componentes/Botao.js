@@ -8,7 +8,7 @@ export default Botao = ({ textoBotao, onpress, imagemBotao, estiloBotao }) => {
       style={[ estiloBotao ]}
       onPress={onpress}
       >
-          <Text style>{textoBotao}</Text>
+          <Text >{textoBotao}</Text>
           <Image source={imagemBotao}/>
       </TouchableOpacity>
     </View>
