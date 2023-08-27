@@ -27,7 +27,7 @@ export default Cadastro = ({navigation})=> {
           <Entrada tipo="Email"/>
 
           <Botao
-          onpress={()=>Alert.alert('My Eggs')}
+          onpress={()=>Alert.alert('Ok')}
           textoBotao="Enviar"
           estiloBotao={EstilosBotao.botao}
           />

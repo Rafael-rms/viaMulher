@@ -2,7 +2,7 @@ import { View, StyleSheet, Image } from 'react-native';
 import Botao from '../componentes/Botao';
 import EstilosBotao from '../estilos/EstilosBotao';
 
-export default Home = () => {
+export default Home = ({navigation}) => {
     return (
         <View style={styles.container}>   
             {/* Container de foto de usuaria */}
@@ -19,7 +19,7 @@ export default Home = () => {
                 imagemBotao={require('../assets/perfil.png')}/>
 
                 <Botao
-                onpress={()=>{}}
+                onpress={()=>navigation.navigate('Pergunta1')}
                 estiloBotao={[EstilosBotao.botaoHome, {borderTopRightRadius: 20}]}
                 textoBotao="Formulário"
                 imagemBotao={require('../assets/formulario.png')}/>
