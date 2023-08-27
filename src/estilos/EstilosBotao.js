@@ -19,7 +19,7 @@ const EstilosBotao =StyleSheet.create({
       botaoVoltar:{
         
       },
-      // Estilo do container Texto e botoes da tela de Home
+      // Estilo do container Texto imagem e botoes da tela de Home
       botaoHome:{
         height:108,
         width:205,
@@ -30,6 +30,10 @@ const EstilosBotao =StyleSheet.create({
       },
       estiloTextoBotao:{
         textAlign:'center'
+      },
+      imagemBotaoHome:{
+        height:75,
+        width:60
       }
 })
 

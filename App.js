@@ -5,6 +5,7 @@ import Cadastro from './src/telas/Cadastro';
 import RecSenha from  './src/telas/RecSenha';
 import Home from './src/telaHome/Home'
 import Pergunta01 from './src/formulario/Pergunta01';
+import Denuncias from './src/denuncias/Denuncias'
 
 const Stack = createNativeStackNavigator();
 
@@ -30,6 +31,10 @@ export default function App() {
 
       <Stack.Screen 
       name ="Pergunta1" component={Pergunta01}
+      options={{headerShown:false}}/>
+
+      <Stack.Screen 
+      name ="Denuncias" component={Denuncias}
       options={{headerShown:false}}/>
 
     </Stack.Navigator>
