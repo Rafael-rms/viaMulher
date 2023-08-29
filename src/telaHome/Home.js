@@ -16,13 +16,13 @@ export default Home = ({navigation}) => {
                 onpress={()=>{}}
                 estiloBotao={[EstilosBotao.botaoHome, {borderTopLeftRadius: 20}]}
                 textoBotao="Perfil"
-                imagemBotao={require('../assets/perfil.png')}/>
+                imagemBotao={require('../assets/teste/perfilColo.png')}/>
 
                 <Botao
                 onpress={()=>navigation.navigate('Pergunta1')}
                 estiloBotao={[EstilosBotao.botaoHome, {borderTopRightRadius: 20}]}
                 textoBotao="Formulário"
-                imagemBotao={require('../assets/formulario.png')}/>
+                imagemBotao={require('../assets/teste/form.png')}/>
 
                 <Botao
                 onpress={()=>{}}
@@ -34,13 +34,13 @@ export default Home = ({navigation}) => {
                 onpress={()=>navigation.navigate('Denuncias')}
                 estiloBotao={EstilosBotao.botaoHome}
                 textoBotao="Denúncias"
-                imagemBotao={require('../assets/denuncias.png')}/>
+                imagemBotao={require('../assets/teste/denunciascolorido.png')}/>
 
                 <Botao
                 onpress={()=>{}}
                 estiloBotao={EstilosBotao.botaoHome}
                 textoBotao="Informaçoes"
-                imagemBotao={require('../assets/informacoes.png')}/>
+                imagemBotao={require('../assets/teste/iinfo.png')}/>
 
                 <Botao
                 onpress={()=>{}}
