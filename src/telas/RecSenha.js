@@ -19,8 +19,8 @@ export default Cadastro = ({navigation})=> {
 
           <Image source={require('../assets/recSenha.png')}
           style={styles.imgRecSenha}
-
           />
+          
           <Text style={styles.textRecSenha1}>Esqueceu sua Senha?</Text>
           <Text style={styles.textRecSenha2}>Insira seu email e enviaremos um link para recuperação de senha</Text>
 

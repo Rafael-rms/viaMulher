@@ -6,10 +6,10 @@ const EstilosEntrada = StyleSheet.create({
         borderRadius: 20,
         //borderWidth: 1,
         //borderColor: "black",
-        padding: 16,
+        padding: 15,
         margin: 5,
-        minWidth: 330,
-        maxWidth: 300,
+        minWidth: '90%',
+        maxWidth: '90%',
       },     
 })
 

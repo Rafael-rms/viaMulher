@@ -71,13 +71,13 @@ const styles = StyleSheet.create({
     },
     cabecalho:{
         flexDirection: 'row',
-        marginTop:30,
+        marginTop:'6%',
         alignItems:'center',
-        paddingRight:34
+        paddingRight:'8%'
     },
     textoCabecalho:{
-        marginLeft:80,
-        marginRight:80,
+        marginLeft:'21%',
+        marginRight:'21%',
         fontSize:28,
         fontWeight: 'bold'
     },
@@ -85,24 +85,24 @@ const styles = StyleSheet.create({
         width:'100%',
         height:2,
         backgroundColor:'black',
-        marginTop:15
+        marginTop:'4%'
     },
     caixaDenuncias:{
         backgroundColor: '#EDCECE',
-         marginTop:20,
-         height:260,
-         width:370,
+         marginTop:'5%',
+         height:'auto',
+         width:'94%',
          alignItems:'center',
          borderRadius:20,
     },
     texoTituloCaixa:{
-        marginTop:5,
+        marginTop:'3%',
         fontSize:23,
         fontWeight:'bold'
     },
     textoCaixa:{
         fontSize:20,
-        padding:8
+        padding:'4%'
         
     }
 })

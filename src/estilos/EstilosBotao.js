@@ -21,8 +21,10 @@ const EstilosBotao =StyleSheet.create({
       },
       // Estilo do container Texto imagem e botoes da tela de Home
       botaoHome:{
-        height:108,
-        width:205,
+        height:104,
+        width:'100%',
+        minWidth:'50%',
+        maxWidth:'100%',
         backgroundColor:'#FFDFDF',
         alignItems:'center',
         justifyContent:'center',
