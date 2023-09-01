@@ -28,7 +28,7 @@ export default Home = ({navigation}) => {
                 onpress={()=>{}}
                 estiloBotao={EstilosBotao.botaoHome}
                 textoBotao="Contatos"
-                imagemBotao={require('../assets/teste/contColorido.png')}/>
+                imagemBotao={require('../assets/contatos.png')}/>
 
                 <Botao
                 onpress={()=>navigation.navigate('Denuncias')}
