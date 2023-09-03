@@ -7,6 +7,7 @@ import Home from './src/telaHome/Home'
 import Pergunta01 from './src/formulario/Pergunta01';
 import Denuncias from './src/denuncias/Denuncias'
 import Sobre from './src/sobre/Sobre';
+import Contatos from './src/contatos/Contatos';
 
 const Stack = createNativeStackNavigator();
 
@@ -40,6 +41,10 @@ export default function App() {
 
       <Stack.Screen 
       name ="Sobre" component={Sobre}
+      options={{headerShown:false}}/>
+
+      <Stack.Screen 
+      name ="Contatos" component={Contatos}
       options={{headerShown:false}}/>
 
     </Stack.Navigator>
