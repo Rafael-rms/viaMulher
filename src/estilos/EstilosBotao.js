@@ -11,13 +11,13 @@ const EstilosBotao =StyleSheet.create({
         backgroundColor: "#D69595",
         minWidth: '70%',
         maxWidth: '70%',
-        height:50,
+        height:70,
         maxHeight:'70%',
         alignItems: "center",
         justifyContent: "center",
-        borderRadius: 20,
+        borderRadius: 30,
         margin:12,
-        textAlign:'center'
+        textAlign:'center',
       },
       botaoVoltar:{
         

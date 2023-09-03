@@ -8,6 +8,7 @@ import Pergunta01 from './src/formulario/Pergunta01';
 import Denuncias from './src/denuncias/Denuncias'
 import Sobre from './src/sobre/Sobre';
 import Contatos from './src/contatos/Contatos';
+import Informacoes from './src/informacoes/Informacoes';
 
 const Stack = createNativeStackNavigator();
 
@@ -46,6 +47,10 @@ export default function App() {
 
       <Stack.Screen 
       name ="Contatos" component={Contatos}
+      options={{headerShown:false}}/>
+
+      <Stack.Screen 
+      name ="Informacoes" component={Informacoes}
       options={{headerShown:false}}/>
 
     </Stack.Navigator>
