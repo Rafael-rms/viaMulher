@@ -47,11 +47,10 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         marginTop:'6%',
         alignItems:'center',
-        paddingRight:'24%'
+        paddingRight:'38%'
     },
     textoCabecalho:{
-        marginLeft:'14%',
-        marginRight:'14%',
+        marginLeft:'20%',
         fontSize:28,
         fontWeight: 'bold',
     },

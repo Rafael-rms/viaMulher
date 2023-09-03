@@ -2,26 +2,29 @@ import {StyleSheet} from 'react-native'
 
 const EstilosBotao =StyleSheet.create({
     containerBotao:{
-        alignItems: "center",
-        justifyContent: "center",
+        //alignItems: "center",
+        //justifyContent: "center",
+        //textAlign:'center'
       },
       // Botoes de login, cadastrar e enviar email para recuperar senha
       botao:{
         backgroundColor: "#D69595",
-        minWidth: 330,
-        maxWidth: 300,
-        height: 45,
+        minWidth: '70%',
+        maxWidth: '70%',
+        height:50,
+        maxHeight:'70%',
         alignItems: "center",
         justifyContent: "center",
         borderRadius: 20,
         margin:12,
+        textAlign:'center'
       },
       botaoVoltar:{
         
       },
       // Estilo do container Texto imagem e botoes da tela de Home
       botaoHome:{
-        height:104,
+        height:'34%',
         width:'100%',
         minWidth:'50%',
         maxWidth:'100%',
@@ -34,8 +37,7 @@ const EstilosBotao =StyleSheet.create({
         textAlign:'center'
       },
       imagemBotaoHome:{
-        height:75,
-        width:60
+
       }
 })
 

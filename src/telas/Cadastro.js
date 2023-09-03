@@ -50,7 +50,6 @@ export default Cadastro = ({navigation})=> {
       top: 0,
       left: 0,
       padding: 10,
-      zIndex: 1, 
     },
     container:{
       backgroundColor: "#FFDFDF",

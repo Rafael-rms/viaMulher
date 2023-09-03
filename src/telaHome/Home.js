@@ -1,13 +1,24 @@
-import { View, StyleSheet, Image } from 'react-native';
+import { View, StyleSheet, Image, Text, TouchableOpacity } from 'react-native';
 import Botao from '../componentes/Botao';
 import EstilosBotao from '../estilos/EstilosBotao';
 
 export default Home = ({navigation}) => {
     return (
         <View style={styles.container}>   
-            {/* Container de foto de usuaria */}
-            <View style={styles.containerFoto}> 
+            {/* Cabeçalho */}
+            <View style={styles.cabecalho}>
+                    <Text style={styles.textoCabecalho}>Inicio</Text>
 
+                    <TouchableOpacity 
+                    onPress={()=>navigation.navigate('Login')}>
+                        <Image source={require('../assets/configuracoes.png')}/>
+                    </TouchableOpacity>           
+                </View>
+
+            {/* Container de foto e nome de usuaria */}
+            <View style={styles.containerFoto}> 
+                <Image style={{height:'70%'}} source={require('../assets/avatar.png')}/>
+                <Text style={styles.nomeUsuario}>Nome Usuário</Text>
             </View>
 
             {/* Container de botoes da tela home */}
@@ -56,15 +67,40 @@ export default Home = ({navigation}) => {
 const styles = StyleSheet.create({
     container:{
         flex:1,
-        backgroundColor:'#FFDFDF'
+        backgroundColor:'#FFDFDF',
+        alignItems:'center'
+    },
+    cabecalho:{
+        flexDirection: 'row',
+        marginTop:'6%',
+        alignItems:'center',
+        paddingLeft:'36%'
+    },
+    textoCabecalho:{
+
+        marginRight:'44%',
+        fontSize:28,
+        fontWeight: 'bold'
+    },
+    linha:{
+        width:'100%',
+        height:2,
+        backgroundColor:'black',
+        marginTop:'4%'
     },
     containerFoto:{
-        flex:1
+        flex:1,
+        alignItems:'center',
+    },
+    nomeUsuario:{
+        fontWeight:'bold',
+        fontSize:30,
+        marginTop:'6%'
     },
     containerBotoes:{
         flexDirection:'row',
         flexWrap:'wrap',
-        //flex:1,
+        flex:1,
         //backgroundColor:'black',
         alignItems:'center',
         justifyContent:'center',

@@ -17,21 +17,22 @@ export default Cadastro = ({navigation})=> {
               />
           </View>
 
-          <Image source={require('../assets/recSenha.png')}
-          style={styles.imgRecSenha}
-          />
           
-          <Text style={styles.textRecSenha1}>Esqueceu sua Senha?</Text>
-          <Text style={styles.textRecSenha2}>Insira seu email e enviaremos um link para recuperação de senha</Text>
+            <Image source={require('../assets/recSenha.png')}
+            style={styles.imgRecSenha}
+            />
+                     
+              <Text style={styles.textRecSenha1}>Esqueceu sua Senha?</Text>
+              <Text style={styles.textRecSenha2}>Insira seu email e enviaremos um link para recuperação de senha</Text>
+            
+            <Entrada tipo="Email"/>
 
-          <Entrada tipo="Email"/>
-
-          <Botao
-          onpress={()=>Alert.alert('Ok')}
-          textoBotao="Enviar"
-          estiloBotao={EstilosBotao.botao}
-          />
-
+            <Botao
+            onpress={()=>Alert.alert('Ok')}
+            textoBotao="Enviar"
+            estiloBotao={EstilosBotao.botao}
+            />
+        
         </KeyboardAvoidingView>
       </>
     )
@@ -44,7 +45,6 @@ export default Cadastro = ({navigation})=> {
       top: 0,
       left: 0,
       padding: 10,
-      zIndex: 1,
     },
     container:{ 
       backgroundColor: "#FFDFDF",
@@ -59,9 +59,11 @@ export default Cadastro = ({navigation})=> {
     },
     textRecSenha1: {
         marginBottom:'10%',
-        fontSize:20,
+        fontSize:24,
     },
     textRecSenha2: {
         marginBottom:'10%',
+        fontSize:20,
+        textAlign:'center'
     },
 })

@@ -1,15 +1,15 @@
 import { View, TouchableOpacity, Text, Image } from "react-native";
 import EstilosBotao from "../estilos/EstilosBotao";
 
-export default Botao = ({ textoBotao, onpress, imagemBotao, estiloBotao }) => {
+export default Botao = (props) => {
   return (
     <View style={EstilosBotao.containerBotao}>
       <TouchableOpacity 
-      style={[ estiloBotao ]}
-      onPress={onpress}
+      style={props.estiloBotao}
+      onPress={props.onpress}
       >
-          <Text >{textoBotao}</Text>
-          <Image source={imagemBotao}/>
+          <Text >{props.textoBotao}</Text>
+          <Image source={props.imagemBotao}/>
       </TouchableOpacity>
     </View>
   );

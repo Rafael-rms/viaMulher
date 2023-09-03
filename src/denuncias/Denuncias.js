@@ -73,11 +73,10 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         marginTop:'6%',
         alignItems:'center',
-        paddingRight:'8%'
+        paddingRight:'30%'
     },
     textoCabecalho:{
-        marginLeft:'21%',
-        marginRight:'21%',
+        marginLeft:'30%',
         fontSize:28,
         fontWeight: 'bold'
     },
@@ -102,7 +101,8 @@ const styles = StyleSheet.create({
     },
     textoCaixa:{
         fontSize:20,
-        padding:'4%'
+        padding:'4%',
+        textAlign:'justify',
         
     }
 })

@@ -7,9 +7,6 @@ export default Entrada = (props) => {
       <TextInput
       style={EstilosEntrada.input}
         placeholder={props.tipo}
-        keyboardType="email-address"
-        textContentType="telephoneNumber"
-
       />
     </View>
   );

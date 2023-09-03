@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFDFDF",
     flex: 1,
     justifyContent: "center",
-    // alignItems: "center",
+    alignItems: "center"
   },
   containerLogo:{
     flex: 1,
@@ -89,7 +89,8 @@ const styles = StyleSheet.create({
   },
   recSenhaTexto:{
     fontSize: 15,
-    paddingLeft:150, 
+    paddingLeft:'50%', 
+    marginBottom:-5
   },
   textoCc:{
     
