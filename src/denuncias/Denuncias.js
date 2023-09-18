@@ -1,19 +1,19 @@
 import React from "react";
 
 import { ScrollView, View, TouchableOpacity, Image, Text, StyleSheet } from 'react-native'
+import Cabecalho from "../componentes/Cabecalho";
 
 export default Denuncias = ({navigation})=>{
     return(
         <ScrollView>
             <View style={styles.container}>
-                <View style={styles.cabecalho}>
-                <TouchableOpacity 
-                    onPress={()=>navigation.navigate('Home')}>
-                        <Image source={require('../assets/voltar.png')}/>
-                    </TouchableOpacity>
-
-                    <Text style={styles.textoCabecalho}>Denúncias</Text>
-                </View>
+                <Cabecalho 
+                texto="Denúncias"
+                imagemEsquerda={require('../assets/voltar.png')}
+                botaoEsquerda={{
+                    onPress: ()=>navigation.goBack(),
+                }}/>
+                
 
                 <View style={styles.linha}/>
 
@@ -69,17 +69,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#FFDFDF',
         alignItems:'center',
     },
-    cabecalho:{
-        flexDirection: 'row',
-        marginTop:'6%',
-        alignItems:'center',
-        paddingRight:'30%'
-    },
-    textoCabecalho:{
-        marginLeft:'30%',
-        fontSize:28,
-        fontWeight: 'bold'
-    },
     linha:{
         width:'100%',
         height:2,
@@ -106,3 +95,4 @@ const styles = StyleSheet.create({
         
     }
 })
+

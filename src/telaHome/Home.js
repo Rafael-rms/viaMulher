@@ -1,19 +1,18 @@
-import { View, StyleSheet, Image, Text, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, Image, Text } from 'react-native';
 import Botao from '../componentes/Botao';
 import EstilosBotao from '../estilos/EstilosBotao';
+import Cabecalho from '../componentes/Cabecalho';
 
 export default Home = ({navigation}) => {
     return (
         <View style={styles.container}>   
             {/* Cabeçalho */}
-            <View style={styles.cabecalho}>
-                    <Text style={styles.textoCabecalho}>Inicio</Text>
-
-                    <TouchableOpacity 
-                    onPress={()=>navigation.navigate('Login')}>
-                        <Image source={require('../assets/configuracoes.png')}/>
-                    </TouchableOpacity>           
-                </View>
+                <Cabecalho 
+                texto="Home"
+                imagemDireita={require('../assets/configuracoes.png')}
+                botaoDireita={{
+                    onPress: ()=>navigation.goBack(''),
+                }}/>
 
             {/* Container de foto e nome de usuaria */}
             <View style={styles.containerFoto}> 
@@ -69,18 +68,6 @@ const styles = StyleSheet.create({
         flex:1,
         backgroundColor:'#FFDFDF',
         alignItems:'center'
-    },
-    cabecalho:{
-        flexDirection: 'row',
-        marginTop:'6%',
-        alignItems:'center',
-        paddingLeft:'36%'
-    },
-    textoCabecalho:{
-
-        marginRight:'44%',
-        fontSize:28,
-        fontWeight: 'bold'
     },
     linha:{
         width:'100%',

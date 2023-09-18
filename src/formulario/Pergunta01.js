@@ -1,23 +1,20 @@
 import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView } from 'react-native'
+import Cabecalho from '../componentes/Cabecalho'
 
 export default Pergunta01 = ({navigation}) => {
     return(
          <ScrollView>
             <View style={styles.container}>
-                {/* Cabeçalho da tela formulário */}
-                <View style={styles.cabecalho}>
-                    <TouchableOpacity 
-                    onPress={()=>navigation.navigate('Home')}>
-                        <Image source={require('../assets/voltar.png')}/>
-                    </TouchableOpacity>
-
-                    <Text style={styles.textoCabecalho}>Formulário</Text>
-
-                    <TouchableOpacity 
-                    onPress={()=>navigation.navigate('Home')}>
-                        <Image source={require('../assets/home.png')}/>
-                    </TouchableOpacity>           
-                </View>
+                <Cabecalho 
+                texto="Sobre"
+                imagemEsquerda={require('../assets/voltar.png')}
+                imagemDireita={require('../assets/home.png')}
+                botaoEsquerda={{
+                    onPress: ()=>navigation.goBack(),
+                }}
+                botaoDireita={{
+                    onPress: ()=>navigation.goBack(''),
+                }}/>
 
                 <>
                     <Text style={[styles.textUsuario, {fontSize:22}]}>Nome do usuário</Text>
@@ -77,18 +74,6 @@ const styles = StyleSheet.create({
     },
     containerBotoes:{
         marginBottom:'20%'
-    },
-    cabecalho:{
-        flexDirection: 'row',
-        marginTop:'6%',
-        alignItems:'center',
-    
-    },
-    textoCabecalho:{
-        marginLeft:'18%',
-        marginRight:'18%',
-        fontSize:28,
-        fontWeight: 'bold'
     },
     caixaPergunta:{
         backgroundColor: '#EDCECE',

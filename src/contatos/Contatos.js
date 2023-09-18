@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, TouchableOpacity, Image,Text, TextInput, ImageBackground } from 'react-native'
+import { View, StyleSheet, TouchableOpacity,Text, TextInput, ImageBackground } from 'react-native'
 import CardContatos from '../contatos/componentes/CardContatos';
+import Cabecalho from '../componentes/Cabecalho';
 
 export default Contatos = ({navigation})=>{
     const [card, setCard] = useState(false);
@@ -11,20 +12,12 @@ export default Contatos = ({navigation})=>{
 
     return (
         <ImageBackground source={require('../assets/contatosFundo.png')} style={Estilos.container} resizeMode="contain">
-            {/* Cabeçalho */}
-            <View style={Estilos.cabecalho}>
-                    <TouchableOpacity 
-                    onPress={()=>navigation.navigate('Home')}>
-                        <Image source={require('../assets/voltar.png')}/>
-                    </TouchableOpacity>
-
-                    <Text style={Estilos.textoCabecalho}>Contatos</Text>
-
-                    <TouchableOpacity 
-                    onPress={()=>{}}>
-                        <Image source={require('../assets/contato.png')}/>
-                    </TouchableOpacity>           
-                </View>
+                <Cabecalho 
+                texto="Contatos"
+                imagemEsquerda={require('../assets/voltar.png')}
+                botaoEsquerda={{
+                    onPress: ()=>navigation.goBack(),
+                }}/>
 
                 <View style={Estilos.linha}/>
 
@@ -53,27 +46,12 @@ const Estilos = StyleSheet.create({
         backgroundColor: '#FFDFDF',
         alignItems:'center',
     },
-    cabecalho:{
-        flexDirection: 'row',
-        marginTop:'6%',
-        alignItems:'center',
-    
-    },
-    textoCabecalho:{
-        marginLeft:'18%',
-        marginRight:'18%',
-        fontSize:28,
-        fontWeight: 'bold'
-    },
     linha:{
         width:'100%',
         height:2,
         backgroundColor:'black',
         marginTop:'4%'
     },
-    // imagemContatos:{
-    //     marginTop:'40%'      
-    // },
     botaoContatos:{
         backgroundColor:'#D69595',
         width:'60%',
