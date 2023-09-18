@@ -14,7 +14,6 @@ export default Denuncias = ({navigation})=>{
                     onPress: ()=>navigation.goBack(),
                 }}/>
                 
-
                 <View style={styles.linha}/>
 
                 <View style={styles.caixaDenuncias}>
