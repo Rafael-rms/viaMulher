@@ -1,9 +1,16 @@
-import React from "react";
-import { View, StyleSheet, TouchableOpacity, Image,Text } from 'react-native'
+import React, { useState } from 'react';
+import { View, StyleSheet, TouchableOpacity, Image,Text, TextInput, ImageBackground } from 'react-native'
+import CardContatos from '../contatos/componentes/CardContatos';
 
 export default Contatos = ({navigation})=>{
+    const [card, setCard] = useState(false);
+
+    const Card = () => {
+        setCard(!card);
+    };
+
     return (
-        <View style={Estilos.container}>
+        <ImageBackground source={require('../assets/contatosFundo.png')} style={Estilos.container} resizeMode="contain">
             {/* Cabeçalho */}
             <View style={Estilos.cabecalho}>
                     <TouchableOpacity 
@@ -22,15 +29,21 @@ export default Contatos = ({navigation})=>{
                 <View style={Estilos.linha}/>
 
                 <>
-                    <Image style={Estilos.imagemContatos} source={require('../assets/contatosFundo.png')}/>
-                
-                    <TouchableOpacity
-                    onPress={()=>{}} 
-                    style={Estilos.botaoContatos}>
-                        <Text style={Estilos.textoBotaoContatos}>Adicionar Contatos</Text>
-                    </TouchableOpacity>
+                        <View style={Estilos.containerCard}>
+                        {!card ? (
+                            <TouchableOpacity 
+                            onPress={Card}
+                            style={Estilos.botaoContatos}>
+                                <Text style={Estilos.textoBotaoContatos}>Adicionar Contatos</Text>
+                            </TouchableOpacity>
+                        ) : (
+                            <>
+                            <CardContatos navigation={navigation}/>
+                            </>
+                        )}
+                        </View>
                 </>
-        </View>
+        </ImageBackground>
     )
 }
 
@@ -58,21 +71,28 @@ const Estilos = StyleSheet.create({
         backgroundColor:'black',
         marginTop:'4%'
     },
-    imagemContatos:{
-        marginTop:'40%'      
-    },
+    // imagemContatos:{
+    //     marginTop:'40%'      
+    // },
     botaoContatos:{
         backgroundColor:'#D69595',
         width:'60%',
-        height:'8%',
+        minWidth:'60%',
+        height:50,
         borderRadius:20,
         alignItems:'center',
         justifyContent:'center',
-        marginTop:'30%',
+        marginTop:'100%',
     },
     textoBotaoContatos:{
         fontSize:20,
         fontWeight:'bold',
         color:'white'
+    },
+    containerCard:{
+        alignItems:'center',
+        justifyContent:'center',
+         flex:1
     }
 })
+
