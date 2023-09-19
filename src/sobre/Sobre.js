@@ -3,7 +3,7 @@ import React from "react";
 import { ScrollView, View, TouchableOpacity, Image, Text, StyleSheet } from 'react-native'
 import Cabecalho from "../componentes/Cabecalho";
 
-export default Denuncias = ({navigation})=>{
+export default Sobre = ({navigation})=>{
     return(
         <ScrollView>
             <View style={styles.container}>

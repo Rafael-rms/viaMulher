@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView } from 'react-native'
 import Cabecalho from '../componentes/Cabecalho'
 
-export default Pergunta01 = ({navigation}) => {
+export default function Pergunta01({navigation}) {
     return(
          <ScrollView>
             <View style={styles.container}>
