@@ -3,10 +3,10 @@ import { Image, ScrollView, KeyboardAvoidingView, StyleSheet, View, Alert } from
 import Entrada from '../componentes/Entrada';
 import Botao from '../componentes/Botao';
 import EstilosBotao from '../estilos/EstilosBotao';
-import { cad } from '../servicos/requisicoesFirebase';
+import { cadastrar } from '../servicos/requisicoesFirebase';
 
 
-export default Cadastro = ({ navigation }) => {
+export default function Cadastro({ navigation }) {
 
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
@@ -15,7 +15,7 @@ export default Cadastro = ({ navigation }) => {
   const [mensageError, setMensageError] = useState('')
 
   async function realizarCadastro() {
-    await cad(email, senha, confirmaSenha)
+    await cadastrar(email, senha, confirmaSenha)
   }
   return (
 
@@ -34,29 +34,27 @@ export default Cadastro = ({ navigation }) => {
           source={require('../assets/cadastrar.png')}
           style={styles.imgCadastrar} />
 
-        <Entrada
-          tipo="Nome Completo"
+        <Entrada placeholder="Nome Completo"
 
         />
+        <Entrada placeholder="CPF"/>
+        <Entrada placeholder="Celular" />
+        <Entrada placeholder="Nascimento" />
         <Entrada
-          tipo="CPF"
-        />
-        <Entrada tipo="Celular" />
-        <Entrada tipo="Nascimento" />
-        <Entrada
-          tipo="Email"
+          placeholder="E-mail"
           value={email}
-          onChange={texto => setEmail(texto)}
+          onChangeText={texto => setEmail(texto)}
+      
         />
         <Entrada
-          tipo="Senha"
+          placeholder="Senha"
           value={senha}
-          onChange={texto => setSenha(texto)}
+          onChangeText={texto => setSenha(texto)}
         />
         <Entrada
-          tipo="Confirmar Senha"
-          value={confirmaSenha}
-          onChange={texto => setConfirmaSenha(texto)}
+        placeholder="Confirmar Senha"
+        value={confirmaSenha}
+        onChangeText={texto => setConfirmaSenha(texto)}
         />
 
         <Botao

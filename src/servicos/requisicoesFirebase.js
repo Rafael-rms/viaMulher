@@ -1,7 +1,7 @@
 import { auth } from "../config/firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
-export async function cad(email, senha, confirmaSenha) {
+export async function cadastrar(email, senha) {
 
     //Função de cadastro
     createUserWithEmailAndPassword(auth, email, senha)
