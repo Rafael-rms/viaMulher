@@ -23,7 +23,7 @@ export default Home = ({navigation}) => {
             {/* Container de botoes da tela home */}
             <View style={styles.containerBotoes}>  
                 <Botao
-                onpress={()=>{}}
+                onpress={()=>navigation.navigate("Perfil")}
                 estiloBotao={[EstilosBotao.botaoHome, {borderTopLeftRadius: 20}]}
                 textoBotao="Perfil"
                 imagemBotao={require('../assets/teste/perfilColo.png')}/>

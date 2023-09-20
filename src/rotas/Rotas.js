@@ -10,6 +10,7 @@ import Sobre from '../sobre/Sobre';
 import Contatos from '../contatos/Contatos';
 import Informacoes from '../informacoes/Informacoes';
 import CardContatos from '../contatos/componentes/CardContatos';
+import Perfil from '../perfil/Perfil';
 
 const Stack = createNativeStackNavigator();
 
@@ -56,6 +57,10 @@ export default function App() {
 
       <Stack.Screen 
       name ="CardContatos" component={CardContatos}
+      options={{headerShown:false}}/>
+
+      <Stack.Screen 
+      name ="Perfil" component={Perfil}
       options={{headerShown:false}}/>
 
     </Stack.Navigator>

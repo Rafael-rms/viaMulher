@@ -4,7 +4,7 @@ import { ScrollView, View, StyleSheet } from 'react-native'
 import Cabecalho from "../componentes/Cabecalho";
 import Caixa from "./componentes/Caixa";
 import Linha from "../componentes/Linha";
-import {centralAM} from "../mocks/Textos"
+import {textoCAM, textoDDH, textoDM, textoPM, tituloCAM, tituloDDH, tituloDM, tituloPM } from "../mocks/TextosDenuncias"
 
 export default Denuncias = ({navigation})=>{
     return(
@@ -19,32 +19,24 @@ export default Denuncias = ({navigation})=>{
                 />
                 <Linha/>
                 <Caixa
-                    titulo="Central de Atendimento a Mulher"
-                    texto={centralAM}
+                    titulo={tituloCAM}
+                    texto={textoCAM}
+                    imagem={require('../assets/denuncias.png')}
+                />
+                <Caixa
+                    titulo={tituloDDH}
+                    texto={textoDDH}
                     imagem={require('../assets/denuncias.png')}
                 />
 
                 <Caixa
-                    titulo="Central de Atendimento a Mulher"
-                    texto="Disque 180 – recebe as denúncias de violência e orienta as mulheres sobre seus direitos, sobre as Leis que a protegem e, quando necessário as encaminham para outros serviços."
+                    titulo={tituloDM}
+                    texto={textoDM}
                     imagem={require('../assets/denuncias.png')}
                 />
                 <Caixa
-                    titulo="Disque Direitos Humanos"
-                    texto="Disque 100 – atende graves situações de violação de Direitos Humanos, como da violência contra a mulher e aciona os órgãos competentes, possibilitando o flagrante."
-                    imagem={require('../assets/denuncias.png')}
-                />
-
-                <Caixa
-                    titulo="Delegacia da Mulher"
-                    texto="delegacia especializada no atendimento de mulheres vítimas de violência física, moral e sexual.
-                    Barueri- Telefone: (11) 4198-0522
-                    "
-                    imagem={require('../assets/denuncias.png')}
-                />
-                <Caixa
-                    titulo="Policia Militar"
-                    texto="190 - Polícia Militar"
+                    titulo={tituloPM}
+                    texto={textoPM}
                     imagem={require('../assets/denuncias.png')}
                 />
             </View>
