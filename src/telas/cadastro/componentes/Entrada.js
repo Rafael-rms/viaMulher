@@ -1,6 +1,6 @@
 import { View, TextInput, StyleSheet } from "react-native";
 
-export default Entrada = ({placeholder, value, onChangeText}) => {
+export default Entrada = ({placeholder, value, onChangeText, error, messageError}) => {
   return (
     <View>
       <TextInput
@@ -8,6 +8,8 @@ export default Entrada = ({placeholder, value, onChangeText}) => {
       placeholder={placeholder}
       value={value}
       onChangeText={onChangeText}
+      error={error}
+      messageError={messageError}
       />
     </View>
   );

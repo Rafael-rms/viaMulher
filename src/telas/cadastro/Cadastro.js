@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Image, ScrollView, KeyboardAvoidingView, StyleSheet, View, Alert } from 'react-native';
+import { Image, ScrollView, KeyboardAvoidingView, StyleSheet } from 'react-native';
 import Entrada from './componentes/Entrada';
 import Botao from './componentes/Botao';
-
+import Alert from '../../componentes/Alert';
 import { cadastrar } from '../../servicos/requisicoesFirebase';
 import Cabecalho from '../../componentes/Cabecalho';
 
@@ -16,8 +16,32 @@ export default function Cadastro({ navigation }) {
   const [mensageError, setMensageError] = useState('')
 
   async function realizarCadastro() {
-    await cadastrar(email, senha, confirmaSenha)
-  }
+    if (email == '') {
+      setMensageError('Preencha com seu email')
+      setStatusError('email')
+    } else if (senha == '') {
+      setMensageError('Digite sua senha')
+      setStatusError('senha')
+    } else if (confirmaSenha == '') {
+      setMensageError('Confirme sua senha')
+      setStatusError('confirmaSenha')
+    } else if (confirmaSenha != senha) {
+      setMensageError('As senhas não são iguais')
+      setStatusError('confirmaSenha')
+    } else{
+      const resultado =  await cadastrar(email, senha, confirmaSenha)
+      setStatusError('firebase')
+      if (resultado == "Sucesso"){
+        setMensageError('Usuário criado com sucesso!')
+        setEmail('')
+        setSenha('')
+        setConfirmaSenha('')
+      }
+      else{
+        setMensageError(resultado)
+      }
+    }
+}
   return (
 
     <KeyboardAvoidingView style={{ flex: 1 }}>
@@ -28,43 +52,43 @@ export default function Cadastro({ navigation }) {
                 onPress: ()=>navigation.goBack(),
             }}
         />
-
         <Image
           source={require('../../assets/cadastrar.png')}
           style={styles.imgCadastrar} />
-
         <Entrada placeholder="Nome Completo"
-
         />
-        <Entrada placeholder="CPF"/>
         <Entrada placeholder="Celular" />
         <Entrada placeholder="Nascimento" />
         <Entrada
           placeholder="E-mail"
           value={email}
           onChangeText={texto => setEmail(texto)}
+          error={statusError == 'email'}
       
         />
         <Entrada
           placeholder="Senha"
           value={senha}
           onChangeText={texto => setSenha(texto)}
+          error={statusError == 'senha'}
         />
         <Entrada
         placeholder="Confirmar Senha"
         value={confirmaSenha}
         onChangeText={texto => setConfirmaSenha(texto)}
+        error={statusError == 'confirmaSenha'}
         />
-
+        <Alert
+        mensagem={mensageError}
+        error={statusError == 'firebase'}
+        setError={setStatusError}
+        />
         <Botao
           onpress={() => realizarCadastro()}
           textoBotao="Cadastrar"
         />
-
       </ScrollView>
     </KeyboardAvoidingView>
-
-
   )
 }
 
