@@ -1,6 +1,6 @@
 import react from "react";
 import { ScrollView, View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
-import Cabecalho from "../componentes/Cabecalho";
+import Cabecalho from "../../componentes/Cabecalho";
 
 
 export default Informacoes = ({navigation})=>{
@@ -9,7 +9,7 @@ export default Informacoes = ({navigation})=>{
             <View style={Estilos.container}>
             <Cabecalho 
                 texto="Informações"
-                imagemEsquerda={require('../assets/voltar.png')}
+                imagemEsquerda={require('../../assets/voltar.png')}
                 botaoEsquerda={{
                     onPress: ()=>navigation.goBack(),
                 }}/>

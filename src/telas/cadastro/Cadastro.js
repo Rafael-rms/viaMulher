@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Image, ScrollView, KeyboardAvoidingView, StyleSheet, View, Alert } from 'react-native';
-import Entrada from '../componentes/Entrada';
-import Botao from '../componentes/Botao';
-import EstilosBotao from '../estilos/EstilosBotao';
-import { cadastrar } from '../servicos/requisicoesFirebase';
+import Entrada from './componentes/Entrada';
+import Botao from './componentes/Botao';
+
+import { cadastrar } from '../../servicos/requisicoesFirebase';
+import Cabecalho from '../../componentes/Cabecalho';
 
 
 export default function Cadastro({ navigation }) {
@@ -21,17 +22,15 @@ export default function Cadastro({ navigation }) {
 
     <KeyboardAvoidingView style={{ flex: 1 }}>
       <ScrollView contentContainerStyle={styles.container}>
-
-        <View style={styles.cabecalho}>
-          <Botao
-            onpress={() => navigation.navigate('Login')}
-            imagemBotao={require('../assets/voltar.png')}
-            estiloBotao={EstilosBotao.botaoVoltar}
-          />
-        </View>
+        <Cabecalho
+            imagemEsquerda={require('../../assets/voltar.png')}
+            botaoEsquerda={{
+                onPress: ()=>navigation.goBack(),
+            }}
+        />
 
         <Image
-          source={require('../assets/cadastrar.png')}
+          source={require('../../assets/cadastrar.png')}
           style={styles.imgCadastrar} />
 
         <Entrada placeholder="Nome Completo"
@@ -60,7 +59,6 @@ export default function Cadastro({ navigation }) {
         <Botao
           onpress={() => realizarCadastro()}
           textoBotao="Cadastrar"
-          estiloBotao={EstilosBotao.botao}
         />
 
       </ScrollView>

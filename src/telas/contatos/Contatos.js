@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, TouchableOpacity,Text, TextInput, ImageBackground } from 'react-native'
-import CardContatos from '../contatos/componentes/CardContatos';
-import Cabecalho from '../componentes/Cabecalho';
+import CardContatos from './componentes/CardContatos';
+import Cabecalho from '../../componentes/Cabecalho';
 
 export default Contatos = ({navigation})=>{
     const [card, setCard] = useState(false);
@@ -11,10 +11,10 @@ export default Contatos = ({navigation})=>{
     };
 
     return (
-        <ImageBackground source={require('../assets/contatosFundo.png')} style={Estilos.container} resizeMode="contain">
+        <ImageBackground source={require('../../assets/contatosFundo.png')} style={Estilos.container} resizeMode="contain">
                 <Cabecalho 
                 texto="Contatos"
-                imagemEsquerda={require('../assets/voltar.png')}
+                imagemEsquerda={require('../../assets/voltar.png')}
                 botaoEsquerda={{
                     onPress: ()=>navigation.goBack(),
                 }}/>

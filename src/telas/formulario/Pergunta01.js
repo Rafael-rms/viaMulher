@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView } from 'react-native'
-import Cabecalho from '../componentes/Cabecalho'
+import Cabecalho from '../../componentes/Cabecalho'
 
 export default function Pergunta01({navigation}) {
     return(
@@ -7,8 +7,8 @@ export default function Pergunta01({navigation}) {
             <View style={styles.container}>
                 <Cabecalho 
                 texto="Sobre"
-                imagemEsquerda={require('../assets/voltar.png')}
-                imagemDireita={require('../assets/home.png')}
+                imagemEsquerda={require('../../assets/voltar.png')}
+                imagemDireita={require('../../assets/home.png')}
                 botaoEsquerda={{
                     onPress: ()=>navigation.goBack(),
                 }}

@@ -1,19 +1,19 @@
 import React from "react";
 import { View, StyleSheet , Image, TouchableOpacity, Text } from "react-native";
-import Cabecalho from "../componentes/Cabecalho";
+import Cabecalho from "../../componentes/Cabecalho";
 
 export default function Perfil({navigation}) {
     return (
         <View style={Estilos.container}>
             <Cabecalho
                 texto="Perfil"
-                imagemEsquerda={require('../assets/voltar.png')}
+                imagemEsquerda={require('../../assets/voltar.png')}
                 botaoEsquerda={{
                     onPress: ()=>navigation.goBack(''),
                 }}
             />
             <View>
-            <Image source={require('../assets/avatar.png')}/>
+            <Image source={require('../../assets/avatar.png')}/>
                 <TouchableOpacity style={Estilos.botaoPerfil}>
                     <Text style={Estilos.textoBotao}>Editar Perfil</Text>
                 </TouchableOpacity>

@@ -1,7 +1,6 @@
 import { View, StyleSheet, Image, Text } from 'react-native';
-import Botao from '../componentes/Botao';
-import EstilosBotao from '../estilos/EstilosBotao';
-import Cabecalho from '../componentes/Cabecalho';
+import Cabecalho from '../../componentes/Cabecalho';
+import Botao1 from './componente/Botao';
 
 export default Home = ({navigation}) => {
     return (
@@ -9,54 +8,51 @@ export default Home = ({navigation}) => {
             {/* Cabeçalho */}
                 <Cabecalho 
                 texto="Home"
-                imagemDireita={require('../assets/configuracoes.png')}
+                imagemDireita={require('../../assets/configuracoes.png')}
                 botaoDireita={{
                     onPress: ()=>navigation.goBack(''),
                 }}/>
 
             {/* Container de foto e nome de usuaria */}
             <View style={styles.containerFoto}> 
-                <Image style={{height:'70%'}} source={require('../assets/avatar.png')}/>
+                <Image style={{height:'70%'}} source={require('../../assets/avatar.png')}/>
                 <Text style={styles.nomeUsuario}>Nome Usuário</Text>
             </View>
 
             {/* Container de botoes da tela home */}
             <View style={styles.containerBotoes}>  
-                <Botao
+                
+                <Botao1
+                style={{borderTopLeftRadius: 20}}
                 onpress={()=>navigation.navigate("Perfil")}
-                estiloBotao={[EstilosBotao.botaoHome, {borderTopLeftRadius: 20}]}
                 textoBotao="Perfil"
-                imagemBotao={require('../assets/teste/perfilColo.png')}/>
+                imagemBotao={require('../../assets/teste/perfilColo.png')}/>
 
-                <Botao
+                <Botao1
+                style={{borderTopRightRadius:20}}
                 onpress={()=>navigation.navigate('Pergunta1')}
-                estiloBotao={[EstilosBotao.botaoHome, {borderTopRightRadius: 20}]}
                 textoBotao="Formulário"
-                imagemBotao={require('../assets/teste/form.png')}/>
+                imagemBotao={require('../../assets/teste/form.png')}/>
 
-                <Botao
+                <Botao1
                 onpress={()=>navigation.navigate('Contatos')}
-                estiloBotao={EstilosBotao.botaoHome}
                 textoBotao="Contatos"
-                imagemBotao={require('../assets/contatos.png')}/>
+                imagemBotao={require('../../assets/contatos.png')}/>
 
-                <Botao
+                <Botao1
                 onpress={()=>navigation.navigate('Denuncias')}
-                estiloBotao={EstilosBotao.botaoHome}
                 textoBotao="Denúncias"
-                imagemBotao={require('../assets/teste/denunciascolorido.png')}/>
+                imagemBotao={require('../../assets/teste/denunciascolorido.png')}/>
 
-                <Botao
+                <Botao1
                 onpress={()=>navigation.navigate('Informacoes')}
-                estiloBotao={EstilosBotao.botaoHome}
                 textoBotao="Informaçoes"
-                imagemBotao={require('../assets/teste/iinfo.png')}/>
+                imagemBotao={require('../../assets/teste/iinfo.png')}/>
 
-                <Botao
+                <Botao1
                 onpress={()=>navigation.navigate('Sobre')}
-                estiloBotao={EstilosBotao.botaoHome}
                 textoBotao="Sobre"
-                imagemBotao={require('../assets/sobre.png')}/>
+                imagemBotao={require('../../assets/sobre.png')}/>
             </View>
         </View>
     )

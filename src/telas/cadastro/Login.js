@@ -1,8 +1,9 @@
 
 import React from 'react';
 import { StyleSheet, Text, View, KeyboardAvoidingView, Image, TouchableOpacity, Alert } from 'react-native';
-import Entrada from '../componentes/Entrada';
-import EstilosBotao from '../estilos/EstilosBotao';
+import Entrada from './componentes/Entrada';
+import Botao from './componentes/Botao';
+
 
 export default function Login({navigation}) {
   return (
@@ -13,12 +14,12 @@ export default function Login({navigation}) {
             width:130,
             height:155
           }} 
-          source={require("../assets/login.png")}/>
+          source={require("../../assets/login.png")}/>
       </View>
 
       <View style={styles.containerLogin}>
         
-      <Entrada tipo="Email"/>
+      <Entrada placeholder="Email"/>
 
         <TouchableOpacity 
         style={styles.btnRecSenha}
@@ -26,7 +27,7 @@ export default function Login({navigation}) {
           <Text style={styles.recSenhaTexto}>Esqueceu a Senha?</Text>
         </TouchableOpacity>
         
-        <Entrada tipo="Senha"/>
+        <Entrada placeholder="Senha"/>
         
         <View style={styles.containerBtnCadastar}>
           <Text style={styles.textoCc}>Não tem uma conta?</Text>   
@@ -41,9 +42,7 @@ export default function Login({navigation}) {
         <Botao 
         onpress={()=>navigation.navigate('Home')}
         textoBotao="Entrar"
-        estiloBotao={EstilosBotao.botao}
         />
-
 
       </View>
     </KeyboardAvoidingView>

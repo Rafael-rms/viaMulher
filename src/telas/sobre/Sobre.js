@@ -1,10 +1,10 @@
 import React from "react";
 
 import { ScrollView, View, StyleSheet } from 'react-native'
-import Cabecalho from "../componentes/Cabecalho";
-import Linha from "../componentes/Linha";
-import Caixa from "../sobre/componentes/Caixa"
-import { tituloPSP, tituloCF, textoPSP, textoCF } from "../mocks/TextosSobre"
+import Cabecalho from "../../componentes/Cabecalho";
+import Linha from "../../componentes/Linha";
+import Caixa from "./componentes/Caixa"
+import { tituloPSP, tituloCF, textoPSP, textoCF } from "../../mocks/TextosSobre"
 
 export default Sobre = ({navigation})=>{
     return(
@@ -13,7 +13,7 @@ export default Sobre = ({navigation})=>{
 
                 <Cabecalho 
                 texto="Sobre"
-                imagemEsquerda={require('../assets/voltar.png')}
+                imagemEsquerda={require('../../assets/voltar.png')}
                 botaoEsquerda={{
                     onPress: ()=>navigation.goBack(''),
                 }}/>
