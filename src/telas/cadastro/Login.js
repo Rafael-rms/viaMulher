@@ -19,7 +19,10 @@ export default function Login({navigation}) {
 
       <View style={styles.containerLogin}>
         
-      <Entrada placeholder="Email"/>
+      <Entrada 
+        imagem={require('../../assets/email.png')}
+        placeholder="Email"
+      />
 
         <TouchableOpacity 
         style={styles.btnRecSenha}
@@ -27,7 +30,10 @@ export default function Login({navigation}) {
           <Text style={styles.recSenhaTexto}>Esqueceu a Senha?</Text>
         </TouchableOpacity>
         
-        <Entrada placeholder="Senha"/>
+        <Entrada 
+          imagem={require('../../assets/senha.png')}
+          placeholder="Senha"
+        />
         
         <View style={styles.containerBtnCadastar}>
           <Text style={styles.textoCc}>Não tem uma conta?</Text>   

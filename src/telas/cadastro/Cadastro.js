@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Image, ScrollView, KeyboardAvoidingView, StyleSheet } from 'react-native';
 import Entrada from './componentes/Entrada';
 import Botao from './componentes/Botao';
-import Alert from '../../componentes/Alert';
+// import Alert from '../../componentes/Alert';
 import { cadastrar } from '../../servicos/requisicoesFirebase';
 import Cabecalho from '../../componentes/Cabecalho';
 
@@ -55,38 +55,48 @@ export default function Cadastro({ navigation }) {
         <Image
           source={require('../../assets/cadastrar.png')}
           style={styles.imgCadastrar} />
-        <Entrada placeholder="Nome Completo"
+        <Entrada 
+          imagem={require('../../assets/nome.png')}
+          placeholder="Nome Completo"
         />
-        <Entrada placeholder="Celular" />
-        <Entrada placeholder="Nascimento" />
         <Entrada
+          imagem={require('../../assets/celular.png')}
+          placeholder="Celular" 
+        />
+        <Entrada 
+          imagem={require('../../assets/nascimento.png')}
+          placeholder="Nascimento" 
+        />
+        <Entrada
+          imagem={require('../../assets/email.png')}
           placeholder="E-mail"
           value={email}
           onChangeText={texto => setEmail(texto)}
-          error={statusError == 'email'}
-      
+          error={statusError == 'email'}  
         />
         <Entrada
+          imagem={require('../../assets/senha.png')}
           placeholder="Senha"
           value={senha}
           onChangeText={texto => setSenha(texto)}
           error={statusError == 'senha'}
         />
         <Entrada
-        placeholder="Confirmar Senha"
-        value={confirmaSenha}
-        onChangeText={texto => setConfirmaSenha(texto)}
-        error={statusError == 'confirmaSenha'}
-        />
-        <Alert
-        mensagem={mensageError}
-        error={statusError == 'firebase'}
-        setError={setStatusError}
-        />
+          imagem={require('../../assets/senha.png')}
+          placeholder="Confirmar Senha"
+          value={confirmaSenha}
+          onChangeText={texto => setConfirmaSenha(texto)}
+          error={statusError == 'confirmaSenha'}
+        />       
         <Botao
           onpress={() => realizarCadastro()}
           textoBotao="Cadastrar"
         />
+        {/* <Alert
+          mensagem={mensageError}
+          error={statusError == 'firebase'}
+          setError={setStatusError}
+        /> */}
       </ScrollView>
     </KeyboardAvoidingView>
   )
@@ -110,5 +120,8 @@ const styles = StyleSheet.create({
     height: 155,
     marginBottom: '5%',
     marginTop: '20%'
-  }
+  },
+  alert: {
+
+  },
 })
