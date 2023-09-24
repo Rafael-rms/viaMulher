@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Image, ScrollView, KeyboardAvoidingView, StyleSheet } from 'react-native';
 import Entrada from './componentes/Entrada';
 import Botao from './componentes/Botao';
-// import Alert from '../../componentes/Alert';
+import Alert from '../../componentes/Alert';
 import { cadastrar } from '../../servicos/requisicoesFirebase';
 import Cabecalho from '../../componentes/Cabecalho';
 
@@ -92,11 +92,11 @@ export default function Cadastro({ navigation }) {
           onpress={() => realizarCadastro()}
           textoBotao="Cadastrar"
         />
-        {/* <Alert
+        <Alert
           mensagem={mensageError}
           error={statusError == 'firebase'}
           setError={setStatusError}
-        /> */}
+        />
       </ScrollView>
     </KeyboardAvoidingView>
   )
