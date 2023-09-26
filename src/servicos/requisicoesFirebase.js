@@ -1,5 +1,5 @@
 import { auth } from "../config/firebase";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, AuthErrorCodes } from "firebase/auth";
 
 //Possiveis erros
 function errorFirebase(error) {
