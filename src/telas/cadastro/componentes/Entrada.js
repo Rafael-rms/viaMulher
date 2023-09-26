@@ -1,32 +1,48 @@
-import { View, TextInput, StyleSheet } from "react-native";
+import { View, TextInput, StyleSheet, Image } from "react-native";
 
-export default Entrada = ({placeholder, value, onChangeText, error, messageError}) => {
+export default Entrada = ({placeholder, value, onChangeText, error, messageError, imagem}) => {
   return (
-    <View>
+    <View style={Estilos.container}>
+
+    
       <TextInput
-      style={EstilosEntrada.input}
+      style={Estilos.input}
       placeholder={placeholder}
       value={value}
       onChangeText={onChangeText}
       error={error}
       messageError={messageError}
       />
+
+    <Image style={Estilos.imagem} source={imagem}/>
     </View>
   );
 };
 
-const EstilosEntrada = StyleSheet.create({
+const Estilos = StyleSheet.create({
+  container: {
+    flexDirection: 'row', 
+    alignItems: 'center',
+  },
   input: {
       backgroundColor: "#fff",
       borderRadius: 30,
       //borderWidth: 1,
       //borderColor: "black",
       padding: 15,
+      paddingLeft:70,
       margin: 5,
       minWidth: '90%',
       maxWidth: '90%',
-      height:65
-    },     
+      height:65,
+      fontSize:20
+    },
+    imagem:{
+      position:'absolute',
+      left:20,
+      height:45,
+      width:45
+    }
 })
 
 

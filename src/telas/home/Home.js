@@ -1,6 +1,6 @@
 import { View, StyleSheet, Image, Text } from 'react-native';
 import Cabecalho from '../../componentes/Cabecalho';
-import Botao1 from './componente/Botao';
+import Botao from './componente/Botao';
 
 export default Home = ({navigation}) => {
     return (
@@ -22,37 +22,37 @@ export default Home = ({navigation}) => {
             {/* Container de botoes da tela home */}
             <View style={styles.containerBotoes}>  
                 
-                <Botao1
+                <Botao
                 style={{borderTopLeftRadius: 20}}
                 onpress={()=>navigation.navigate("Perfil")}
-                textoBotao="Perfil"
-                imagemBotao={require('../../assets/teste/perfilColo.png')}/>
+                texto="Perfil"
+                imagem={require('../../assets/teste/perfilColo.png')}/>
 
-                <Botao1
+                <Botao
                 style={{borderTopRightRadius:20}}
-                onpress={()=>navigation.navigate('Pergunta1')}
-                textoBotao="Formulário"
-                imagemBotao={require('../../assets/teste/form.png')}/>
+                onpress={()=>navigation.navigate('Formulario')}
+                texto="Formulário"
+                imagem={require('../../assets/teste/form.png')}/>
 
-                <Botao1
+                <Botao
                 onpress={()=>navigation.navigate('Contatos')}
-                textoBotao="Contatos"
-                imagemBotao={require('../../assets/contatos.png')}/>
+                texto="Contatos"
+                imagem={require('../../assets/contatos.png')}/>
 
-                <Botao1
+                <Botao
                 onpress={()=>navigation.navigate('Denuncias')}
-                textoBotao="Denúncias"
-                imagemBotao={require('../../assets/teste/denunciascolorido.png')}/>
+                texto="Denúncias"
+                imagem={require('../../assets/teste/denunciascolorido.png')}/>
 
-                <Botao1
+                <Botao
                 onpress={()=>navigation.navigate('Informacoes')}
-                textoBotao="Informaçoes"
-                imagemBotao={require('../../assets/teste/iinfo.png')}/>
+                texto="Informaçoes"
+                imagem={require('../../assets/teste/iinfo.png')}/>
 
-                <Botao1
+                <Botao
                 onpress={()=>navigation.navigate('Sobre')}
-                textoBotao="Sobre"
-                imagemBotao={require('../../assets/sobre.png')}/>
+                texto="Sobre"
+                imagem={require('../../assets/sobre.png')}/>
             </View>
         </View>
     )

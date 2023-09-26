@@ -1,21 +1,47 @@
 import React from 'react'
-import { Snackbar } from 'react-native-paper'
+import { Snackbar, Text  } from 'react-native-paper'
+    
 
-function Alert({ mensagem, error = false, setError }) {
+const mensagem = "Verifique seu email e senha e tente novamente"
+    
+    
+export default function Alert({ error = false, setError }) {
     return (
         <Snackbar
+            style={Estilos.alert}
             visible={error}
             onDismiss={() => setError(false)}
-            duration={1500}
+            duration={20000}
             action={{
                 label: 'OK',
-                onPress: () => setError(false)
+                onPress: () => setError(false),
+                labelStyle: Estilos.textobtn
             }}
         >
-            {mensagem}
+            <Text style={Estilos.texto}>{mensagem}</Text>
         </Snackbar>
     )
-
+    
 }
-
-export default Alert
+    
+    
+const Estilos = {
+    alert:{
+        backgroundColor: 'red', 
+        marginBottom: 200, 
+        borderRadius: 20,
+        width:'90%',
+        height:100,
+        alignSelf:'center'
+            
+    },
+    texto:{
+        fontSize:20,
+        color:'black'
+    },
+    textobtn:{
+        fontSize:50,
+        color:'black'
+        }
+    }
+    

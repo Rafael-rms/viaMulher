@@ -46,6 +46,7 @@ const Estilos = StyleSheet.create({
     botaoE: {
         position: 'absolute',
         left: 15,
+   
     },
     botaoD: {
         position: 'absolute',

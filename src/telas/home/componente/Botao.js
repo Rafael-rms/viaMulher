@@ -1,14 +1,14 @@
 import { View, TouchableOpacity, Text, Image, StyleSheet } from "react-native";
 
-export default Botao1 = ({onpress, textoBotao, imagemBotao, style}) => {
+export default Botao = ({onpress, texto, imagem, style}) => {
   return (
     <View style={Estilos.containerBotoes}>
       <TouchableOpacity 
       style={[style, Estilos.botaoHome]}
       onPress={onpress}
       >
-          <Text >{textoBotao}</Text>
-          <Image source={imagemBotao}/>
+          <Text style={Estilos.textoImg} >{texto}</Text>
+          <Image style={Estilos.imagem} source={imagem}/>
       </TouchableOpacity>
     </View>
   );
@@ -26,6 +26,14 @@ const Estilos = StyleSheet.create({
         justifyContent:'center',
         borderWidth: 1,
       },
+      imagem:{
+        height:'90%',
+        width:'50%'
+      },
+      textoImg:{
+        marginTop:10,
+        fontSize:20
+      }
     // containerBotoes:{
     //     flexDirection:'row',
     //     flexWrap:'wrap',

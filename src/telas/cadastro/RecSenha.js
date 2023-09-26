@@ -23,7 +23,10 @@ export default Cadastro = ({navigation})=> {
               <Text style={styles.textRecSenha1}>Esqueceu sua Senha?</Text>
               <Text style={styles.textRecSenha2}>Insira seu email e enviaremos um link para recuperação de senha</Text>
             
-            <Entrada placeholder="Email"/>
+            <Entrada 
+              imagem={require('../../assets/email.png')}
+              placeholder="Email"
+            />
 
             <Botao
             onpress={()=>Alert.alert('Ok')}
