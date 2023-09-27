@@ -1,6 +1,10 @@
 import react from "react";
-import { ScrollView, View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
+import { ScrollView, View, Text, StyleSheet } from "react-native";
 import Cabecalho from "../../componentes/Cabecalho";
+import CarrosselA from "./componentes/CarrosselA";
+import CarrosselB from "./componentes/CarrosselB";
+import CarrosselC from "./componentes/CarrosselC";
+
 
 
 export default Informacoes = ({navigation})=>{
@@ -16,7 +20,17 @@ export default Informacoes = ({navigation})=>{
 
                 <View style={Estilos.linha}/>
 
-                <Text style={Estilos.titulos}>Ciclos de Violência</Text>
+                <Text style={Estilos.titulos}>Ciclo de Violência</Text>
+                <CarrosselA/>
+
+                <View style={[Estilos.linha, {width:'95%'}]}/>
+                <Text style={Estilos.titulos}>É Lei</Text>
+                <CarrosselC/>
+
+                <View style={[Estilos.linha, {marginBottom:20, width:'95%'}]}/>
+                <CarrosselB/>
+
+                <View style={{marginTop:30}}/>
 
             </View>
             
