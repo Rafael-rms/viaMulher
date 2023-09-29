@@ -10,7 +10,7 @@ export default Home = ({navigation}) => {
                 texto="Home"
                 imagemDireita={require('../../assets/configuracoes.png')}
                 botaoDireita={{
-                    onPress: ()=>navigation.goBack(''),
+                    onPress: ()=>navigation.navigate('Configuracoes'),
                 }}/>
 
             {/* Container de foto e nome de usuaria */}

@@ -12,6 +12,7 @@ import Informacoes from '../telas/informacoes/Informacoes';
 import CardContatos from '../telas/contatos/componentes/CardContatos';
 import Perfil from '../telas/perfil/Perfil';
 import Formulario from '../telas/formulario/Formulario';
+import Configuracoes from '../telas/configuracoes/Configuracoes';
 
 const Stack = createNativeStackNavigator();
 
@@ -66,6 +67,10 @@ export default function App() {
 
       <Stack.Screen 
       name ="Formulario" component={Formulario}
+      options={{headerShown:false}}/>
+
+      <Stack.Screen 
+      name ="Configuracoes" component={Configuracoes}
       options={{headerShown:false}}/>
 
     </Stack.Navigator>
