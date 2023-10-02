@@ -5,37 +5,39 @@ import Botao from './componentes/Botao';
 import Alert from '../../componentes/Alert';
 import { cadastrar } from '../../servicos/requisicoesFirebase';
 import Cabecalho from '../../componentes/Cabecalho';
-
+import { alteraDados } from '../../utils/comum';
 
 export default function Cadastro({ navigation }) {
 
-  const [email, setEmail] = useState('');
-  const [senha, setSenha] = useState('');
-  const [confirmaSenha, setConfirmaSenha] = useState('');
+  const [dados, setDados] = useState({
+    email: '',
+    senha: '',
+    confirmaSenha: ''
+  })
+
+
   const [statusError, setStatusError] = useState('')
   const [mensageError, setMensageError] = useState('')
 
   async function realizarCadastro() {
-    if (email == '') {
+    if (dados.email == '') {
       setMensageError('Preencha com seu email')
       setStatusError('email')
-    } else if (senha == '') {
+    } else if (dados.senha == '') {
       setMensageError('Digite sua senha')
       setStatusError('senha')
-    } else if (confirmaSenha == '') {
+    } else if (dados.confirmaSenha == '') {
       setMensageError('Confirme sua senha')
       setStatusError('confirmaSenha')
-    } else if (confirmaSenha != senha) {
+    } else if (dados.confirmaSenha != dados.senha) {
       setMensageError('As senhas não são iguais')
       setStatusError('confirmaSenha')
     } else{
-      const resultado =  await cadastrar(email, senha, confirmaSenha)
+      const resultado =  await cadastrar(dados.email, dados.senha, dados.confirmaSenha)
       setStatusError('firebase')
       if (resultado == "Sucesso"){
         setMensageError('Usuário criado com sucesso!')
-        setEmail('')
-        setSenha('')
-        setConfirmaSenha('')
+
       }
       else{
         setMensageError(resultado)
@@ -70,23 +72,26 @@ export default function Cadastro({ navigation }) {
         <Entrada
           imagem={require('../../assets/email.png')}
           placeholder="E-mail"
-          value={email}
-          onChangeText={texto => setEmail(texto)}
+          value={dados.email}
+          onChangeText={valor => alteraDados('email', valor, dados, setDados)}
           error={statusError == 'email'}  
+          messageError={mensageError}
         />
         <Entrada
           imagem={require('../../assets/senha.png')}
           placeholder="Senha"
-          value={senha}
-          onChangeText={texto => setSenha(texto)}
+          value={dados.senha}
+          onChangeText={valor => alteraDados('senha', valor, dados, setDados)}
           error={statusError == 'senha'}
+          messageError={mensageError}
         />
         <Entrada
           imagem={require('../../assets/senha.png')}
           placeholder="Confirmar Senha"
-          value={confirmaSenha}
-          onChangeText={texto => setConfirmaSenha(texto)}
+          value={dados.confirmaSenha}
+          onChangeText={valor => alteraDados('confirmaSenha', valor, dados, setDados)}
           error={statusError == 'confirmaSenha'}
+          messageError={mensageError}
         />       
         <Botao
           onpress={() => realizarCadastro()}
