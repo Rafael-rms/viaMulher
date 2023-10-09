@@ -1,12 +1,13 @@
 import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView } from 'react-native'
 import Cabecalho from '../../componentes/Cabecalho'
+import Linha from '../../componentes/Linha'
 
 export default function Pergunta01({navigation}) {
     return(
          <ScrollView>
             <View style={styles.container}>
                 <Cabecalho 
-                texto="Sobre"
+                texto="Formulário"
                 imagemEsquerda={require('../../assets/voltar.png')}
                 imagemDireita={require('../../assets/home.png')}
                 botaoEsquerda={{
@@ -15,6 +16,8 @@ export default function Pergunta01({navigation}) {
                 botaoDireita={{
                     onPress: ()=>navigation.goBack(''),
                 }}/>
+
+                <Linha/>
 
                 <>
                     <Text style={[styles.textUsuario, {fontSize:22}]}>Nome do usuário</Text>

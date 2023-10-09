@@ -1,9 +1,10 @@
 import React from 'react';
-import { Text, StyleSheet, Dimensions, Image, TouchableOpacity, Alert } from 'react-native';
+import { Text, StyleSheet, View, Image, TouchableOpacity, Alert } from 'react-native';
 import Swiper from 'react-native-swiper';
+import {aumentoDeTensao, atoDeViolencia, luaDeMel} from '../../../mocks/Informacoes'
 
 
-const CarrosselA = ({source, texto}) => {
+const CarrosselA = ({abrirCard}) => {
   return (
     <Swiper 
       style={styles.carrossel}  
@@ -11,10 +12,10 @@ const CarrosselA = ({source, texto}) => {
       dotStyle={styles.inativo}
       activeDotStyle={styles.ativo}
       autoplay={true} 
-      autoplayTimeout={5}
+      autoplayTimeout={3}
     >
       <TouchableOpacity 
-        onPress={()=>Alert.alert('Aumento de Tensão')}
+        onPress={() => abrirCard(aumentoDeTensao)}
         style={styles.slide}>
           <Image 
           style={styles.imagem}
@@ -22,14 +23,18 @@ const CarrosselA = ({source, texto}) => {
           <Text style={styles.texto}>Aumento de tensão</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.slide}>
+      <TouchableOpacity 
+        style={styles.slide}
+        onPress={() => abrirCard(atoDeViolencia)}>
           <Image 
           style={styles.imagem}
           source={require('../../../assets/atoViolencia.png')}/>
           <Text style={styles.texto}>Ato de Violencia</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.slide}>
+      <TouchableOpacity 
+      style={styles.slide}
+      onPress={() => abrirCard(luaDeMel)}>
         <Image 
         style={styles.imagem}
         source={require('../../../assets/luaMel.png')}/>
@@ -38,6 +43,7 @@ const CarrosselA = ({source, texto}) => {
     </Swiper>
   );
 };
+
 
 const styles = StyleSheet.create({
   carrossel: {
