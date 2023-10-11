@@ -2,7 +2,10 @@ import { View, StyleSheet, Image, Text } from 'react-native';
 import Cabecalho from '../../componentes/Cabecalho';
 import Botao from './componente/Botao';
 
+
+
 export default Home = ({navigation}) => {
+    
     return (
         <View style={styles.container}>   
             {/* Cabeçalho */}
@@ -16,7 +19,7 @@ export default Home = ({navigation}) => {
             {/* Container de foto e nome de usuaria */}
             <View style={styles.containerFoto}> 
                 <Image style={{height:'70%'}} source={require('../../assets/avatar.png')}/>
-                <Text style={styles.nomeUsuario}>Nome Usuário</Text>
+                <Text style={styles.nomeUsuario}>Nome</Text>
             </View>
 
             {/* Container de botoes da tela home */}
