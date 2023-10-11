@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Image, ScrollView, KeyboardAvoidingView, StyleSheet } from 'react-native';
 import Entrada from './componentes/Entrada';
 import Botao from './componentes/Botao';
 import Alert from '../../componentes/Alert';
-import { cadastrar } from '../../servicos/requisicoesFirebase';
+import { cadastrar } from '../../servicos/auth';
 import Cabecalho from '../../componentes/Cabecalho';
 import { alteraDados } from '../../utils/comum';
-import { addDoc, collection, doc, setDoc } from 'firebase/firestore'
-import { db } from '../../config/firebase';
+import { criarUsuario } from '../../servicos/banco';
+
+
 
 export default function Cadastro({ navigation }) {
 
@@ -23,11 +24,23 @@ export default function Cadastro({ navigation }) {
   const [statusError, setStatusError] = useState('')
   const [mensageError, setMensageError] = useState('')
 
-  //Função para realização do cadastro com algumas verificações de autentificações
+  //Função para realização do cadastro com algumas verificações de autenticações
   async function realizarCadastro() {
-    if (dados.email == '') {
-      setMensageError('Preencha com seu email')
+    if (dados == '') {
+      setMensageError('Preencha todos os campos')
+      setStatusError('dados')
+    }else if (dados.email == '') {
+      setMensageError('Digite seu email')
       setStatusError('email')
+    }else if (dados.nome == '') {
+      setMensageError('Digite seu nome')
+      setStatusError('nome')
+    } else if (dados.celular == '') {
+      setMensageError('Digite seu celular')
+      setStatusError('celular')
+    } else if (dados.nascimento == '') {
+      setMensageError('Digite a sua data de nascimento')
+      setStatusError('nascimento')
     } else if (dados.senha == '') {
       setMensageError('Digite sua senha')
       setStatusError('senha')
@@ -38,29 +51,20 @@ export default function Cadastro({ navigation }) {
       setMensageError('As senhas não são iguais')
       setStatusError('confirmaSenha')
     } else {
+      
       const resultado = await cadastrar(dados.email, dados.senha, dados.confirmaSenha)
       setStatusError('firebase')
-      if (resultado == "Sucesso") {
+      if (resultado && banco == "Sucesso") {
         setMensageError('Usuário criado com sucesso!')
-        criarUsuario()
+
       }
       else {
         setMensageError(resultado)
-      }
+      } 
+      //Chamando funcção de criação de usuario, e passando os dados capturados 
+      const banco = await criarUsuario(dados.email, dados.nome, dados.celular, dados.nascimento)
     }
   }
-
-  //Função para criação de usuario no banco
-  async function criarUsuario() {
-    await addDoc(collection(db, 'usuarios',), {
-      Data_nasc: dados.nascimento,
-      Email: dados.email,
-      N_celular: dados.celular,
-      Nome: dados.nome
-    })
-  }
-
-
 
 
   return (
@@ -120,7 +124,7 @@ export default function Cadastro({ navigation }) {
           messageError={mensageError}
         />
         <Botao
-          onpress={() => realizarCadastro(criarUsuario)}
+          onpress={() => realizarCadastro()}
           textoBotao="Cadastrar"
         />
         <Alert

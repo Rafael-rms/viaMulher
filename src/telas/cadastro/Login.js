@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, KeyboardAvoidingView, Image, TouchableOpacity, 
 import Entrada from './componentes/Entrada';
 import Botao from './componentes/Botao';
 import { auth } from '../../config/firebase';
-import { logar } from '../../servicos/requisicoesFirebase';
+import { logar } from '../../servicos/auth';
 import animacao from '../../assets/teste/gifReload.gif';
 import { alteraDados } from '../../utils/comum';
 

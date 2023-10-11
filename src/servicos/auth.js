@@ -2,9 +2,10 @@ import { auth } from "../config/firebase";
 import {
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
-    AuthErrorCodes } from "firebase/auth";
+    AuthErrorCodes
+} from "firebase/auth";
 
-//Possiveis erros
+//Possiveis erros que pode dar ao cadastrar o email e senha
 function errorFirebase(error) {
     let mensagem = '';
     switch (error.code) {
@@ -23,10 +24,9 @@ function errorFirebase(error) {
     }
     return mensagem
 }
-
+    //Função de cadastro com parametros que irá receber
+    // Utiliza o try catch para a captura de erro, se caso acontecer
 export async function cadastrar(email, senha) {
-
-    //Função de cadastro
     createUserWithEmailAndPassword(auth, email, senha)
         .then((dadosUsuario) => {
             console.log(dadosUsuario)
@@ -37,7 +37,9 @@ export async function cadastrar(email, senha) {
             return errorFirebase(error)
         });
 }
-    //Função de logar
+
+//Função de logar
+// Utiliza o try catch para a captura de erro, se caso acontecer
 export async function logar(email, senha) {
     const resultado = await signInWithEmailAndPassword(auth, email, senha)
         .then((dadosDoUsuario) => {
