@@ -20,7 +20,7 @@ const EstilosBotao =StyleSheet.create({
         backgroundColor: "#D69595",
         minWidth: '70%',
         maxWidth: '70%',
-        height:65,
+        height:55,
         maxHeight:'70%',
         alignItems: "center",
         justifyContent: "center",

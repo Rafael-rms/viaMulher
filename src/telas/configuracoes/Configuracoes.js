@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet, Image, TouchableOpacity, Text } from "react-native";
+import { View, StyleSheet , Image, TouchableOpacity, Text, ScrollView } from "react-native";
 import Cabecalho from "../../componentes/Cabecalho";
 import Linha from "../../componentes/Linha";
 import Botao from "./componentes/Botao";
@@ -13,6 +13,7 @@ function Configuracoes({ navigation }) {
         navigation.replace('Login')
     }
     return (
+        <ScrollView>
         <View style={Estilos.container}>
             <Cabecalho
                 texto="Configurações"
@@ -68,6 +69,7 @@ function Configuracoes({ navigation }) {
             </TouchableOpacity>
 
         </View>
+        </ScrollView>
     )
 }
 

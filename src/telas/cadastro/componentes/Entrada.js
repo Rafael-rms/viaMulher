@@ -34,7 +34,7 @@ const Estilos = StyleSheet.create({
       margin: 5,
       minWidth: '90%',
       maxWidth: '90%',
-      height:65,
+      height:55,
       fontSize:20
     },
     imagem:{
