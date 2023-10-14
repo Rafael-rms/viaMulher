@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, StyleSheet, TouchableOpacity,Text, TextInput, ImageBackground } from 'react-native'
 import CardContatos from './componentes/CardContatos';
 import Cabecalho from '../../componentes/Cabecalho';
+import Linha from '../../componentes/Linha';
 
 export default Contatos = ({navigation})=>{
     const [card, setCard] = useState(false);
@@ -19,7 +20,7 @@ export default Contatos = ({navigation})=>{
                     onPress: ()=>navigation.goBack(),
                 }}/>
 
-                <View style={Estilos.linha}/>
+                <Linha/>
 
                 <>
                         <View style={Estilos.containerCard}>
@@ -31,7 +32,9 @@ export default Contatos = ({navigation})=>{
                             </TouchableOpacity>
                         ) : (
                             <>
-                            <CardContatos navigation={navigation}/>
+                            <CardContatos 
+                            // navigation={navigation}
+                            />
                             </>
                         )}
                         </View>
@@ -45,12 +48,6 @@ const Estilos = StyleSheet.create({
         flex:1,
         backgroundColor: '#FFDFDF',
         alignItems:'center',
-    },
-    linha:{
-        width:'100%',
-        height:2,
-        backgroundColor:'black',
-        marginTop:'4%'
     },
     botaoContatos:{
         backgroundColor:'#D69595',

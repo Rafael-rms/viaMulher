@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, StyleSheet, TouchableOpacity, Text, ImageBackground } from 'react-native'
 import CardFormulario from './componentes/CardFormulario';
 import Cabecalho from '../../componentes/Cabecalho';
+import Linha from '../../componentes/Linha';
 
 export default Formulario = ({navigation})=>{
     const [card, setCard] = useState(false);
@@ -19,7 +20,7 @@ export default Formulario = ({navigation})=>{
                     onPress: ()=>navigation.goBack(),
                 }}/>
 
-                <View style={Estilos.linha}/>
+                <Linha/>
 
                 <>
                         <View style={Estilos.containerCard}>
@@ -45,12 +46,6 @@ const Estilos = StyleSheet.create({
         flex:1,
         backgroundColor: '#FFDFDF',
         alignItems:'center',
-    },
-    linha:{
-        width:'100%',
-        height:2,
-        backgroundColor:'black',
-        marginTop:'4%'
     },
     botaoContatos:{
         backgroundColor:'#D69595',

@@ -17,7 +17,7 @@ const Estilos = StyleSheet.create({
         width:'100%',
         height:2,
         backgroundColor:'black',
-        marginTop:'4%',
+        marginTop:'2%',
         marginBottom:'2%'
     }
 })

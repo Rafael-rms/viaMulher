@@ -13,7 +13,7 @@ function Configuracoes({ navigation }) {
         navigation.replace('Login')
     }
     return (
-        <ScrollView>
+        
         <View style={Estilos.container}>
             <Cabecalho
                 texto="Configurações"
@@ -29,11 +29,6 @@ function Configuracoes({ navigation }) {
                 onPress={() => { }}
                 imagem={require('../../assets/configuracoes/meusContatos.png')}
                 texto="Meus Contatos"
-            />
-            <Botao
-                onPress={() => { }}
-                imagem={require('../../assets/configuracoes/editarPerfil.png')}
-                texto="Editar Perfil"
             />
             <Botao
                 onPress={() => { }}
@@ -69,7 +64,6 @@ function Configuracoes({ navigation }) {
             </TouchableOpacity>
 
         </View>
-        </ScrollView>
     )
 }
 
@@ -83,8 +77,7 @@ const Estilos = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         margin: 24,
-        // marginRight:'auto',
-        // width:'90%',
+        marginTop:'10%'
 
     },
     textoBotao: {

@@ -73,7 +73,7 @@ export default function Cadastro({ navigation }) {
             onPress: () => navigation.goBack(),
           }}
         />
-        <Image
+        <Image 
           source={require('../../assets/cadastrar.png')}
           style={styles.imgCadastrar} />
         <Entrada

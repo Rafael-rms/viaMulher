@@ -24,7 +24,7 @@ const Estilos = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
 
-        margin: 24,
+        margin:'7%',
         marginRight: 'auto',
 
     },
@@ -33,10 +33,5 @@ const Estilos = StyleSheet.create({
         fontWeight: "bold",
         textAlign: 'center',
         marginLeft: 40
-    },
-    sair: {
-        // marginLeft: 20,
-        // justifyContent: 'center'
-
     }
 })
