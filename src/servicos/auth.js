@@ -24,19 +24,7 @@ function errorFirebase(error) {
     }
     return mensagem
 }
-    //Função de cadastro com parametros que irá receber
-    // Utiliza o try catch para a captura de erro, se caso acontecer
-export async function cadastrar(email, senha) {
-    createUserWithEmailAndPassword(auth, email, senha)
-        .then((dadosUsuario) => {
-            console.log(dadosUsuario)
-            return "Sucesso"
-        })
-        .catch((error) => {
-            console.log(error)
-            return errorFirebase(error)
-        });
-}
+
 
 //Função de logar
 // Utiliza o try catch para a captura de erro, se caso acontecer

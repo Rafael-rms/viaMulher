@@ -3,10 +3,12 @@ import { Image, ScrollView, KeyboardAvoidingView, StyleSheet } from 'react-nativ
 import Entrada from './componentes/Entrada';
 import Botao from './componentes/Botao';
 import Alert from '../../componentes/Alert';
-import { cadastrar } from '../../servicos/auth';
+import { cadastrar } from '../../servicos/banco';
 import Cabecalho from '../../componentes/Cabecalho';
 import { alteraDados } from '../../utils/comum';
-import { criarUsuario } from '../../servicos/banco';
+//import { criarUsuario } from '../../servicos/banco';
+import { auth } from '../../config/firebase';
+
 
 
 
@@ -23,6 +25,8 @@ export default function Cadastro({ navigation }) {
 
   const [statusError, setStatusError] = useState('')
   const [mensageError, setMensageError] = useState('')
+
+  
 
   //Função para realização do cadastro com algumas verificações de autenticações
   async function realizarCadastro() {
@@ -52,17 +56,16 @@ export default function Cadastro({ navigation }) {
       setStatusError('confirmaSenha')
     } else {
       
-      const resultado = await cadastrar(dados.email, dados.senha, dados.confirmaSenha)
+      const resultado = await cadastrar(dados.nome, dados.nascimento, dados.celular, dados.email, dados.senha, dados.confirmaSenha)
+      
       setStatusError('firebase')
-      if (resultado && banco == "Sucesso") {
+      if (resultado == "Sucesso") {
         setMensageError('Usuário criado com sucesso!')
 
       }
       else {
         setMensageError(resultado)
       } 
-      //Chamando funcção de criação de usuario, e passando os dados capturados 
-      const banco = await criarUsuario(dados.email, dados.nome, dados.celular, dados.nascimento)
     }
   }
 
