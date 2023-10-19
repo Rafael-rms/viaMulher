@@ -6,7 +6,7 @@ import {
     AuthErrorCodes
 } from "firebase/auth";
 
-import { setDoc, doc  } from 'firebase/firestore'
+import { setDoc, doc, getDocs, collection  } from 'firebase/firestore'
 
 
 //Possiveis erros que pode dar ao cadastrar o email e senha
@@ -40,8 +40,11 @@ function errorFirebase(error) {
     // Utiliza o try para iniciar caso tudo estiver certo, catch para a captura de erro, se caso houver
     export async function cadastrar(nome, celular, nascimento, email, senha) {
             try{
+                //resultado vai receber o valor da criação da autenticação 
             const resultado = await createUserWithEmailAndPassword(auth, email, senha)
+            //users vai receber a const resultado com .user, para pegar as informações da autenticação
             const users = resultado.user
+            // Aqui é feito a criação do usuario no banco do firestore, db sendo o banco, usuarios sendo a collection e users.uid é o UID gerado na autenticação
             await setDoc(doc(db, 'usuarios',users.uid),{email, nome, celular, nascimento})
         }
             catch(error) {
@@ -49,16 +52,6 @@ function errorFirebase(error) {
                 return errorFirebase(error)
             };
     }
-// export async function criarUsuario(email, nome, celular, nascimento) {
-//     try {
-//         await setDoc(doc(db, 'usuario',user.uid),{email, nome, celular, nascimento})
-//         return 'ok'
-//     }
-//     catch (error) {
-//         console.log('Erro no cadastro do usuário', error)
-//         return 'error'
-//     }
-// }
 
 //Função de logar
 // Utiliza o try catch para a captura de erro, se caso acontecer
@@ -74,4 +67,20 @@ export async function logar(email, senha) {
         });
 
     return resultado
+}
+
+    //Captura de dados no banco do Firestore
+export async function capturaDados(){
+
+    try{
+    const Snap = await getDocs(collection(db,"usuarios"))
+
+    Snap.forEach((doc) => {
+        console.log(doc.id, "=>", doc.data())
+    })
+    }catch(error){
+        console.log(error)
+        return[]
+    }
+
 }

@@ -1,11 +1,25 @@
 import { View, StyleSheet, Image, Text } from 'react-native';
 import Cabecalho from '../../componentes/Cabecalho';
 import Botao from './componente/Botao';
+import { useEffect } from 'react';
+import { capturaDados } from '../../servicos/banco';
+
 
 
 
 export default Home = ({navigation}) => {
     
+
+    useEffect(() => {
+        // Função para Exibir os dados no console
+        async function carregarDadosFirestore(){
+
+            const usuario = await capturaDados()
+            console.log(usuario)
+        }
+        carregarDadosFirestore()
+    },[])
+
     return (
         <View style={styles.container}>   
             {/* Cabeçalho */}
