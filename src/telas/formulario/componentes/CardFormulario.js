@@ -1,6 +1,8 @@
 import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
 
+
+// Criando componente cadFormulario que será chamado na tela de formulário
 export default CardFormulario = ({navigation}) => {
     return (
       <View style={Estilos.card}>
@@ -30,7 +32,7 @@ export default CardFormulario = ({navigation}) => {
     );
   };
   
-
+// Estilos do componente
 const Estilos = StyleSheet.create({
   card: {
     height: 200,

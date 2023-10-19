@@ -1,5 +1,7 @@
 import { View, TextInput, StyleSheet, Image } from "react-native";
 
+
+//Componente Entrada (TextInput). Está sendo usado nas telas de cadastro, Login e RecSenha
 export default Entrada = ({placeholder, value, onChangeText, error, messageError, imagem}) => {
   return (
     <View style={Estilos.container}>

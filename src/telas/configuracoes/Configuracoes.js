@@ -1,9 +1,10 @@
 import React from "react";
-import { View, StyleSheet , Image, TouchableOpacity, Text, ScrollView } from "react-native";
+import { View, StyleSheet, Image, TouchableOpacity, Text, ScrollView } from "react-native";
 import Cabecalho from "../../componentes/Cabecalho";
 import Linha from "../../componentes/Linha";
 import Botao from "./componentes/Botao";
 import { auth } from '../../config/firebase'
+
 
 
 function Configuracoes({ navigation }) {
@@ -13,8 +14,9 @@ function Configuracoes({ navigation }) {
         navigation.replace('Login')
     }
     return (
-        
+
         <View style={Estilos.container}>
+            {/* Chamda do componente de cabeçalho */}
             <Cabecalho
                 texto="Configurações"
                 imagemEsquerda={require('../../assets/voltar.png')}
@@ -24,7 +26,7 @@ function Configuracoes({ navigation }) {
             />
 
             <Linha />
-
+            {/* Chamada do componente botao */}
             <Botao
                 onPress={() => { }}
                 imagem={require('../../assets/configuracoes/meusContatos.png')}
@@ -67,6 +69,7 @@ function Configuracoes({ navigation }) {
     )
 }
 
+// Estilos da tela de configurações
 const Estilos = StyleSheet.create({
     container: {
         flex: 1,
@@ -77,7 +80,7 @@ const Estilos = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         margin: 24,
-        marginTop:'10%'
+        marginTop: '10%'
 
     },
     textoBotao: {

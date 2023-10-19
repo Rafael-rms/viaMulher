@@ -63,7 +63,6 @@ const Estilos = StyleSheet.create({
         flex: 1,
         backgroundColor: '#FFDFDF',
         alignItems: 'center',
-        justifyContent: 'center'
     },
     linha: {
         width: '100%',

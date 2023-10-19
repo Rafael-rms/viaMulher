@@ -4,20 +4,24 @@ import { ScrollView, View, StyleSheet } from 'react-native'
 import Cabecalho from "../../componentes/Cabecalho";
 import Caixa from "./componentes/Caixa";
 import Linha from "../../componentes/Linha";
-import {textoCAM, textoDDH, textoDM, textoPM, tituloCAM, tituloDDH, tituloDM, tituloPM } from "../../mocks/TextosDenuncias"
+import { textoCAM, textoDDH, textoDM, textoPM, tituloCAM, tituloDDH, tituloDM, tituloPM } from "../../mocks/TextosDenuncias"
 
-export default Denuncias = ({navigation})=>{
-    return(
+// Criando o componente denuncias
+export default Denuncias = ({ navigation }) => {
+    return (
         <ScrollView>
             <View style={styles.container}>
-                <Cabecalho 
+                {/* Chamando o componente cabecalho */}
+                <Cabecalho
                     texto="Denúncias"
                     imagemEsquerda={require('../../assets/voltar.png')}
                     botaoEsquerda={{
-                        onPress: ()=>navigation.goBack(),
+                        onPress: () => navigation.goBack(),
                     }}
                 />
-                <Linha/>
+                <Linha />
+
+                {/* Chamando o componente Caixa */}
                 <Caixa
                     titulo={tituloCAM}
                     texto={textoCAM}
@@ -44,11 +48,12 @@ export default Denuncias = ({navigation})=>{
     )
 }
 
+// Estilos da tela Denúnicas
 const styles = StyleSheet.create({
-    container:{
-        flex:1,
+    container: {
+        flex: 1,
         backgroundColor: '#FFDFDF',
-        alignItems:'center',
+        alignItems: 'center',
     }
 })
 

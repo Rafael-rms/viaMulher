@@ -1,5 +1,6 @@
 import { View, TouchableOpacity, Text, Image, StyleSheet } from "react-native";
 
+//Componente Botao. Está sendo usado nas telas de cadastro, Login e RecSenha
 export default Botao = (props) => {
   return (
     <View>

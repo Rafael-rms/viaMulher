@@ -16,6 +16,8 @@ import Configuracoes from '../telas/configuracoes/Configuracoes';
 
 const Stack = createNativeStackNavigator();
 
+
+//Componentes de rotas de navegação de telas do App
 export default function App() {
   return (
     <NavigationContainer>

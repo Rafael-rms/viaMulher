@@ -1,6 +1,7 @@
 import React from "react";
 import { Text, TouchableOpacity, Image, StyleSheet } from "react-native";
 
+// Criando componente Botao para tela de configurações
 export default function Botao({ onPress, imagem, texto }) {
     return (
         <TouchableOpacity
@@ -14,6 +15,7 @@ export default function Botao({ onPress, imagem, texto }) {
     )
 }
 
+// Estilos do componente
 const Estilos = StyleSheet.create({
     container: {
         flex: 1,
@@ -24,7 +26,7 @@ const Estilos = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
 
-        margin:'7%',
+        margin: '7%',
         marginRight: 'auto',
 
     },

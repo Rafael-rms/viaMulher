@@ -1,52 +1,53 @@
 import React from "react";
 import { View, TouchableOpacity, Image, Text, StyleSheet } from "react-native";
 
-export default function Cabecalho({ texto, imagemEsquerda, imagemDireita, botaoEsquerda, botaoDireita}) {
+// Criando o componente de cabeçalho
+export default function Cabecalho({ texto, imagemEsquerda, imagemDireita, botaoEsquerda, botaoDireita }) {
     return (
+        // Este componente vai verificar se os botões de direita e esquerda são verdadeiros, caso seja, eles serão renderizados na tela
         <View style={Estilos.cabecalho}>
+            {/* Renderiza o botão da esquerda se ele existir */}
             {botaoEsquerda && (
-                <TouchableOpacity 
+                <TouchableOpacity
                     style={Estilos.botaoE}
                     onPress={botaoEsquerda.onPress}>
-                    <Image source={imagemEsquerda}/>
+                    <Image source={imagemEsquerda} />
                 </TouchableOpacity>
             )}
+
+            {/* Textos dos titulos das telas */}
             <View style={Estilos.tituloContainer}>
-                <Text style={Estilos.textoCabecalhoDenuncias}>{texto}</Text>
+                <Text style={Estilos.textoTituloCabecalho}>{texto}</Text>
             </View>
 
+                {/* Renderiza o botão da Direita se ele existir */}
             {botaoDireita && (
-                <TouchableOpacity 
+                <TouchableOpacity
                     style={Estilos.botaoD}
                     onPress={botaoDireita.onPress}>
-                    <Image source={imagemDireita}/>
+                    <Image source={imagemDireita} />
                 </TouchableOpacity>
             )}
-            
+
         </View>
     )
 }
 
+//Estilos do componente cabeçalho
 const Estilos = StyleSheet.create({
-    cabecalho:{
+    cabecalho: {
         flexDirection: 'row',
-        marginTop:'6%',
-        alignItems:'center',
+        marginTop: '6%',
+        alignItems: 'center',
     },
-    textoCabecalhoDenuncias:{
-        fontSize:28,
+    textoTituloCabecalho: {
+        fontSize: 28,
         fontWeight: 'bold'
-    },
-    cabecalhoSobre:{
-        flexDirection: 'row',
-        marginTop:'6%',
-        alignItems:'center',
-        paddingRight:'38%'
     },
     botaoE: {
         position: 'absolute',
         left: 15,
-   
+
     },
     botaoD: {
         position: 'absolute',
@@ -56,6 +57,6 @@ const Estilos = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
     },
-    
+
 })
 

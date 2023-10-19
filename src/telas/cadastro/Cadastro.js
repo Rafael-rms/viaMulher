@@ -11,7 +11,7 @@ import { auth } from '../../config/firebase';
 
 
 
-
+//Criação do componente de cadastro
 export default function Cadastro({ navigation }) {
 
   const [dados, setDados] = useState({
@@ -26,17 +26,17 @@ export default function Cadastro({ navigation }) {
   const [statusError, setStatusError] = useState('')
   const [mensageError, setMensageError] = useState('')
 
-  
+
 
   //Função para realização do cadastro com algumas verificações de autenticações
   async function realizarCadastro() {
     if (dados == '') {
       setMensageError('Preencha todos os campos')
       setStatusError('dados')
-    }else if (dados.email == '') {
+    } else if (dados.email == '') {
       setMensageError('Digite seu email')
       setStatusError('email')
-    }else if (dados.nome == '') {
+    } else if (dados.nome == '') {
       setMensageError('Digite seu nome')
       setStatusError('nome')
     } else if (dados.celular == '') {
@@ -55,9 +55,9 @@ export default function Cadastro({ navigation }) {
       setMensageError('As senhas não são iguais')
       setStatusError('confirmaSenha')
     } else {
-      
+
       const resultado = await cadastrar(dados.nome, dados.nascimento, dados.celular, dados.email, dados.senha, dados.confirmaSenha)
-      
+
       setStatusError('firebase')
       if (resultado == "Sucesso") {
         setMensageError('Usuário criado com sucesso!')
@@ -65,7 +65,7 @@ export default function Cadastro({ navigation }) {
       }
       else {
         setMensageError(resultado)
-      } 
+      }
     }
   }
 
@@ -74,15 +74,20 @@ export default function Cadastro({ navigation }) {
 
     <KeyboardAvoidingView style={{ flex: 1 }}>
       <ScrollView contentContainerStyle={styles.container}>
+        {/* Chamada do componente cabeçalho */}
         <Cabecalho
           imagemEsquerda={require('../../assets/voltar.png')}
           botaoEsquerda={{
             onPress: () => navigation.goBack(),
           }}
         />
-        <Image 
+
+        {/* Imagem que aparece na tela de cadastro */}
+        <Image
           source={require('../../assets/cadastrar.png')}
           style={styles.imgCadastrar} />
+
+        {/* Chamada do componente entrada (TextInput) */}
         <Entrada
           imagem={require('../../assets/nome.png')}
           placeholder="Nome Completo"
@@ -126,6 +131,8 @@ export default function Cadastro({ navigation }) {
           error={statusError == 'confirmaSenha'}
           messageError={mensageError}
         />
+
+        {/* Chamda do componente Botao */}
         <Botao
           onpress={() => realizarCadastro()}
           textoBotao="Cadastrar"
@@ -140,14 +147,8 @@ export default function Cadastro({ navigation }) {
   )
 }
 
-
+//Estilos da tela de Cadastro
 const styles = StyleSheet.create({
-  cabecalho: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    padding: 10,
-  },
   container: {
     backgroundColor: "#FFDFDF",
     justifyContent: "center",

@@ -56,7 +56,7 @@ const Estilos = StyleSheet.create({
     },
     botaoPerfil:{
         backgroundColor:"#D69595",
-        marginTop:"3%",
+        marginTop:"2%",
         borderRadius:20,
         width:120,
         minwidth:"40%",
@@ -77,7 +77,7 @@ const Estilos = StyleSheet.create({
     containerInformacoes:{
         // backgroundColor:'green',
         width:'90%',
-        marginTop:'3%'
+        marginTop:'1%'
     },
     entrada:{
         height:30,

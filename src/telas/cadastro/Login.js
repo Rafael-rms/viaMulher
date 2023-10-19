@@ -9,6 +9,7 @@ import animacao from '../../assets/teste/gifReload.gif';
 import { alteraDados } from '../../utils/comum';
 
 
+// Criando o componente Login
 export default function Login({ navigation }) {
   const [dados, setDados] = useState({
     email: '',
@@ -64,6 +65,8 @@ export default function Login({ navigation }) {
   }
   return (
     <KeyboardAvoidingView style={styles.container}>
+
+      {/* View que contém a Imagem exibida na tela de Login */}
       <View style={styles.containerLogo}>
         <Image
           style={{
@@ -73,8 +76,9 @@ export default function Login({ navigation }) {
           source={require("../../assets/login.png")} />
       </View>
 
+      {/* View com botões e TextInputs */}
       <View style={styles.containerLogin}>
-
+        {/* Chamda do componente Entrada (TextInput) */}
         <Entrada
           imagem={require('../../assets/email.png')}
           placeholder="Email"
@@ -83,13 +87,14 @@ export default function Login({ navigation }) {
           error={statusError == 'email'}
           messageError={mensagemError}
         />
-
+        {/* Botão com texto que navega para a tela de recuperar senha */}
         <TouchableOpacity
           style={styles.btnRecSenha}
           onPress={() => navigation.navigate('RecSenha')}>
           <Text style={styles.recSenhaTexto}>Esqueceu a Senha?</Text>
         </TouchableOpacity>
 
+        {/* Chamda do componente Entrada (TextInput) */}
         <Entrada
           imagem={require('../../assets/senha.png')}
           placeholder="Senha"
@@ -98,7 +103,7 @@ export default function Login({ navigation }) {
           error={statusError == 'senha'}
           messageError={mensagemError}
         />
-
+        {/* View com texto e botão que navega para a tela de cadastro */}
         <View style={styles.containerBtnCadastar}>
           <Text style={styles.textoCc}>Não tem uma conta?</Text>
 
@@ -119,7 +124,7 @@ export default function Login({ navigation }) {
   );
 }
 
-
+// Estilos da tela de Login
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "#FFDFDF",

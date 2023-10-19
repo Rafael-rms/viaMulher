@@ -29,7 +29,7 @@ export default Home = ({navigation}) => {
                 style={{borderTopLeftRadius: 20}}
                 onpress={()=>navigation.navigate("Perfil")}
                 texto="Perfil"
-                imagem={require('../../assets/teste/perfilColo.png')}/>
+                imagem={require('../../assets/teste/perfilColo2.png')}/>
 
                 <Botao
                 style={{borderTopRightRadius:20}}

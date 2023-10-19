@@ -1,4 +1,4 @@
-
+//Textos da tela de Sobre
 
 export const tituloPSP = "Para que serve o APP"
 export const tituloCF = "Como funciona?"
