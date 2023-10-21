@@ -1,15 +1,16 @@
 import React from "react";
 import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
 
+
 // Criando componente caixa que será exibido com os textos na tela de denuncias
-export default function Caixa({ titulo, texto, imagem }) {
+export default function Caixa({ titulo, texto, imagem, onPress }) {
     return (
         <View style={Estilos.caixaDenuncias}>
             <Text style={Estilos.texoTituloCaixa}>{titulo}</Text>
             <View style={Estilos.linha} />
             <Text style={Estilos.textoCaixa}>{texto}</Text>
 
-            <TouchableOpacity>
+            <TouchableOpacity onPress={onPress}>
                 <Image source={imagem} />
             </TouchableOpacity>
         </View>

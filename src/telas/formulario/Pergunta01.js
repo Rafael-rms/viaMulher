@@ -15,7 +15,8 @@ export default function Pergunta01({navigation}) {
                 }}
                 botaoDireita={{
                     onPress: ()=>navigation.goBack(''),
-                }}/>
+                }}
+                />
 
                 <Linha/>
 

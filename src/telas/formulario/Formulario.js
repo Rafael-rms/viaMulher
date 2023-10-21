@@ -41,7 +41,7 @@ export default Formulario = ({ navigation }) => {
                     ) : (
                         // Renderiza o componente CardContatos quando 'card' é verdadeiro
                         <CardFormulario
-                        // navigation={navigation}
+                        navigation={navigation}
                         />
 
                     )}
