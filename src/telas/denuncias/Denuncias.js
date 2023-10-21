@@ -26,10 +26,10 @@ export default Denuncias = ({ navigation }) => {
     };
 
 
-    const phoneNumber2 = '2'; // Número de telefone que você deseja discar
+    const numeroTelefone2 = '100'; // Número de telefone que você deseja discar
 
-    const handlePhoneDialerPress2 = () => {
-        openPhoneDialer(phoneNumber2);
+    const chamarDDH = () => {
+        abrirDiscador(numeroTelefone2);
     };
 
     return (
@@ -56,7 +56,7 @@ export default Denuncias = ({ navigation }) => {
                     titulo={tituloDDH}
                     texto={textoDDH}
                     imagem={require('../../assets/denuncias.png')}
-                    onPress={handlePhoneDialerPress2}
+                    onPress={chamarDDH}
                 />
 
                 <Caixa
