@@ -6,7 +6,7 @@ import {
     AuthErrorCodes
 } from "firebase/auth";
 
-import { setDoc, doc, getDocs, collection  } from 'firebase/firestore'
+import { setDoc, doc, getDocs, collection, getDoc } from 'firebase/firestore'
 
 
 //Possiveis erros que pode dar ao cadastrar o email e senha
@@ -43,9 +43,10 @@ function errorFirebase(error) {
                 //resultado vai receber o valor da criação da autenticação 
             const resultado = await createUserWithEmailAndPassword(auth, email, senha)
             //users vai receber a const resultado com .user, para pegar as informações da autenticação
-            const users = resultado.user
+            const users = resultado.user.uid
+            const id = users
             // Aqui é feito a criação do usuario no banco do firestore, db sendo o banco, usuarios sendo a collection e users.uid é o UID gerado na autenticação
-            await setDoc(doc(db, 'usuarios',users.uid),{email, nome, celular, nascimento})
+            await setDoc(doc(db, 'usuarios',users),{email, nome, celular, nascimento, id})
         }
             catch(error) {
                 console.log(error)
@@ -57,7 +58,8 @@ function errorFirebase(error) {
 // Utiliza o try catch para a captura de erro, se caso acontecer
 export async function logar(email, senha) {
     const resultado = await signInWithEmailAndPassword(auth, email, senha)
-        .then((dadosDoUsuario) => {
+
+    .then((dadosDoUsuario) => {
             console.log(dadosDoUsuario)
             return "Sucesso"
         })
@@ -70,17 +72,19 @@ export async function logar(email, senha) {
 }
 
     //Captura de dados no banco do Firestore
-export async function capturaDados(){
+export async function capturaDados(id){
 
     try{
-    const Snap = await getDocs(collection(db,"usuarios"))
-
-    Snap.forEach((doc) => {
-        console.log(doc.id, "=>", doc.data())
-    })
+const docRef = doc(db, "usuarios", id);
+    const docSnap = await getDoc(docRef);
+    
+    if (docSnap.exists()) {
+    console.log("Documento existente", docSnap.data());
+    }
     }catch(error){
         console.log(error)
-        return[]
+        return error
     }
 
 }
+

@@ -1,25 +1,37 @@
 import { View, StyleSheet, Image, Text } from 'react-native';
 import Cabecalho from '../../componentes/Cabecalho';
 import Botao from './componente/Botao';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { capturaDados } from '../../servicos/banco';
+import { auth } from '../../config/firebase';
+
 
 
 
 
 export default Home = ({navigation}) => {
+    const [dadosUsuario, setDadosUsuario] = useState([])
     
 
     useEffect(() => {
-        // Função para Exibir os dados no console
-        async function carregarDadosFirestore(){
-
-            const usuario = await capturaDados()
-            console.log(usuario)
+    const estadoUsuario = auth.onAuthStateChanged(usuario => {
+        if (usuario) {
+            const result = usuario.uid
+            console.log(result)
+            // Função para carregar os dados do Firestore
+            async function carregarDadosFirestore(){
+            const users = await capturaDados(result)
+                
         }
         carregarDadosFirestore()
+        }
+    })
     },[])
 
+
+
+
+    
     return (
         <View style={styles.container}>   
             {/* Cabeçalho */}
@@ -33,7 +45,8 @@ export default Home = ({navigation}) => {
             {/* Container de foto e nome de usuaria */}
             <View style={styles.containerFoto}> 
                 <Image style={{height:'70%'}} source={require('../../assets/avatar.png')}/>
-                <Text style={styles.nomeUsuario}>Nome</Text>
+                
+                <Text style={styles.nomeUsuario}>nomeg</Text>
             </View>
 
             {/* Container de botoes da tela home */}
