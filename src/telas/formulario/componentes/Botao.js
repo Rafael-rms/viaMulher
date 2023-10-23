@@ -19,7 +19,7 @@ const Estilos = StyleSheet.create({
     botaoPergunta:{
         backgroundColor: "#EFEFEF",
         minWidth:'94%',
-        height: 60,
+        height: 65,
         alignItems: "center",
         justifyContent: "center",
         borderRadius: 20,

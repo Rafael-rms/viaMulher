@@ -1,22 +1,22 @@
 import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView } from 'react-native'
-import Cabecalho from '../../componentes/Cabecalho'
-import Linha from '../../componentes/Linha'
-import Caixa from './componentes/Caixa'
-import Botao from './componentes/Botao'
+import Cabecalho from '../../../componentes/Cabecalho'
+import Linha from '../../../componentes/Linha'
+import Caixa from '../componentes/Caixa'
+import Botao from '../componentes/Botao'
 
-export default function Pergunta01({ navigation }) {
+export default function Pergunta18({ navigation }) {
     return (
         <ScrollView>
             <View style={styles.container}>
                 <Cabecalho
                     texto="Formulário"
-                    imagemEsquerda={require('../../assets/voltar.png')}
-                    imagemDireita={require('../../assets/home.png')}
+                    imagemEsquerda={require('../../../assets/voltar.png')}
+                    imagemDireita={require('../../../assets/home.png')}
                     botaoEsquerda={{
                         onPress: () => navigation.goBack(),
                     }}
                     botaoDireita={{
-                        onPress: () => navigation.goBack(''),
+                        onPress: () => navigation.navigate('Home'),
                     }}
                 />
 
@@ -25,13 +25,14 @@ export default function Pergunta01({ navigation }) {
                 <>
                     <Text style={[styles.textUsuario, { fontSize: 22 }]}>Nome do usuário</Text>
                     <Text style={styles.textUsuario}>00/00/0000</Text>
-                    <Text style={[styles.textUsuario, { marginLeft: '70%' }]}>01/19</Text>
+                    <Text style={[styles.textUsuario, { marginLeft: '70%' }]}>18/19</Text>
                 </>
 
                 {/* caixa de perguntas do formulário */}
-                <Caixa />
+                <Caixa 
+                texto="O(A) agressor(a) já obrigou a senhora/você a ter relações sexuais contra a sua vontade?"/>
 
-                <View style={styles.containerBotoes}>
+                <View>
                     {/* Botões do formulário */}
                     <Botao
                         onPress={() => { }}
@@ -52,7 +53,7 @@ export default function Pergunta01({ navigation }) {
                         style={[styles.botaoProximo]}/> */}
 
                     <TouchableOpacity
-                        onPress={() => { }}
+                        onPress={() => {navigation.navigate('Pergunta19')}}
                         style={styles.botaoProximo}>
                         <Text style={styles.textoProximo}>Próximo</Text>
                     </TouchableOpacity>
@@ -69,10 +70,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#FFDFDF',
         alignItems: 'center',
     },
-    containerBotoes: {
-        marginBottom: '20%'
-    },
-
     textUsuario: {
         fontSize: 18,
         fontWeight: 'bold'
