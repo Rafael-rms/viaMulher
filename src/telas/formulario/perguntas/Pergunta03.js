@@ -3,8 +3,32 @@ import Cabecalho from '../../../componentes/Cabecalho'
 import Linha from '../../../componentes/Linha'
 import Caixa from '../componentes/Caixa'
 import Botao from '../componentes/Botao'
+import { useEffect, useState } from 'react'
+import { auth } from '../../../config/firebase'
+import { capturaDados } from '../../../servicos/banco'
+import moment from 'moment/moment'
 
 export default function Pergunta03({ navigation }) {
+
+    const [dadosUsuario, setDadosUsuario] = useState([])
+    let dia = moment().format('DD/MM/YYYY')
+    useEffect(() => {
+        const estadoUsuario = auth.onAuthStateChanged(usuario => {
+            if (usuario) {
+                const result = usuario.uid
+                //console.log(result)
+
+                
+                // Função para carregar os dados do Firestore
+                async function carregarDadosFirestore() {
+                    const users = await capturaDados(result)
+                    setDadosUsuario(users)
+                }
+                carregarDadosFirestore()
+            }
+        })
+    }, [])
+
     return (
         <ScrollView>
             <View style={styles.container}>
@@ -23,8 +47,8 @@ export default function Pergunta03({ navigation }) {
                 <Linha />
 
                 <>
-                    <Text style={[styles.textUsuario, { fontSize: 22 }]}>Nome do usuário</Text>
-                    <Text style={styles.textUsuario}>00/00/0000</Text>
+                    <Text style={[styles.textUsuario, { fontSize: 22 }]}>{dadosUsuario.nome}</Text>
+                    <Text style={styles.textUsuario}>{dia}</Text>
                     <Text style={[styles.textUsuario, { marginLeft: '70%' }]}>03/19</Text>
                 </>
 

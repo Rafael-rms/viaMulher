@@ -1,10 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { View, StyleSheet , Image, TouchableOpacity, Text } from "react-native";
 import Cabecalho from "../../componentes/Cabecalho";
 import { TextInput } from "react-native-paper";
 import Linha from "../../componentes/Linha";
+import { capturaDados } from "../../servicos/banco";
+import { auth } from "../../config/firebase";
 
 export default function Perfil({navigation}) {
+    const [dadosUsuario, setDadosUsuario] = useState([])
+
+    useEffect(() => {
+        const estadoUsuario = auth.onAuthStateChanged(usuario => {
+            if (usuario) {
+                const result = usuario.uid
+                //console.log(result)
+                // Função para carregar os dados do Firestore
+                async function carregarDadosFirestore(){
+                const users = await capturaDados(result)
+                    setDadosUsuario(users)
+            }
+            carregarDadosFirestore()
+            }
+        })
+        },[])
+
+
+
     return (
         <View style={Estilos.container}>
             <Cabecalho
@@ -23,26 +44,18 @@ export default function Perfil({navigation}) {
             </View>
             <View style={Estilos.containerInformacoes}>
                 <Text style={Estilos.textMinhasInformacoes}>Minhas Informações</Text>
+                
                 <Text style={Estilos.textosTitulos}>Nome</Text>
-                <TextInput
-                placeholder="Nome"
-                style={Estilos.entrada}
-                />
+                <Text style={Estilos.textosDados}>{dadosUsuario.nome}</Text>
+
                 <Text style={Estilos.textosTitulos}>Data de Nascimento</Text>
-                <TextInput
-                placeholder="Nome"
-                style={Estilos.entrada}
-                />
+                <Text style={Estilos.textosDados}>{dadosUsuario.nascimento}</Text>
+
                 <Text style={Estilos.textosTitulos}>Email</Text>
-                <TextInput
-                placeholder="Nome"
-                style={Estilos.entrada}
-                />
+                <Text style={Estilos.textosDados}>{dadosUsuario.email}</Text>
+
                 <Text style={Estilos.textosTitulos}>Telefone</Text>
-                <TextInput
-                placeholder="Nome"
-                style={Estilos.entrada}
-                />
+                <Text style={Estilos.textosDados}>{dadosUsuario.celular}</Text>
             </View>
         </View>
     )
@@ -72,7 +85,8 @@ const Estilos = StyleSheet.create({
     },
     textMinhasInformacoes:{
         fontSize:18,
-        alignSelf:'center'
+        alignSelf:'center',
+        fontWeight:"400"
     },
     containerInformacoes:{
         // backgroundColor:'green',
@@ -86,5 +100,11 @@ const Estilos = StyleSheet.create({
     textosTitulos:{
         fontSize:20,
         fontWeight:'bold'
+    },
+    textosDados:{
+        fontSize:18,
+        fontWeight:'500',
+        color:'gray',
+        marginBottom: '1%'
     }
 })

@@ -3,8 +3,33 @@ import Cabecalho from '../../../componentes/Cabecalho'
 import Linha from '../../../componentes/Linha'
 import Caixa from '../componentes/Caixa'
 import Botao from '../componentes/Botao'
+import { useEffect, useState } from 'react'
+import { auth } from '../../../config/firebase'
+import { capturaDados } from '../../../servicos/banco'
+import moment from 'moment/moment'
 
 export default function Pergunta01({ navigation }) {
+
+    const [dadosUsuario, setDadosUsuario] = useState([])
+    let dia = moment().format('DD/MM/YYYY')
+    useEffect(() => {
+        const estadoUsuario = auth.onAuthStateChanged(usuario => {
+            if (usuario) {
+                const result = usuario.uid
+                //console.log(result)
+
+                
+                // Função para carregar os dados do Firestore
+                async function carregarDadosFirestore() {
+                    const users = await capturaDados(result)
+                    setDadosUsuario(users)
+                }
+                carregarDadosFirestore()
+            }
+        })
+    }, [])
+
+
     return (
         <ScrollView>
             <View style={styles.container}>
@@ -23,8 +48,8 @@ export default function Pergunta01({ navigation }) {
                 <Linha />
 
                 <>
-                    <Text style={[styles.textUsuario, { fontSize: 22 }]}>Nome do usuário</Text>
-                    <Text style={styles.textUsuario}>00/00/0000</Text>
+                    <Text style={[styles.textUsuario, { fontSize: 22 }]}>{dadosUsuario.nome}</Text>
+                    <Text style={styles.textUsuario}>{dia}</Text>
                     <Text style={[styles.textUsuario, { marginLeft: '70%' }]}>01/19</Text>
                 </>
 
@@ -32,8 +57,8 @@ export default function Pergunta01({ navigation }) {
                 {/* <Caixa 
                 texto='A senhora/você tem filhos(as) com o(a) agressor(a)? (Caso não tenham filhos em comum, o registro não se aplica)
                 Em caso afirmativo, estão vivendo algum conflito com relação àguarda dos filhos, visitas ou pagamento de pensão pelo agressor?'/> */}
-                <Caixa 
-                texto=" A violência vem aumentando de gravidade e/ou de frequência no último mês?"/>
+                <Caixa
+                    texto=" A violência vem aumentando de gravidade e/ou de frequência no último mês?" />
 
                 <View>
                     {/* Botões do formulário */}
@@ -56,7 +81,7 @@ export default function Pergunta01({ navigation }) {
                         style={[styles.botaoProximo]}/> */}
 
                     <TouchableOpacity
-                        onPress={() => {navigation.navigate('Pergunta02')}}
+                        onPress={() => { navigation.navigate('Pergunta02') }}
                         style={styles.botaoProximo}>
                         <Text style={styles.textoProximo}>Próximo</Text>
                     </TouchableOpacity>

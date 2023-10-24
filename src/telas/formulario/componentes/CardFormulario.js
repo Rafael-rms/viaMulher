@@ -1,25 +1,44 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
-
+import { auth } from '../../../config/firebase';
+import { capturaDados } from '../../../servicos/banco';
 
 // Criando componente cadFormulario que será chamado na tela de formulário
 export default CardFormulario = ({navigation}) => {
+  const [dadosUsuario, setDadosUsuario] = useState([])
+
+  useEffect(() => {
+    const estadoUsuario = auth.onAuthStateChanged(usuario => {
+        if (usuario) {
+            const result = usuario.uid
+            //console.log(result)
+            // Função para carregar os dados do Firestore
+            async function carregarDadosFirestore(){
+            const users = await capturaDados(result)
+                setDadosUsuario(users)
+        }
+        carregarDadosFirestore()
+        }
+    })
+    },[])
+
+
     return (
       <View style={Estilos.card}>
 
         <View style={Estilos.containerEntrada}>
           <Text style={Estilos.textoCard}>Nome:</Text>
-          <Text style={Estilos.textoCard}>Nome Sobrenome</Text>
+          <Text style={Estilos.textoCard}>{dadosUsuario.nome}</Text>
         </View>
 
         <View style={Estilos.containerEntrada}>
           <Text style={Estilos.textoCard}>Telefone:</Text>
-          <Text style={Estilos.textoCard}>00 000000000</Text>
+          <Text style={Estilos.textoCard}>{dadosUsuario.celular}</Text>
         </View>
 
         <View style={Estilos.containerEntrada}>
           <Text style={Estilos.textoCard}>Nascimento:</Text>
-          <Text style={Estilos.textoCard}>12/10/1993</Text>
+          <Text style={Estilos.textoCard}>{dadosUsuario.nascimento}</Text>
         </View>
 
 

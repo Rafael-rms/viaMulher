@@ -36,7 +36,7 @@ export default Home = ({navigation}) => {
         <View style={styles.container}>   
             {/* Cabeçalho */}
                 <Cabecalho 
-                texto="Home"
+                texto="Início"
                 imagemDireita={require('../../assets/configuracoes.png')}
                 botaoDireita={{
                     onPress: ()=>navigation.navigate('Configuracoes'),
@@ -45,7 +45,7 @@ export default Home = ({navigation}) => {
             {/* Container de foto e nome de usuaria */}
             <View style={styles.containerFoto}> 
                 <Image style={{height:'70%'}} source={require('../../assets/avatar.png')}/>
-                
+                <Text style={styles.sejaBemVindo}>Seja bem vindo</Text>
                 <Text style={styles.nomeUsuario}>{dadosUsuario.nome}</Text>
             </View>
 
@@ -106,9 +106,13 @@ const styles = StyleSheet.create({
         alignItems:'center',
     },
     nomeUsuario:{
-        fontWeight:'bold',
-        fontSize:30,
-        marginTop:'6%'
+        fontWeight:'500',
+        fontSize:25,
+    },
+    sejaBemVindo:{
+        fontWeight:'500',
+        fontSize:15,
+        marginTop:'3%'
     },
     containerBotoes:{
         flexDirection:'row',
