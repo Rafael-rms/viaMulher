@@ -7,9 +7,9 @@ import { textoCAM, textoDDH, textoDM, textoPM, tituloCAM, tituloDDH, tituloDM, t
 
 //Função para abrir discador
 
-const abrirDiscador = (numeroTelefone) => {
+    const abrirDiscador = (numeroTelefone) => {
     //let numeroSemEspaco = numeroTelefone.replace(/\s/g, ''); // Remove espaços em branco do número de telefone
-    let telefoneUrl = `tel:${numeroTelefone}`;
+    const telefoneUrl = `tel:${numeroTelefone}`;
 
     Linking.openURL(telefoneUrl)
         .catch((err) => console.error('Erro ao abrir o discador: ', err));
@@ -30,6 +30,19 @@ export default Denuncias = ({ navigation }) => {
 
     const chamarDDH = () => {
         abrirDiscador(numeroTelefone2);
+    };
+
+
+    const numeroTelefone3 = '(11) 4198-0522'; // Número de telefone que você deseja discar
+
+    const chamarDM = () => {
+        abrirDiscador(numeroTelefone3);
+    };
+
+    const numeroTelefone4  = '190'; // Número de telefone que você deseja discar
+
+    const chamarPM = () => {
+        abrirDiscador(numeroTelefone4);
     };
 
     return (
@@ -63,11 +76,13 @@ export default Denuncias = ({ navigation }) => {
                     titulo={tituloDM}
                     texto={textoDM}
                     imagem={require('../../assets/denuncias.png')}
+                    onPress={chamarDM}
                 />
                 <Caixa
                     titulo={tituloPM}
                     texto={textoPM}
                     imagem={require('../../assets/denuncias.png')}
+                    onPress={chamarPM}
                 />
             </View>
         </ScrollView>

@@ -17,11 +17,11 @@ export default Home = ({navigation}) => {
     const estadoUsuario = auth.onAuthStateChanged(usuario => {
         if (usuario) {
             const result = usuario.uid
-            console.log(result)
+            //console.log(result)
             // Função para carregar os dados do Firestore
             async function carregarDadosFirestore(){
             const users = await capturaDados(result)
-                
+                setDadosUsuario(users)
         }
         carregarDadosFirestore()
         }
@@ -46,7 +46,7 @@ export default Home = ({navigation}) => {
             <View style={styles.containerFoto}> 
                 <Image style={{height:'70%'}} source={require('../../assets/avatar.png')}/>
                 
-                <Text style={styles.nomeUsuario}>nomeg</Text>
+                <Text style={styles.nomeUsuario}>{dadosUsuario.nome}</Text>
             </View>
 
             {/* Container de botoes da tela home */}

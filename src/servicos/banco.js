@@ -80,6 +80,7 @@ const docRef = doc(db, "usuarios", id);
     
     if (docSnap.exists()) {
     console.log("Documento existente", docSnap.data());
+    return docSnap.data()
     }
     }catch(error){
         console.log(error)
