@@ -77,9 +77,9 @@ export default function Pergunta19({ navigation }) {
                         style={[styles.botaoProximo]}/> */}
 
                     <TouchableOpacity
-                        onPress={() => { }}
+                        onPress={() => {navigation.navigate('FinalizarForm')}}
                         style={styles.botaoProximo}>
-                        <Text style={styles.textoProximo}>Próximo</Text>
+                        <Text style={styles.textoProximo}>Finalizar</Text>
                     </TouchableOpacity>
 
                 </View>

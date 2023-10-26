@@ -31,6 +31,7 @@ import Pergunta16 from '../telas/formulario/perguntas/Pergunta16';
 import Pergunta17 from '../telas/formulario/perguntas/Pergunta17';
 import Pergunta18 from '../telas/formulario/perguntas/Pergunta18';
 import Pergunta19 from '../telas/formulario/perguntas/Pergunta19';
+import FinalizarForm from '../telas/formulario/FinalizarForm';
 
 const Stack = createNativeStackNavigator();
 
@@ -163,6 +164,9 @@ export default function App() {
 
         <Stack.Screen
           name="Pergunta19" component={Pergunta19}
+          options={{ headerShown: false }} />
+          <Stack.Screen
+          name="FinalizarForm" component={FinalizarForm}
           options={{ headerShown: false }} />
 
       </Stack.Navigator>
