@@ -14,10 +14,11 @@ export default Home = ({navigation}) => {
     
 
     useEffect(() => {
-    const estadoUsuario = auth.onAuthStateChanged(usuario => {
+    auth.onAuthStateChanged(usuario => {
         if (usuario) {
             const result = usuario.uid
             //console.log(result)
+
             // Função para carregar os dados do Firestore
             async function carregarDadosFirestore(){
             const users = await capturaDados(result)

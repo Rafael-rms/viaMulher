@@ -7,13 +7,15 @@ import { useEffect, useState } from 'react'
 import { auth } from '../../../config/firebase'
 import { capturaDados } from '../../../servicos/banco'
 import moment from 'moment/moment'
+import { styles } from './styles'
 
 export default function Pergunta14({ navigation }) {
 
     const [dadosUsuario, setDadosUsuario] = useState([])
     let dia = moment().format('DD/MM/YYYY')
+    
     useEffect(() => {
-        const estadoUsuario = auth.onAuthStateChanged(usuario => {
+        auth.onAuthStateChanged(usuario => {
             if (usuario) {
                 const result = usuario.uid
                 //console.log(result)
@@ -48,7 +50,7 @@ export default function Pergunta14({ navigation }) {
 
                 <>
                 <Text style={[styles.textUsuario, { fontSize: 22 }]}>{dadosUsuario.nome}</Text>
-                    <Text style={styles.textUsuario}>{dia}</Text>
+                <Text style={styles.textData}>Data de Preenchimento: {dia}</Text>
                     <Text style={[styles.textUsuario, { marginLeft: '70%' }]}>14/19</Text>
                 </>
 
@@ -88,29 +90,3 @@ export default function Pergunta14({ navigation }) {
     )
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#FFDFDF',
-        alignItems: 'center',
-    },
-    textUsuario: {
-        fontSize: 18,
-        fontWeight: 'bold'
-    },
-    botaoProximo: {
-        backgroundColor: "#D69595",
-        width: 140,
-        height: 40,
-        alignItems: "center",
-        justifyContent: "center",
-        borderRadius: 20,
-        margin: '5%',
-        marginLeft: 'auto',
-    },
-    textoProximo: {
-        fontSize: 20,
-        color: 'white',
-        fontWeight: 'bold',
-    }
-})

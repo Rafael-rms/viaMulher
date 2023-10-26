@@ -10,7 +10,7 @@ export default function Perfil({navigation}) {
     const [dadosUsuario, setDadosUsuario] = useState([])
 
     useEffect(() => {
-        const estadoUsuario = auth.onAuthStateChanged(usuario => {
+        auth.onAuthStateChanged(usuario => {
             if (usuario) {
                 const result = usuario.uid
                 //console.log(result)

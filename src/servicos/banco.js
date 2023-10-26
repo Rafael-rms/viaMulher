@@ -6,7 +6,7 @@ import {
     AuthErrorCodes
 } from "firebase/auth";
 
-import { setDoc, doc, getDocs, collection, getDoc } from 'firebase/firestore'
+import { setDoc, doc, getDoc } from 'firebase/firestore'
 
 
 //Possiveis erros que pode dar ao cadastrar o email e senha
