@@ -56,7 +56,7 @@ export default function Cadastro({ navigation }) {
       setStatusError('confirmaSenha')
     } else {
 
-      const resultado = await cadastrar(dados.nome, dados.nascimento, dados.celular, dados.email, dados.senha, dados.confirmaSenha)
+      const resultado = await cadastrar(dados.nome, dados.celular,dados.nascimento, dados.email, dados.senha, dados.confirmaSenha)
 
       setStatusError('firebase')
       if (resultado == "Sucesso") {
