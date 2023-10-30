@@ -6,11 +6,11 @@ import {
     AuthErrorCodes
 } from "firebase/auth";
 
-import { setDoc, doc, getDoc } from 'firebase/firestore'
+import { setDoc, doc, getDoc, addDoc, collection } from 'firebase/firestore'
 
 
 //Possiveis erros que pode dar ao cadastrar o email e senha
-function errorFirebase(error) {
+export function errorFirebase(error) {
     let mensagem = '';
     switch (error.code) {
         case AuthErrorCodes.EMAIL_EXISTS:
@@ -89,3 +89,15 @@ const docRef = doc(db, "usuarios", id);
 
 }
 
+
+
+// Salvar contatos de emergencia
+export async function salvarContatos(data){
+    try {
+        await addDoc(collection(db, 'contatos'), data)
+        return 'ok'
+    } catch (error){
+        console.log('Erro ao cadastrar contato', error)
+        return 'error'
+    }
+}

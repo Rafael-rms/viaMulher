@@ -11,6 +11,7 @@ import Contatos from '../telas/contatos/Contatos';
 import Informacoes from '../telas/informacoes/Informacoes';
 import CardContatos from '../telas/contatos/componentes/CardContatos';
 import Perfil from '../telas/perfil/Perfil';
+import EditarPerfil from '../telas/perfil/EditarPerfil'
 import Formulario from '../telas/formulario/Formulario';
 import Configuracoes from '../telas/configuracoes/Configuracoes';
 import Pergunta02 from '../telas/formulario/perguntas/Pergunta02';
@@ -32,6 +33,7 @@ import Pergunta17 from '../telas/formulario/perguntas/Pergunta17';
 import Pergunta18 from '../telas/formulario/perguntas/Pergunta18';
 import Pergunta19 from '../telas/formulario/perguntas/Pergunta19';
 import FinalizarForm from '../telas/formulario/FinalizarForm';
+
 
 const Stack = createNativeStackNavigator();
 
@@ -80,6 +82,10 @@ export default function App() {
 
         <Stack.Screen
           name="Perfil" component={Perfil}
+          options={{ headerShown: false }} />
+
+        <Stack.Screen
+          name="EditarPerfil" component={EditarPerfil}
           options={{ headerShown: false }} />
 
         <Stack.Screen
@@ -165,7 +171,7 @@ export default function App() {
         <Stack.Screen
           name="Pergunta19" component={Pergunta19}
           options={{ headerShown: false }} />
-          <Stack.Screen
+        <Stack.Screen
           name="FinalizarForm" component={FinalizarForm}
           options={{ headerShown: false }} />
 

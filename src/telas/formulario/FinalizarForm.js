@@ -1,9 +1,31 @@
-import react from "react";
+import react, { useEffect, useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import Cabecalho from "../../componentes/Cabecalho";
 import Linha from "../../componentes/Linha";
+import moment from "moment";
+import { capturaDados } from "../../servicos/banco";
+import { auth } from "../../config/firebase";
 
 export default function ({navigation}) {
+
+    const [dadosUsuario, setDadosUsuario] = useState([])
+    let dia = moment().format('DD/MM/YYYY')
+    useEffect(() => {
+        auth.onAuthStateChanged(usuario => {
+            if (usuario) {
+                const result = usuario.uid
+                //console.log(result)
+
+                
+                // Função para carregar os dados do Firestore
+                async function carregarDadosFirestore() {
+                    const users = await capturaDados(result)
+                    setDadosUsuario(users)
+                }
+                carregarDadosFirestore()
+            }
+        })
+    }, [])
     return (
         <View style={Estilos.container}>
 
@@ -22,11 +44,11 @@ export default function ({navigation}) {
 
             <View style={Estilos.containerCard}>
                 <Text style={Estilos.textosTitulos}>Nome da usuaria</Text>
-                <Text style={Estilos.textosDados}>Nome da usuaria</Text>
+                <Text style={Estilos.textosDados}>{dadosUsuario.nome}</Text>
                 <Text style={Estilos.textosTitulos}>Data de Nascimento</Text>
-                <Text style={Estilos.textosDados}>00/00/0000</Text>
+                <Text style={Estilos.textosDados}>{dadosUsuario.nascimento}</Text>
                 <Text style={Estilos.textosTitulos}>Data da realização</Text>
-                <Text style={Estilos.textosDados}>00/00/0000</Text>
+                <Text style={Estilos.textosDados}>{dia}</Text>
 
                 <TouchableOpacity style={Estilos.botaoExibirForm}>
                     <Text style={Estilos.textoExibirForm}>Exibir Formulário</Text>

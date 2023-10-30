@@ -4,8 +4,9 @@ import Cabecalho from "../../componentes/Cabecalho";
 import Linha from "../../componentes/Linha";
 import { capturaDados } from "../../servicos/banco";
 import { auth } from "../../config/firebase";
+import { TextInput } from "react-native-paper";
 
-export default function Perfil({navigation}) {
+export default function EditarPerfil({navigation}) {
     const [dadosUsuario, setDadosUsuario] = useState([])
 
     useEffect(() => {
@@ -26,6 +27,7 @@ export default function Perfil({navigation}) {
 
 
     return (
+
         <View style={Estilos.container}>
             <Cabecalho
                 texto="Perfil"
@@ -37,18 +39,12 @@ export default function Perfil({navigation}) {
             <Linha/>
             <View>
             <Image source={require('../../assets/avatar.png')}/>
-                <TouchableOpacity style={Estilos.botaoPerfil}
-                    onPress={() => navigation.navigate('EditarPerfil')}
-                >
-                    <Text style={Estilos.textoBotao}>Editar Perfil</Text>
-
-                </TouchableOpacity>
             </View>
             <View style={Estilos.containerInformacoes}>
                 <Text style={Estilos.textMinhasInformacoes}>Minhas Informações</Text>
                 
                 <Text style={Estilos.textosTitulos}>Nome</Text>
-                <Text style={Estilos.textosDados}>{dadosUsuario.nome}</Text>
+                <TextInput style={Estilos.textosDados}>{dadosUsuario.nome}</TextInput>
 
                 <Text style={Estilos.textosTitulos}>Data de Nascimento</Text>
                 <Text style={Estilos.textosDados}>{dadosUsuario.nascimento}</Text>
