@@ -2,7 +2,7 @@ import { View, StyleSheet, Image, Text } from 'react-native';
 import Cabecalho from '../../componentes/Cabecalho';
 import Botao from './componente/Botao';
 import { useEffect, useState } from 'react';
-import { capturaDados } from '../../servicos/banco';
+import { capturaDados, capturaDadosUsuario } from '../../servicos/req';
 import { auth } from '../../config/firebase';
 
 
@@ -16,12 +16,12 @@ export default Home = ({navigation}) => {
     useEffect(() => {
     auth.onAuthStateChanged(usuario => {
         if (usuario) {
-            const result = usuario.uid
+            const resultado = usuario.uid
             //console.log(result)
 
             // Função para carregar os dados do Firestore
             async function carregarDadosFirestore(){
-            const users = await capturaDados(result)
+            const users = await capturaDadosUsuario(resultado)
                 setDadosUsuario(users)
         }
         carregarDadosFirestore()

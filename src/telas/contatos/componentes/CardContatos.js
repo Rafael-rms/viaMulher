@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, TextInput, Alert } from 'react-native'
 import { auth,} from '../../../config/firebase'
-import { capturaDados, salvarContatos } from '../../../servicos/banco';
+import { capturaDados, capturaDadosUsuario, salvarContatos } from '../../../servicos/req';
 
 // Criando componente CardContatos que será chamado na tela de contatos
 export default CardContatos = ({ navigation }) => {
@@ -17,7 +17,7 @@ export default CardContatos = ({ navigation }) => {
         //console.log(result)
         // Função para carregar os dados do Firestore
         async function carregarDadosFirestore() {
-          const users = await capturaDados(result)
+          const users = await capturaDadosUsuario(result)
           setDadosUsuario(users)
         }
         carregarDadosFirestore()

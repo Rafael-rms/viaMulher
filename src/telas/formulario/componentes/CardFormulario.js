@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
 import { auth } from '../../../config/firebase';
-import { capturaDados } from '../../../servicos/banco';
+import { capturaDadosUsuario } from '../../../servicos/req';
 
 // Criando componente cadFormulario que será chamado na tela de formulário
 export default CardFormulario = ({navigation}) => {
@@ -14,7 +14,7 @@ export default CardFormulario = ({navigation}) => {
             //console.log(result)
             // Função para carregar os dados do Firestore
             async function carregarDadosFirestore(){
-            const users = await capturaDados(result)
+            const users = await capturaDadosUsuario(result)
                 setDadosUsuario(users)
         }
         carregarDadosFirestore()

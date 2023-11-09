@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { View, StyleSheet , Image, TouchableOpacity, Text } from "react-native";
 import Cabecalho from "../../componentes/Cabecalho";
 import Linha from "../../componentes/Linha";
-import { capturaDados } from "../../servicos/banco";
+import { capturaDadosUsuario } from "../../servicos/req";
 import { auth } from "../../config/firebase";
 import { TextInput } from "react-native-paper";
 
@@ -16,7 +16,7 @@ export default function EditarPerfil({navigation}) {
                 //console.log(result)
                 // Função para carregar os dados do Firestore
                 async function carregarDadosFirestore(){
-                const users = await capturaDados(result)
+                const users = await capturaDadosUsuario(result)
                     setDadosUsuario(users)
             }
             carregarDadosFirestore()

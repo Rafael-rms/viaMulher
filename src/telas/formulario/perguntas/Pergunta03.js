@@ -1,17 +1,18 @@
-import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView, Button } from 'react-native'
 import Cabecalho from '../../../componentes/Cabecalho'
 import Linha from '../../../componentes/Linha'
 import Caixa from '../componentes/Caixa'
 import Botao from '../componentes/Botao'
 import { useEffect, useState } from 'react'
-import { auth } from '../../../config/firebase'
-import { capturaDados } from '../../../servicos/banco'
+import { auth, db } from '../../../config/firebase'
+import { capturaDadosUsuario } from '../../../servicos/req'
 import moment from 'moment/moment'
 import { styles } from './styles'
+import { updateDoc, doc } from 'firebase/firestore'
 
 
 export default function Pergunta03({ navigation }) {
-
+    const [resposta03, setResposta3] = useState('')
     const [dadosUsuario, setDadosUsuario] = useState([])
     let dia = moment().format('DD/MM/YYYY')
     
@@ -24,13 +25,18 @@ export default function Pergunta03({ navigation }) {
                 
                 // Função para carregar os dados do Firestore
                 async function carregarDadosFirestore() {
-                    const users = await capturaDados(result)
+                    const users = await capturaDadosUsuario(result)
                     setDadosUsuario(users)
                 }
                 carregarDadosFirestore()
             }
         })
     }, [])
+
+    async function pegarResposta(){
+        await updateDoc(doc(db, "formulario", dadosUsuario.id),{resposta03})
+        navigation.navigate('Pergunta04')
+    }
 
     return (
         <ScrollView>
@@ -62,18 +68,10 @@ export default function Pergunta03({ navigation }) {
 
                 <View>
                     {/* Botões do formulário */}
-                    <Botao
-                        onPress={() => { }}
-                        texto='SIM' />
-                    <Botao
-                        onPress={() => { }}
-                        texto='NÃO' />
-                    <Botao
-                        onPress={() => { }}
-                        texto='NÃO SABE' />
-                    <Botao
-                        onPress={() => { }}
-                        texto='NÃO SE APLICA' />
+                    <Botao onPress={() => {setResposta3("Sim")}} texto="Sim"></Botao>
+                    <Botao onPress={() => {setResposta3("Não")}} texto="Não"></Botao>
+                    <Botao onPress={() => {setResposta3("Não sabe")}} texto="Não sabe"></Botao>
+                    <Botao onPress={() => {setResposta3("Não se aplica")}} texto="Não se aplica"></Botao>
 
                     {/* <Botao
                         onPress={() => { }}
@@ -81,7 +79,7 @@ export default function Pergunta03({ navigation }) {
                         style={[styles.botaoProximo]}/> */}
 
                     <TouchableOpacity
-                        onPress={() => {navigation.navigate('Pergunta04')}}
+                        onPress={() => {pegarResposta()}}
                         style={styles.botaoProximo}>
                         <Text style={styles.textoProximo}>Próximo</Text>
                     </TouchableOpacity>

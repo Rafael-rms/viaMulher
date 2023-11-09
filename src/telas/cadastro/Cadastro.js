@@ -3,7 +3,7 @@ import { Image, ScrollView, KeyboardAvoidingView, StyleSheet } from 'react-nativ
 import Entrada from './componentes/Entrada';
 import Botao from './componentes/Botao';
 import Alert from '../../componentes/Alert';
-import { cadastrar } from '../../servicos/banco';
+import { cadastrar } from '../../servicos/req';
 import Cabecalho from '../../componentes/Cabecalho';
 import { alteraDados } from '../../utils/comum';
 //import { criarUsuario } from '../../servicos/banco';
