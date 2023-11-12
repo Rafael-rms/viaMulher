@@ -314,7 +314,7 @@ export default function ({ navigation }) {
                 <Text style={Estilos.textosTitulos}>Data da realização</Text>
                 <Text style={Estilos.textosDados}>{dia}</Text>
 
-                <Button title="" onPress={print} />
+                {/* <Button title="" onPress={print} /> */}
                 <TouchableOpacity style={Estilos.botaoExibirForm}
                         onPress={() => { downloadPDF() }}>
                         <Text style={Estilos.textoExibirForm}>Baixar Formulário</Text>

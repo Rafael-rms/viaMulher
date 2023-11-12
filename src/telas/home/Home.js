@@ -57,28 +57,28 @@ export default Home = ({navigation}) => {
                 style={{borderTopLeftRadius: 20}}
                 onpress={()=>navigation.navigate("Perfil")}
                 texto="Perfil"
-                imagem={require('../../assets/teste/perfilColo2.png')}/>
+                imagem={require('../../assets/home/perfilColo.png')}/>
 
                 <Botao
                 style={{borderTopRightRadius:20}}
                 onpress={()=>navigation.navigate('Formulario')}
                 texto="Formulário"
-                imagem={require('../../assets/teste/form.png')}/>
+                imagem={require('../../assets/home/form.png')}/>
 
                 <Botao
                 onpress={()=>navigation.navigate('Contatos')}
                 texto="Contatos"
-                imagem={require('../../assets/contatos.png')}/>
+                imagem={require('../../assets/home/contatos.png')}/>
 
                 <Botao
                 onpress={()=>navigation.navigate('Denuncias')}
                 texto="Denúncias"
-                imagem={require('../../assets/teste/denunciascolorido.png')}/>
+                imagem={require('../../assets/home/denunciascolorido.png')}/>
 
                 <Botao
                 onpress={()=>navigation.navigate('Informacoes')}
                 texto="Informaçoes"
-                imagem={require('../../assets/teste/iinfo.png')}/>
+                imagem={require('../../assets/home/iinfo.png')}/>
 
                 <Botao
                 onpress={()=>navigation.navigate('Sobre')}
@@ -119,18 +119,8 @@ const styles = StyleSheet.create({
         flexDirection:'row',
         flexWrap:'wrap',
         flex:1,
-        //backgroundColor:'black',
         alignItems:'center',
-        justifyContent:'center',
+        // justifyContent:'center',
 
-    },
-    // botoes:{
-    //     height:100,
-    //     width:'50%',
-    //     backgroundColor:'#FFDFDF',
-    //     alignItems:'center',
-    //     justifyContent:'center',
-    //     borderWidth: 1,
-        
-    // }
+    }
 })

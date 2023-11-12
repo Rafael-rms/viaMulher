@@ -23,8 +23,6 @@ export default function Perfil({navigation}) {
         })
         },[])
 
-
-
     return (
         <View style={Estilos.container}>
             <Cabecalho

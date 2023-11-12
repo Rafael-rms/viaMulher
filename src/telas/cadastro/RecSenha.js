@@ -18,7 +18,7 @@ export default Cadastro = ({ navigation }) => {
         />
 
         {/* Imagem exibida na tela de recuperar senha */}
-        <Image source={require('../../assets/recSenha.png')}
+        <Image source={require('../../assets/cadastro/recSenha.png')}
           style={styles.imgRecSenha}
         />
         {/* Textos exibidos na tela de recuperar senha */}
@@ -27,7 +27,7 @@ export default Cadastro = ({ navigation }) => {
 
         {/* Chamada do componente Entrada (TextInput) */}
         <Entrada
-          imagem={require('../../assets/email.png')}
+          imagem={require('../../assets/cadastro/email.png')}
           placeholder="Email"
         />
         {/* Chamda do componente Botao */}
@@ -46,11 +46,10 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "#FFDFDF",
     flex: 1,
-    //justifyContent: "center",
     alignItems: "center",
   },
   imgRecSenha: {
-    width: 130,
+    width: 150,
     height: 155,
     marginBottom: '5%',
   },

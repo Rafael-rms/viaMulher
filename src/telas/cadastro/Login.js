@@ -69,18 +69,16 @@ export default function Login({ navigation }) {
       {/* View que contém a Imagem exibida na tela de Login */}
       <View style={styles.containerLogo}>
         <Image
-          style={{
-            width: 130,
-            height: 155
-          }}
-          source={require("../../assets/login.png")} />
+          style={styles.imgLogin}
+          source={require("../../assets/cadastro/login.png")} 
+        />
       </View>
 
       {/* View com botões e TextInputs */}
       <View style={styles.containerLogin}>
         {/* Chamda do componente Entrada (TextInput) */}
         <Entrada
-          imagem={require('../../assets/email.png')}
+          imagem={require('../../assets/cadastro/email.png')}
           placeholder="Email"
           value={dados.email}
           onChangeText={valor => alteraDados('email', valor, dados, setDados)}
@@ -96,7 +94,7 @@ export default function Login({ navigation }) {
 
         {/* Chamda do componente Entrada (TextInput) */}
         <Entrada
-          imagem={require('../../assets/senha.png')}
+          imagem={require('../../assets/cadastro/senha.png')}
           placeholder="Senha"
           value={dados.senha}
           onChangeText={valor => alteraDados('senha', valor, dados, setDados)}
@@ -142,6 +140,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: 'center',
     marginBottom: '20%'
+  },
+  imgLogin:{
+    width: 150,
+    height: 155
   },
   input: {
     backgroundColor: "#fff",

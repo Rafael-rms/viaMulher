@@ -37,7 +37,7 @@ export default function Cabecalho({ texto, imagemEsquerda, imagemDireita, botaoE
 const Estilos = StyleSheet.create({
     cabecalho: {
         flexDirection: 'row',
-        marginTop: '6%',
+        marginTop: '2%',
         alignItems: 'center',
     },
     textoTituloCabecalho: {

@@ -27,21 +27,14 @@ const Estilos = StyleSheet.create({
         borderWidth: 1,
       },
       imagem:{
-        height:'90%',
-        width:'50%'
+        position:'absolute',
+        top:'19%',
+        width:'38%',
+        height:'75%'
       },
       textoImg:{
-        marginTop:10,
-        fontSize:20
+        position:'absolute',
+        bottom:'82%',
+        fontSize:15,
       }
-    // containerBotoes:{
-    //     flexDirection:'row',
-    //     flexWrap:'wrap',
-    //     flex:1,
-    //     //backgroundColor:'black',
-    //     alignItems:'center',
-    //     justifyContent:'center',
-
-    // },
-    
 })

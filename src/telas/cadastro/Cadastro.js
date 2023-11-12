@@ -84,31 +84,31 @@ export default function Cadastro({ navigation }) {
 
         {/* Imagem que aparece na tela de cadastro */}
         <Image
-          source={require('../../assets/cadastrar.png')}
+          source={require('../../assets/cadastro/cadastrar.png')}
           style={styles.imgCadastrar} />
 
         {/* Chamada do componente entrada (TextInput) */}
         <Entrada
-          imagem={require('../../assets/nome.png')}
+          imagem={require('../../assets/cadastro/nome.png')}
           placeholder="Nome Completo"
           value={dados.nome}
           onChangeText={valor => alteraDados('nome', valor, dados, setDados)}
 
         />
         <Entrada
-          imagem={require('../../assets/celular.png')}
+          imagem={require('../../assets/cadastro/celular.png')}
           placeholder="Celular"
           value={dados.celular}
           onChangeText={valor => alteraDados('celular', valor, dados, setDados)}
         />
         <Entrada
-          imagem={require('../../assets/nascimento.png')}
+          imagem={require('../../assets/cadastro/nascimento.png')}
           placeholder="Nascimento"
           value={dados.nascimento}
           onChangeText={valor => alteraDados('nascimento', valor, dados, setDados)}
         />
         <Entrada
-          imagem={require('../../assets/email.png')}
+          imagem={require('../../assets/cadastro/email.png')}
           placeholder="E-mail"
           value={dados.email}
           onChangeText={valor => alteraDados('email', valor, dados, setDados)}
@@ -116,7 +116,7 @@ export default function Cadastro({ navigation }) {
           messageError={mensageError}
         />
         <Entrada
-          imagem={require('../../assets/senha.png')}
+          imagem={require('../../assets/cadastro/senha.png')}
           placeholder="Senha"
           value={dados.senha}
           onChangeText={valor => alteraDados('senha', valor, dados, setDados)}
@@ -124,7 +124,7 @@ export default function Cadastro({ navigation }) {
           messageError={mensageError}
         />
         <Entrada
-          imagem={require('../../assets/senha.png')}
+          imagem={require('../../assets/cadastro/senha.png')}
           placeholder="Confirmar Senha"
           value={dados.confirmaSenha}
           onChangeText={valor => alteraDados('confirmaSenha', valor, dados, setDados)}
@@ -132,7 +132,7 @@ export default function Cadastro({ navigation }) {
           messageError={mensageError}
         />
 
-        {/* Chamda do componente Botao */}
+        {/* Chamada do componente Botao */}
         <Botao
           onpress={() => realizarCadastro()}
           textoBotao="Cadastrar"
@@ -151,16 +151,13 @@ export default function Cadastro({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "#FFDFDF",
-    justifyContent: "center",
     alignItems: "center",
+    flex:1
   },
   imgCadastrar: {
-    width: 130,
+    width: 160,
     height: 155,
     marginBottom: '5%',
     marginTop: '20%'
-  },
-  alert: {
-
-  },
+  }
 })
