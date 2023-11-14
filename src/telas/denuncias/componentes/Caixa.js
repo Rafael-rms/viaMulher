@@ -11,7 +11,8 @@ export default function Caixa({ titulo, texto, imagem, onPress }) {
             <Text style={Estilos.textoCaixa}>{texto}</Text>
 
             <TouchableOpacity onPress={onPress}>
-                <Image source={imagem} />
+                <Image 
+                source={imagem} />
             </TouchableOpacity>
         </View>
     )
@@ -32,11 +33,18 @@ const Estilos = StyleSheet.create({
         width: '94%',
         alignItems: 'center',
         borderRadius: 20,
+        paddingBottom: '1%'
     },
     texoTituloCaixa: {
         marginTop: '3%',
         fontSize: 23,
         fontWeight: 'bold'
+    },
+    imagemIcon:{
+        position:'absolute',
+        top:'19%',
+        width:'38%',
+        height:'75%'
     },
     textoCaixa: {
         fontSize: 20,

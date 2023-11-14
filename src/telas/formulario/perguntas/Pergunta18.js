@@ -9,7 +9,7 @@ import { capturaDados, capturaDadosUsuario } from '../../../servicos/req'
 import moment from 'moment/moment'
 import { styles } from './styles'
 import { updateDoc, doc } from 'firebase/firestore'
-
+import { pergunta18 } from '../../../mocks/perguntas'
 export default function Pergunta18({ navigation }) {
     const [resposta18, setResposta18] = useState('')
     const [dadosUsuario, setDadosUsuario] = useState([])
@@ -63,7 +63,7 @@ export default function Pergunta18({ navigation }) {
 
                 {/* caixa de perguntas do formulário */}
                 <Caixa 
-                texto="O(A) agressor(a) já obrigou a senhora/você a ter relações sexuais contra a sua vontade?"/>
+                texto={pergunta18}/>
 
                 <View>
                     {/* Botões do formulário */}

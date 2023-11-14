@@ -5,10 +5,11 @@ import Caixa from '../componentes/Caixa'
 import Botao from '../componentes/Botao'
 import { useEffect, useState } from 'react'
 import { auth, db } from '../../../config/firebase'
-import { capturaDados, capturaDadosUsuario } from '../../../servicos/req'
+import { capturaDadosUsuario } from '../../../servicos/req'
 import moment from 'moment/moment'
 import { styles } from './styles'
 import { updateDoc, doc } from 'firebase/firestore'
+import { pergunta08 } from '../../../mocks/perguntas'
 
 export default function Pergunta08({ navigation }) {
     const [resposta08, setResposta8] = useState('')
@@ -62,7 +63,7 @@ export default function Pergunta08({ navigation }) {
 
                 {/* caixa de perguntas do formulário */}
                 <Caixa 
-                texto="O(A) agressor(a) já a agrediu fisicamente outras vezes?"/>
+                texto={pergunta08}/>
 
                 <View>
                     {/* Botões do formulário */}

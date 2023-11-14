@@ -9,6 +9,7 @@ import { capturaDados, capturaDadosUsuario } from '../../../servicos/req'
 import moment from 'moment/moment'
 import { styles } from './styles'
 import { updateDoc, doc } from 'firebase/firestore'
+import { pergunta17 } from '../../../mocks/perguntas'
 
 export default function Pergunta17({ navigation }) {
     const [resposta17, setResposta17] = useState('')
@@ -63,7 +64,7 @@ export default function Pergunta17({ navigation }) {
 
                 {/* caixa de perguntas do formulário */}
                 <Caixa 
-                texto="O(A) agressor(a) já ameaçou ou tentou se matar alguma vez?"/>
+                texto={pergunta17}/>
 
                 <View>
                     {/* Botões do formulário */}

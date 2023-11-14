@@ -9,7 +9,7 @@ import { capturaDadosUsuario } from '../../../servicos/req'
 import moment from 'moment/moment'
 import { styles } from './styles'
 import { updateDoc, doc } from 'firebase/firestore'
-
+import { pergunta06 } from '../../../mocks/perguntas'
 export default function Pergunta06({ navigation }) {
     const [resposta06, setResposta6] = useState('')
     const [dadosUsuario, setDadosUsuario] = useState([])
@@ -62,7 +62,7 @@ export default function Pergunta06({ navigation }) {
 
                 {/* caixa de perguntas do formulário */}
                 <Caixa 
-                texto="O(A) agressor(a) também é violento com outras pessoas(familiares, amigos, colegas etc.)?"/>
+                texto={pergunta06}/>
 
                 <View>
                     {/* Botões do formulário */}

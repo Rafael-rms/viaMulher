@@ -78,12 +78,12 @@ export default Home = ({navigation}) => {
                 <Botao
                 onpress={()=>navigation.navigate('Informacoes')}
                 texto="Informaçoes"
-                imagem={require('../../assets/home/iinfo.png')}/>
+                imagem={require('../../assets/home/about.png')}/>
 
                 <Botao
                 onpress={()=>navigation.navigate('Sobre')}
                 texto="Sobre"
-                imagem={require('../../assets/sobre.png')}/>
+                imagem={require('../../assets/home/information.png')}/>
             </View>
         </View>
     )

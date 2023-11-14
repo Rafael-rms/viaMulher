@@ -61,10 +61,20 @@ export default function ({ navigation }) {
     padding: 8px;
     text-align: center;
     }
+	div.containerCapa {
+	background-image: linear-gradient(45deg, #2A0439 55%,#3E144D 55%,#71517D 55%,#5c2273 55%, white 25%, transparent);
+    margin: 15px;
+}
+	div.containerContraCapa{
+
+        background-image: linear-gradient(50deg,  #421b5100 1%,white 25%, #f8e7ff 55%, #f8e7ff 50%, transparent);
+}
 
 </style>
 
     <body>
+<div class="containerCapa">
+    <div class="containerContraCapa">
             <div></br>
             </br></br></br></br>
             </br></br></br></br>
@@ -89,16 +99,15 @@ export default function ({ navigation }) {
         </br></br></br></br>
         </br></br></br></br>
         </br></br></br></br>
-        </br></br></br></br>
-        </br></br></br></br>
-        </br></br></br></br>
+
         </div>
-
-
+    </div>
+</div>
         
         <div>
+
             <table>
-            
+            <thead>
                 <tr>
                     <td>
                     Perguntas
@@ -108,7 +117,7 @@ export default function ({ navigation }) {
                     </td>
                 </tr>
             
-
+            </thead>
             <tbody>
                 <tr>
                     <td>

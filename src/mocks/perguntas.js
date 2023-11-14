@@ -1,4 +1,4 @@
-export const pergunta01 = "A violência vem aumentando de gravidade e/ou </br> de frequência no último mês?"
+export const pergunta01 = "A violência vem aumentando de gravidade e/ou de frequência no último mês?"
 export const pergunta02 = "A senhora/você está grávida ou teve bebê nos últimos 18 meses?"
 export const pergunta03 = "A senhora/você tem filhos(as) com o(a) agressor(a)? (Caso não tenham filhos em comum, o registro não se aplica) Em caso afirmativo, estão vivendo algum conflito com relação àguarda dos filhos, visitas ou pagamento de pensão pelo agressor?"
 export const pergunta04 = "O(A) agressor(a) persegue a senhora/você, demonstra ciúme excessivo, tenta controlar sua vida e as coisas que você faz (aonde você vai, com quem conversa, o tipo de roupa que usa, etc.)?"

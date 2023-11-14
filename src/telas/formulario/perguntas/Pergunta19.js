@@ -1,15 +1,15 @@
-import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView, Button } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native'
 import Cabecalho from '../../../componentes/Cabecalho'
 import Linha from '../../../componentes/Linha'
 import Caixa from '../componentes/Caixa'
 import Botao from '../componentes/Botao'
 import { useEffect, useState } from 'react'
 import { auth, db } from '../../../config/firebase'
-import { capturaDados, capturaDadosUsuario } from '../../../servicos/req'
+import { capturaDadosUsuario } from '../../../servicos/req'
 import moment from 'moment/moment'
 import { styles } from './styles'
 import { updateDoc, doc } from 'firebase/firestore'
-
+import { pergunta19 } from '../../../mocks/perguntas'
 export default function Pergunta19({ navigation }) {
 
     const [resposta19, setResposta19] = useState('')
@@ -64,7 +64,7 @@ export default function Pergunta19({ navigation }) {
 
                 {/* caixa de perguntas do formulário */}
                 <Caixa 
-                texto="O(A) agressor(a) está com dificuldades financeiras, está desempregado ou tem dificuldade de se manter no emprego?"/>
+                texto={pergunta19}/>
 
                 <View>
                     {/* Botões do formulário */}

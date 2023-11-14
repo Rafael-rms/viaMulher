@@ -62,7 +62,7 @@ export default Denuncias = ({ navigation }) => {
                 <Caixa
                     titulo={tituloCAM}
                     texto={textoCAM}
-                    imagem={require('../../assets/denuncias.png')}
+                    imagem={require('../../assets/phone-callt.png')}
                     onPress={chamarCAM}
                 />
                 <Caixa
@@ -81,7 +81,7 @@ export default Denuncias = ({ navigation }) => {
                 <Caixa
                     titulo={tituloPM}
                     texto={textoPM}
-                    imagem={require('../../assets/denuncias.png')}
+                    imagem={require('../../assets/phone-callt.png')}
                     onPress={chamarPM}
                 />
             </View>
@@ -95,6 +95,13 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#FFDFDF',
         alignItems: 'center',
-    }
+
+    },
+    imagem:{
+        position:'absolute',
+        top:'19%',
+        width:'38%',
+        height:'75%'
+    },
 })
 

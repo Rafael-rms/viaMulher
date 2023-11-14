@@ -9,7 +9,7 @@ import { capturaDadosUsuario } from '../../../servicos/req'
 import moment from 'moment/moment'
 import { styles } from './styles'
 import { updateDoc, doc } from 'firebase/firestore'
-
+import { pergunta03 } from '../../../mocks/perguntas'
 
 export default function Pergunta03({ navigation }) {
     const [resposta03, setResposta3] = useState('')
@@ -63,8 +63,7 @@ export default function Pergunta03({ navigation }) {
 
                 {/* caixa de perguntas do formulário */}
                 <Caixa 
-                texto="A senhora/você tem filhos(as) com o(a) agressor(a)? (Caso não tenham filhos em comum, o registro não se aplica)
-                Em caso afirmativo, estão vivendo algum conflito com relação àguarda dos filhos, visitas ou pagamento de pensão pelo agressor?"/>
+                texto={pergunta03}/>
 
                 <View>
                     {/* Botões do formulário */}

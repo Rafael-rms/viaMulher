@@ -9,6 +9,8 @@ import { capturaDados, capturaDadosUsuario } from '../../../servicos/req'
 import moment from 'moment/moment'
 import { styles } from './styles'
 import { updateDoc, doc } from 'firebase/firestore'
+import { pergunta16 } from '../../../mocks/perguntas'
+
 export default function Pergunta16({ navigation }) {
     const [resposta16, setResposta16] = useState('')
     const [dadosUsuario, setDadosUsuario] = useState([])
@@ -61,8 +63,7 @@ export default function Pergunta16({ navigation }) {
 
                 {/* caixa de perguntas do formulário */}
                 <Caixa 
-                texto="A senhora/você já teve ou tem medida protetiva de urgência?(Caso não tenha tido medidas protetivas de urgência antes,o registro não se aplica.)
-                O(A) agressor(a) já descumpriu medida protetiva de afastamento ou proibição de contato?"/>
+                texto={pergunta16}/>
 
                 <View>
                     {/* Botões do formulário */}

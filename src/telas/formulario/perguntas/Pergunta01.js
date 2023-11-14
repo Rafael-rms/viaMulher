@@ -1,14 +1,14 @@
-import { View, Text, TouchableOpacity, ScrollView, Button, StyleSheet } from 'react-native'
+import { View, Text, TouchableOpacity, ScrollView, StyleSheet } from 'react-native'
 import Cabecalho from '../../../componentes/Cabecalho'
 import Linha from '../../../componentes/Linha'
 import Caixa from '../componentes/Caixa'
 import { useEffect, useState } from 'react'
 import { auth } from '../../../config/firebase'
-import { capturaDados, capturaDadosUsuario, salvarFormulario } from '../../../servicos/req'
+import {capturaDadosUsuario, salvarFormulario } from '../../../servicos/req'
 import moment from 'moment/moment'
 import { styles } from './styles'
-import { db } from '../../../config/firebase'
 import Botao from '../componentes/Botao'
+import { pergunta01 } from '../../../mocks/perguntas'
 
 export default function Pergunta01({ navigation }) {
 
@@ -69,7 +69,7 @@ export default function Pergunta01({ navigation }) {
                 texto='A senhora/você tem filhos(as) com o(a) agressor(a)? (Caso não tenham filhos em comum, o registro não se aplica)
                 Em caso afirmativo, estão vivendo algum conflito com relação àguarda dos filhos, visitas ou pagamento de pensão pelo agressor?'/> */}
                 <Caixa
-                    texto=" A violência vem aumentando de gravidade e/ou de frequência no último mês?" />
+                    texto={pergunta01}/>
 
                 <View>
                     {/* Botões do formulário */}

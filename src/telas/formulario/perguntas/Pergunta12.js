@@ -5,11 +5,11 @@ import Caixa from '../componentes/Caixa'
 import Botao from '../componentes/Botao'
 import { useEffect, useState } from 'react'
 import { auth, db } from '../../../config/firebase'
-import { capturaDados, capturaDadosUsuario } from '../../../servicos/req'
+import { capturaDadosUsuario } from '../../../servicos/req'
 import moment from 'moment/moment'
 import { styles } from './styles'
 import { updateDoc, doc } from 'firebase/firestore'
-
+import { pergunta12 } from '../../../mocks/perguntas'
 export default function Pergunta12({ navigation }) {
     const [resposta12, setResposta12] = useState('')
     const [dadosUsuario, setDadosUsuario] = useState([])
@@ -63,7 +63,7 @@ export default function Pergunta12({ navigation }) {
 
                 {/* caixa de perguntas do formulário */}
                 <Caixa 
-                texto="O(A) agressor(a) já a ameaçou ou feriu com outro tipo de arma ou instrumento?"/>
+                texto={pergunta12}/>
 
                 <View>
                     {/* Botões do formulário */}

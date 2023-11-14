@@ -5,10 +5,13 @@ import Caixa from '../componentes/Caixa'
 import Botao from '../componentes/Botao'
 import { useEffect, useState } from 'react'
 import { auth,db } from '../../../config/firebase'
-import { capturaDados, capturaDadosUsuario } from '../../../servicos/req'
+import { capturaDadosUsuario } from '../../../servicos/req'
 import moment from 'moment/moment'
 import { styles } from './styles'
 import { updateDoc, doc } from 'firebase/firestore'
+import { pergunta13 } from '../../../mocks/perguntas'
+
+
 export default function Pergunta13({ navigation }) {
     const [resposta13, setResposta13] = useState('')
     const [dadosUsuario, setDadosUsuario] = useState([])
@@ -62,7 +65,7 @@ export default function Pergunta13({ navigation }) {
 
                 {/* caixa de perguntas do formulário */}
                 <Caixa 
-                texto="A senhora/você necessitou de atendimento médico e/ou internação após algumas dessas agressões?"/>
+                texto={pergunta13}/>
 
                 <View >
                     {/* Botões do formulário */}

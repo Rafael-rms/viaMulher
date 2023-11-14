@@ -9,6 +9,7 @@ import { capturaDadosUsuario } from '../../../servicos/req'
 import moment from 'moment/moment'
 import { styles } from './styles'
 import { updateDoc, doc } from 'firebase/firestore'
+import { pergunta05 } from '../../../mocks/perguntas'
 
 export default function Pergunta05({ navigation }) {
     const [resposta05,setResposta5] = useState('')
@@ -61,7 +62,7 @@ export default function Pergunta05({ navigation }) {
 
                 {/* caixa de perguntas do formulário */}
                 <Caixa 
-                texto="A senhora/você se separou recentemente do(a) agressor(a),tentou ou tem intenção de se separar?"/>
+                texto={pergunta05}/>
 
                 <View>
                     {/* Botões do formulário */}

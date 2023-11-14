@@ -9,6 +9,7 @@ import moment from 'moment/moment'
 import { styles } from './styles'
 import { updateDoc, doc } from 'firebase/firestore'
 import Botao from '../componentes/Botao'
+import { pergunta02 } from '../../../mocks/perguntas'
 
 export default function Pergunta02({ navigation }) {
     const [resposta02, setResposta2] = useState('')
@@ -62,7 +63,7 @@ export default function Pergunta02({ navigation }) {
 
                 {/* caixa de perguntas do formulário */}
                 <Caixa 
-                texto=" A senhora/você está grávida ou teve bebê nos últimos 18 meses?"/>
+                texto={pergunta02}/>
 
                 <View>
                     {/* Botões do formulário */}

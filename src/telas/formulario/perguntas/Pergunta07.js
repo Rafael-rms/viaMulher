@@ -9,6 +9,7 @@ import { capturaDados, capturaDadosUsuario } from '../../../servicos/req'
 import moment from 'moment/moment'
 import { styles } from './styles'
 import { updateDoc, doc } from 'firebase/firestore'
+import { pergunta07 } from '../../../mocks/perguntas'
 
 export default function Pergunta07({ navigation }) {
     const [resposta07, setResposta7] = useState('')
@@ -62,8 +63,7 @@ export default function Pergunta07({ navigation }) {
 
                 {/* caixa de perguntas do formulário */}
                 <Caixa 
-                texto="A senhora/você possui algum animal doméstico? (Caso nãotenha animal doméstico, o registro não se aplica.)
-                Em caso afirmativo, o(a) agressor(a) maltrata ou agride o animal?"/>
+                texto={pergunta07}/>
 
                 <View>
                     {/* Botões do formulário */}
