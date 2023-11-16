@@ -10,6 +10,8 @@ import moment from 'moment/moment'
 import { styles } from './styles'
 import { updateDoc, doc } from 'firebase/firestore'
 import { pergunta12 } from '../../../mocks/perguntas'
+import { Alert } from 'react-native'
+
 export default function Pergunta12({ navigation }) {
     const [resposta12, setResposta12] = useState('')
     const [dadosUsuario, setDadosUsuario] = useState([])
@@ -33,8 +35,13 @@ export default function Pergunta12({ navigation }) {
     }, [])
 
     async function pegarResposta(){
+        if(resposta12 === ""){
+            Alert.alert("Selecione uma resposta")
+        }else{
         await updateDoc(doc(db, "formulario", dadosUsuario.id),{resposta12})
         navigation.navigate('Pergunta13')
+        }
+        
     }
 
 

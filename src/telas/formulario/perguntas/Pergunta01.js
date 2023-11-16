@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, ScrollView, StyleSheet } from 'react-native'
+import { View, Text, TouchableOpacity, ScrollView, StyleSheet, Alert } from 'react-native'
 import Cabecalho from '../../../componentes/Cabecalho'
 import Linha from '../../../componentes/Linha'
 import Caixa from '../componentes/Caixa'
@@ -33,16 +33,21 @@ export default function Pergunta01({ navigation }) {
         })
     }, [])
     async function pegarResposta(){
+    if(resposta01 === ''){
+        Alert.alert("Selecione uma resposta")
+    }else{
         const id = dadosUsuario.id
         const resul = await salvarFormulario({dadosUsuario, resposta01, id})
         console.log(resul)
         navigation.navigate('Pergunta02')
         
     }
+    }
+    
 
 
     return (
-        <ScrollView contentContainerStyle={{flex:1}}>
+        <ScrollView >
             <View style={styles.container}>
                 <Cabecalho
                     texto="Formulário"

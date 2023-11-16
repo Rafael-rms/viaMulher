@@ -34,8 +34,13 @@ export default function Pergunta03({ navigation }) {
     }, [])
 
     async function pegarResposta(){
-        await updateDoc(doc(db, "formulario", dadosUsuario.id),{resposta03})
+        if(resposta03 === ''){
+            Alert.alert("Selecione uma resposta")
+        }else{
+            await updateDoc(doc(db, "formulario", dadosUsuario.id),{resposta03})
         navigation.navigate('Pergunta04')
+        }
+        
     }
 
     return (

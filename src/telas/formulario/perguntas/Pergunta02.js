@@ -10,6 +10,7 @@ import { styles } from './styles'
 import { updateDoc, doc } from 'firebase/firestore'
 import Botao from '../componentes/Botao'
 import { pergunta02 } from '../../../mocks/perguntas'
+import { Alert } from 'react-native'
 
 export default function Pergunta02({ navigation }) {
     const [resposta02, setResposta2] = useState('')
@@ -33,13 +34,19 @@ export default function Pergunta02({ navigation }) {
         })
     }, [])
 
-    async function pegarResposta(){
-        await updateDoc(doc(db, "formulario", dadosUsuario.id),{resposta02})
-        navigation.navigate('Pergunta03')
+    async function pegarResposta() {
+
+        if (resposta02 === '') {
+            Alert.alert("Selecione uma resposta")
+        } else {
+            await updateDoc(doc(db, "formulario", dadosUsuario.id), { resposta02 })
+            navigation.navigate('Pergunta03')
+        }
+
     }
 
     return (
-        <ScrollView contentContainerStyle={{flex:1}}>
+        <ScrollView >
             <View style={styles.container}>
                 <Cabecalho
                     texto="Formulário"

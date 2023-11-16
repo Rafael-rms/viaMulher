@@ -77,7 +77,7 @@ export default Home = ({navigation}) => {
 
                 <Botao
                 onpress={()=>navigation.navigate('Informacoes')}
-                texto="Informaçoes"
+                texto="Informações"
                 imagem={require('../../assets/home/about.png')}/>
 
                 <Botao
@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
         fontSize:25,
     },
     sejaBemVindo:{
-        fontWeight:'500',
+        fontWeight:'600',
         fontSize:15,
         marginTop:'3%'
     },

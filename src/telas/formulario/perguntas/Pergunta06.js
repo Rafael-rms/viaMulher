@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView, Button } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView, Button, Alert } from 'react-native'
 import Cabecalho from '../../../componentes/Cabecalho'
 import Linha from '../../../componentes/Linha'
 import Caixa from '../componentes/Caixa'
@@ -10,6 +10,7 @@ import moment from 'moment/moment'
 import { styles } from './styles'
 import { updateDoc, doc } from 'firebase/firestore'
 import { pergunta06 } from '../../../mocks/perguntas'
+
 export default function Pergunta06({ navigation }) {
     const [resposta06, setResposta6] = useState('')
     const [dadosUsuario, setDadosUsuario] = useState([])
@@ -33,8 +34,13 @@ export default function Pergunta06({ navigation }) {
     }, [])
 
     async function pegarResposta(){
-        await updateDoc(doc(db, "formulario", dadosUsuario.id),{resposta06})
-        navigation.navigate('Pergunta07')
+        if(resposta06 === ''){
+            Alert.alert("Selecione uma resposta")
+        }else{
+            await updateDoc(doc(db, "formulario", dadosUsuario.id),{resposta06})
+            
+            navigation.navigate('Pergunta07')
+        }
     }
 
     return (

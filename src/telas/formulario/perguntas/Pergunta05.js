@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView, Button } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView, Button, Alert } from 'react-native'
 import Cabecalho from '../../../componentes/Cabecalho'
 import Linha from '../../../componentes/Linha'
 import Caixa from '../componentes/Caixa'
@@ -33,8 +33,15 @@ export default function Pergunta05({ navigation }) {
         })
     }, [])
     async function pegarResposta(){
+    
+        if(resposta05 === ""){
+            Alert.alert("Selecione uma resposta")
+    }else {
         await updateDoc(doc(db, "formulario", dadosUsuario.id),{resposta05})
         navigation.navigate('Pergunta06')
+    }
+    
+        
     }
 
     return (

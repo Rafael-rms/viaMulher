@@ -62,26 +62,26 @@ export default Denuncias = ({ navigation }) => {
                 <Caixa
                     titulo={tituloCAM}
                     texto={textoCAM}
-                    imagem={require('../../assets/phone-callt.png')}
+                    imagem={require('../../assets/call.png')}
                     onPress={chamarCAM}
                 />
                 <Caixa
                     titulo={tituloDDH}
                     texto={textoDDH}
-                    imagem={require('../../assets/denuncias.png')}
+                    imagem={require('../../assets/call.png')}
                     onPress={chamarDDH}
                 />
 
                 <Caixa
                     titulo={tituloDM}
                     texto={textoDM}
-                    imagem={require('../../assets/denuncias.png')}
+                    imagem={require('../../assets/call.png')}
                     onPress={chamarDM}
                 />
                 <Caixa
                     titulo={tituloPM}
                     texto={textoPM}
-                    imagem={require('../../assets/phone-callt.png')}
+                    imagem={require('../../assets/call.png')}
                     onPress={chamarPM}
                 />
             </View>

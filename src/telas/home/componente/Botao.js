@@ -28,13 +28,14 @@ const Estilos = StyleSheet.create({
       },
       imagem:{
         position:'absolute',
-        top:'19%',
+        top:'20%',
         width:'38%',
         height:'75%'
       },
       textoImg:{
         position:'absolute',
-        bottom:'82%',
+        bottom:'80%',
         fontSize:15,
+        fontWeight:'600'
       }
 })
