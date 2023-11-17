@@ -1,13 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { View, StyleSheet , Image, TouchableOpacity, Text } from "react-native";
+import { View, StyleSheet , Image, Text, TouchableOpacity } from "react-native";
 import Cabecalho from "../../componentes/Cabecalho";
 import Linha from "../../componentes/Linha";
 import { capturaDadosUsuario } from "../../servicos/req";
 import { auth } from "../../config/firebase";
-import { TextInput } from "react-native-paper";
+import { Button, TextInput } from "react-native-paper";
+import { db } from "../../config/firebase";
+import { updateDoc, doc } from "firebase/firestore";
 
 export default function EditarPerfil({navigation}) {
     const [dadosUsuario, setDadosUsuario] = useState([])
+    const [novoEmail , setNovoEmail] = useState('')
+    const [nome, setNome] = useState('')
+    const [nascimento, setNascimento] = useState('')
+    const [ celular, setCelular] = useState('')
+    
 
     useEffect(() => {
         auth.onAuthStateChanged(usuario => {
@@ -25,6 +32,17 @@ export default function EditarPerfil({navigation}) {
         },[])
 
 
+        async function update(){
+
+            try{
+                await updateDoc(doc(db, 'usuarios', dadosUsuario.id ), {nascimento})
+            }
+            catch(err) {
+                console.log(err)
+            }
+        
+            console.log(dadosUsuario)
+        }
 
     return (
 
@@ -50,10 +68,20 @@ export default function EditarPerfil({navigation}) {
                 <Text style={Estilos.textosDados}>{dadosUsuario.nascimento}</Text>
 
                 <Text style={Estilos.textosTitulos}>Email</Text>
-                <Text style={Estilos.textosDados}>{dadosUsuario.email}</Text>
+                <TextInput placeholder= {dadosUsuario.email}
+                onChangeText={setNascimento}
+                value={nascimento}
+                ></TextInput>
 
                 <Text style={Estilos.textosTitulos}>Telefone</Text>
-                <Text style={Estilos.textosDados}>{dadosUsuario.celular}</Text>
+                <Text style={Estilos.textosDados}
+                
+                
+                >{dadosUsuario.celular}</Text>
+
+                <TouchableOpacity
+                onPress={() => {update()}}
+                ><Text>ala</Text></TouchableOpacity>
             </View>
         </View>
     )

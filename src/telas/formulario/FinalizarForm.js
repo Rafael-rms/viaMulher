@@ -12,6 +12,7 @@ import { pergunta01, pergunta02, pergunta03, pergunta04,
     pergunta10, pergunta11, pergunta12, pergunta13, pergunta14, pergunta15,
     pergunta16, pergunta17, pergunta18, pergunta19} from '../../mocks/perguntas'
 
+
 export default function ({ navigation }) {
     const [dadosFormulario, setDadosFormulario] = useState([])
     const [dadosUsuario, setDadosUsuario] = useState([])
@@ -67,7 +68,7 @@ export default function ({ navigation }) {
 }
 	div.containerContraCapa{
 
-        background-image: linear-gradient(50deg,  #421b5100 1%,white 25%, #f8e7ff 55%, #f8e7ff 50%, transparent);
+        background-image: linear-gradient(50deg,  #421b5100 1%,white 3%, #421b5100 2%,white 8%, #f8e7ff 3%, #f8e7ff 6%, transparent);
 }
 
 </style>
