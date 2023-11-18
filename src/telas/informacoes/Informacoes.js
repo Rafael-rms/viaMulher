@@ -33,16 +33,16 @@ export default Informacoes = ({ navigation }) => {
 
 
                 {!mostrarCard ? (
-                    <ScrollView>
+                    <ScrollView >
                         <Text style={Estilos.titulos}>Ciclo de Violência</Text>
                         <CarrosselA abrirCard={abrirCard} />
 
                         <View style={[Estilos.linha, { width: '95%' }]} />
                         <Text style={Estilos.titulos}>É Lei</Text>
-                        <CarrosselC />
+                        <CarrosselC abrirCard={abrirCard}/>
 
                         <View style={[Estilos.linha, { marginBottom: 20, width: '95%' }]} />
-                        <CarrosselB />
+                        <CarrosselB abrirCard={abrirCard}/>
 
                     </ScrollView>
                 ) : (

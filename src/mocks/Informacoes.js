@@ -1,6 +1,21 @@
-//Textos da tela de Informações
+//Textos da tela de Informações do carrossel A
 export const aumentoDeTensao = "Nesse primeiro momento, o agressor mostra-se tenso e irritado por coisas insignificantes, chegando a ter acessos de raiva. Ele também humilha a vítima, faz ameaças e destrói objetos. A mulher tenta acalmar o agressor, fica aflita e evita qualquer conduta que possa “provocá-lo”. As sensações são muitas: tristeza, angústia, ansiedade, medo e desilusão são apenas algumas Em geral, a vítima tende a negar que isso está acontecendo com ela, esconde os fatos das demais pessoas e, muitas vezes, acha que fez algo de errado para justificar o comportamento violento do agressor ou que “ele teve um dia ruim no trabalho”, por exemplo. Essa tensão pode durar dias ou anos, mas como ela aumenta cada vez mais, é muito provável que a situação levará à Fase 2."
 
 export const atoDeViolencia = "Esta fase corresponde à explosão do agressor, ou seja, a falta de controle chega ao limite e leva ao ato violento. Aqui, toda a tensão acumulada na Fase 1 se materializa em violência verbal, física, psicológica, moral ou patrimonial. Mesmo tendo consciência de que o agressor está fora de controle e tem um poder destrutivo grande em relação à sua vida, o sentimento da mulher é de paralisia e impossibilidade de reação. Aqui, ela sofre de uma tensão psicológica severa (insônia, perda de peso, fadiga constante, ansiedade) e sente medo, ódio, solidão, pena de si mesma, vergonha, confusão e dor. Nesse momento, ela também pode tomar decisões − as mais comuns são: buscar ajuda, denunciar, esconder-se na casa de amigos e parentes, pedir a separação e até mesmo suicidar-se. Geralmente, há um distanciamento do agressor."
 
 export const luaDeMel = "Esta fase se caracteriza pelo arrependimento do agressor, que se torna amável para conseguir a reconciliação. A mulher se sente confusa e pressionada a manter o seu relacionamento diante da sociedade, sobretudo quando o casal tem filhos. Em outras palavras: ela abre mão de seus direitos e recursos, enquanto ele diz que “vai mudar”. Há um período relativamente calmo, em que a mulher se sente feliz por constatar os esforços e as mudanças de atitude, lembrando também os momentos bons que tiveram juntos. Como há a demonstração de remorso, ela se sente responsável por ele, o que estreita a relação de dependência entre vítima e agressor. Um misto de medo, confusão, culpa e ilusão fazem parte dos sentimentos da mulher. Por fim, a tensão volta e, com ela, as agressões da Fase 1."
+
+
+//Textos da tela de Informações do carrossel B
+export const justiceiras = "As voluntarias juridicas do “Justiceiras” prestam orientações para mulheres em situação de violencia domestica. Podendo entrar em contato pelo Whatsapp, ou pelo site. Há preenchimento de formulario de pedido de ajuda com informações relevantes a situação de violencia da solicitante, que receberá apoio em até 48hrs, a depender da urgencia do caso"
+
+export const casaDaMulher = "A Casa da Mulher Brasileira, na cidade de São Paulo, atende 24 horas por dia, oferecendo serviços integrais e humanizados para mulheres em situação de violência.As mulheres em situação de violência que procuram a Casa da Mulher Brasileira encontram serviços de acolhimento e escuta qualificada, por meio de uma equipe multidisciplinar, que oferece atendimento psicossocial e brinquedoteca, para crianças de zero a 12 anos.Rua Vieira Ravasco, 26, Cambuci, São Paulo (SP).Horário de funcionamento: 24 horasTelefone: (11) 3275-8000"
+
+export const delegaciaDaMulher = "delegacia especializada no atendimento de mulheres vítimas de violência física, moral e sexual.Barueri-Telefone:(11) 4198-0522"
+
+//Textos da tela de Informações do carrossel c
+export const leiMariaDaPenha = "A Lei Maria da Penha estabelece que todo o caso de violência doméstica e intrafamiliar é crime, deve ser apurado através de inquérito policial e ser remetido ao Ministério Público. Esses crimes são julgados nos Juizados Especializados de Violência Doméstica contra a Mulher. Toda mulher tem direito a um abrigo provisório."
+
+export const leiDoFeminicidio = "A Lei nº 13.104/2015 torna o feminicídio um homicídio qualificado e o coloca na lista de crimes hediondos, com penas mais altas, de 12 a 30 anos. É considerado feminicídio quando o assassinato envolve violência doméstica e familiar, menosprezo ou discriminação à condição de mulher da vítima."
+
+export const outraLei = "Outra Lei"

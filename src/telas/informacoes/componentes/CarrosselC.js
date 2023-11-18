@@ -1,10 +1,11 @@
 import React from 'react';
 import { Text, StyleSheet, Dimensions, TouchableOpacity } from 'react-native';
 import Swiper from 'react-native-swiper';
+import { leiMariaDaPenha, leiDoFeminicidio, outraLei } from '../../../mocks/Informacoes';
 
 const { width } = Dimensions.get('window');
 
-const CarrosselC = () => {
+const CarrosselC = ({abrirCard}) => {
   return (
     <Swiper 
       style={styles.carrossel}  
@@ -14,15 +15,21 @@ const CarrosselC = () => {
       autoplay={true} 
       autoplayTimeout={5}
     >
-      <TouchableOpacity style={[styles.slide,{width: width * 0.9 }]}>
+      <TouchableOpacity 
+      onPress={()=>abrirCard(leiMariaDaPenha)}
+      style={[styles.slide,{width: width * 0.9 }]}>
           <Text style={styles.texto}>Lei Maria da Penha</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={[styles.slide,{width: width * 0.9 }]}>
+      <TouchableOpacity 
+      onPress={()=>abrirCard(leiDoFeminicidio)}
+      style={[styles.slide,{width: width * 0.9 }]}>
           <Text style={styles.texto}>Lei do Feminicídio</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={[styles.slide,{width: width * 0.9 }]}>
+      <TouchableOpacity 
+      onPress={()=>abrirCard(outraLei)}
+      style={[styles.slide,{width: width * 0.9 }]}>
         <Text style={styles.texto}>Outra Lei</Text>
       </TouchableOpacity>      
     </Swiper>

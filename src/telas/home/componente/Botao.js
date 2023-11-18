@@ -8,7 +8,7 @@ export default Botao = ({onpress, texto, imagem, style}) => {
       onPress={onpress}
       >
           <Text style={Estilos.textoImg} >{texto}</Text>
-          <Image style={Estilos.imagem} source={imagem}/>
+          <Image style={Estilos.imagem} source={imagem} resizeMode="contain"/>
       </TouchableOpacity>
     </View>
   );
