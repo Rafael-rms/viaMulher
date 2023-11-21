@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { View, StyleSheet, Image, Text, TouchableOpacity } from "react-native";
+import { View, StyleSheet, Image, Text, TouchableOpacity, ScrollView } from "react-native";
 import Cabecalho from "../../componentes/Cabecalho";
 import Linha from "../../componentes/Linha";
 import { capturaDadosUsuario } from "../../servicos/req";
@@ -7,6 +7,8 @@ import { auth } from "../../config/firebase";
 import { Button, TextInput } from "react-native-paper";
 import { db } from "../../config/firebase";
 import { updateDoc, doc } from "firebase/firestore";
+import { getAuth, updateEmail,updateProfile, reauthenticateWithCredential  } from "firebase/auth";
+import CardDeletarPerfil from "./CardDeletarPerfil";
 
 export default function EditarPerfil({ navigation }) {
     const [dadosUsuario, setDadosUsuario] = useState([])
@@ -14,6 +16,13 @@ export default function EditarPerfil({ navigation }) {
     const [nome, setNome] = useState('')
     const [nascimento, setNascimento] = useState('')
     const [celular, setCelular] = useState('')
+        // Utiliza o useState para controlar o estado do componente, começando como falso
+        const [card, setCard] = useState(false);
+
+        const Card = () => {
+            setCard(!card);
+        };
+    
 
 
     useEffect(() => {
@@ -33,9 +42,9 @@ export default function EditarPerfil({ navigation }) {
 
 
     async function update() {
-
+        
         try {
-            await updateDoc(doc(db, 'usuarios', dadosUsuario.id), { nascimento })
+            await updateDoc(doc(db, 'usuarios', dadosUsuario.id), { nome, celular, nascimento })
         }
         catch (err) {
             console.log(err)
@@ -44,8 +53,9 @@ export default function EditarPerfil({ navigation }) {
         console.log(dadosUsuario)
     }
 
-    return (
 
+    return (
+<ScrollView>
         <View style={Estilos.container}>
             <Cabecalho
                 texto="Perfil"
@@ -65,26 +75,44 @@ export default function EditarPerfil({ navigation }) {
                 <TextInput style={Estilos.textosDados}>{dadosUsuario.nome}</TextInput>
 
                 <Text style={Estilos.textosTitulos}>Data de Nascimento</Text>
-                <Text style={Estilos.textosDados}>{dadosUsuario.nascimento}</Text>
-
-                <Text style={Estilos.textosTitulos}>Email</Text>
-                <TextInput placeholder={dadosUsuario.email}
+                <TextInput placeholder={dadosUsuario.nascimento}
                     onChangeText={setNascimento}
                     value={nascimento}
                 ></TextInput>
 
+                <Text style={Estilos.textosTitulos}>Email</Text>
+                <Text style={Estilos.textosDados}>{dadosUsuario.email}</Text>
+
                 <Text style={Estilos.textosTitulos}>Telefone</Text>
-                <Text style={Estilos.textosDados}
+                <TextInput placeholder={dadosUsuario.celular}
+                    onChangeText={setCelular}
+                    value={celular}
+                ></TextInput>
 
-
-                >{dadosUsuario.celular}</Text>
 
                 <TouchableOpacity
                     style={Estilos.botaoSalvar}
                     onPress={() => { update() }}>
                     <Text style={Estilos.textoBotao}>Salvar</Text></TouchableOpacity>
+                <View style={Estilos.containerCard}>
+                {!card ? (
+                    <TouchableOpacity
+                    style={Estilos.botaoDeletar}
+                    onPress={Card}>
+                    <Text style={Estilos.textoBotao}>Deletar Conta</Text>
+                    </TouchableOpacity>
+
+                ): (
+                    <CardDeletarPerfil
+                    navigation = {navigation}
+                    />
+
+                )}
+                </View>
+                    
             </View>
         </View>
+        </ScrollView>
     )
 }
 
@@ -96,7 +124,19 @@ const Estilos = StyleSheet.create({
     },
     botaoSalvar: {
         backgroundColor: "#D69595",
-        marginTop: "2%",
+        marginTop: "3%",
+        borderRadius: 20,
+        width: 120,
+        minwidth: "40%",
+        height: 30,
+        alignItems: "center",
+        justifyContent: 'center',
+        alignSelf: 'center'
+    },
+    botaoDeletar:{
+        backgroundColor: "#DE3E26",
+        marginTop: "3%",
+        marginBottom:"3%",
         borderRadius: 20,
         width: 120,
         minwidth: "40%",
@@ -119,6 +159,11 @@ const Estilos = StyleSheet.create({
         // backgroundColor:'green',
         width: '90%',
         marginTop: '1%'
+    },
+    containerCard: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        flex: 1
     },
     entrada: {
         height: 30,

@@ -6,7 +6,7 @@ import {
     AuthErrorCodes
 } from "firebase/auth";
 
-import { setDoc, doc, getDoc, addDoc, collection, updateDoc } from 'firebase/firestore'
+import { setDoc, doc, getDoc} from 'firebase/firestore'
 
 
 //Possiveis erros que pode dar ao cadastrar o email e senha
@@ -130,12 +130,3 @@ export async function salvarFormulario(data) {
     }
 }
 
-
-export async function atualizarResposta(resposta) {
-    try {
-        await updateDoc(doc(db, "formulario", "FormularioUsuario"), { resposta })
-    } catch (error) {
-        console.log('Erro ao inserir resposta', error)
-        return error
-    }
-}

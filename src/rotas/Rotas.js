@@ -12,6 +12,7 @@ import Informacoes from '../telas/informacoes/Informacoes';
 import CardContatos from '../telas/contatos/componentes/CardContatos';
 import Perfil from '../telas/perfil/Perfil';
 import EditarPerfil from '../telas/perfil/EditarPerfil'
+import CardDeletarPerfil from '../telas/perfil/CardDeletarPerfil';
 import Formulario from '../telas/formulario/Formulario';
 import Configuracoes from '../telas/configuracoes/Configuracoes';
 import Pergunta02 from '../telas/formulario/perguntas/Pergunta02';
@@ -86,6 +87,10 @@ export default function App() {
 
         <Stack.Screen
           name="EditarPerfil" component={EditarPerfil}
+          options={{ headerShown: false }} />
+
+        <Stack.Screen
+          name="CardDeletarPerfil" component={CardDeletarPerfil}
           options={{ headerShown: false }} />
 
         <Stack.Screen
