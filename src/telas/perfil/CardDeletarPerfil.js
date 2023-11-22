@@ -25,14 +25,14 @@ export default CardDeletarPerfil = ({ navigation }) => {
                 <Text>Você tem certeza que deseja excluir sua conta?</Text>
             </View>
             <TouchableOpacity
-                style={Estilos.botaoCadastrar}
+                style={Estilos.botao}
                 onPress={() => { Deletar()}}>
-                <Text style={Estilos.textoIniciar}>Sim</Text>
+                <Text style={Estilos.textoBotao}>Sim</Text>
             </TouchableOpacity>
             <TouchableOpacity
-                style={Estilos.botaoCadastrar}
+                style={Estilos.botao}
                 onPress={() => { navigation.navigate('EditarPerfil') }}>
-                <Text style={Estilos.textoIniciar}>Não</Text>
+                <Text style={Estilos.textoBotao}>Não</Text>
             </TouchableOpacity>
         </View>
     );
@@ -40,29 +40,20 @@ export default CardDeletarPerfil = ({ navigation }) => {
 
 const Estilos = StyleSheet.create({
     card: {
-        height: 200,
+        height: 220,
         width: '90%',
         minWidth: '90%',
         backgroundColor: '#EDCECE',
         alignItems: 'center',
         padding: 10,
-        borderRadius: 20
+        borderRadius: 20,
+    
     },
     containerEntrada: {
-        flexDirection: 'row',
         alignItems: 'center',
         marginBottom: 10,
     },
-    textoCard: {
-        marginRight: 10,
-        fontWeight: 'bold',
-        fontSize: 20
-    },
-    Entrada: {
-        flex: 1,
-        padding: 8,
-    },
-    botaoCadastrar: {
+    botao: {
         backgroundColor: '#D69595',
         width: '60%',
         minWidth: '60%',
@@ -70,8 +61,9 @@ const Estilos = StyleSheet.create({
         borderRadius: 20,
         alignItems: 'center',
         justifyContent: 'center',
+        marginTop:20
     },
-    textoIniciar: {
+    textoBotao: {
         fontSize: 20,
         fontWeight: 'bold',
         color: 'white'

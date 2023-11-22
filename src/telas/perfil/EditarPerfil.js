@@ -7,7 +7,7 @@ import { auth } from "../../config/firebase";
 import { Button, TextInput } from "react-native-paper";
 import { db } from "../../config/firebase";
 import { updateDoc, doc } from "firebase/firestore";
-import { getAuth, updateEmail,updateProfile, reauthenticateWithCredential  } from "firebase/auth";
+import { getAuth, updateEmail, updateProfile, reauthenticateWithCredential } from "firebase/auth";
 import CardDeletarPerfil from "./CardDeletarPerfil";
 
 export default function EditarPerfil({ navigation }) {
@@ -16,13 +16,13 @@ export default function EditarPerfil({ navigation }) {
     const [nome, setNome] = useState('')
     const [nascimento, setNascimento] = useState('')
     const [celular, setCelular] = useState('')
-        // Utiliza o useState para controlar o estado do componente, começando como falso
-        const [card, setCard] = useState(false);
+    // Utiliza o useState para controlar o estado do componente, começando como falso
+    const [card, setCard] = useState(false);
 
-        const Card = () => {
-            setCard(!card);
-        };
-    
+    const Card = () => {
+        setCard(!card);
+    };
+
 
 
     useEffect(() => {
@@ -42,7 +42,7 @@ export default function EditarPerfil({ navigation }) {
 
 
     async function update() {
-        
+
         try {
             await updateDoc(doc(db, 'usuarios', dadosUsuario.id), { nome, celular, nascimento })
         }
@@ -55,64 +55,69 @@ export default function EditarPerfil({ navigation }) {
 
 
     return (
-<ScrollView>
         <View style={Estilos.container}>
             <Cabecalho
-                texto="Perfil"
+                texto="Editar Perfil"
                 imagemEsquerda={require('../../assets/voltar.png')}
                 botaoEsquerda={{
                     onPress: () => navigation.goBack(''),
                 }}
             />
             <Linha />
-            <View>
-                <Image source={require('../../assets/avatar.png')} />
-            </View>
-            <View style={Estilos.containerInformacoes}>
-                <Text style={Estilos.textMinhasInformacoes}>Minhas Informações</Text>
+            <View style={Estilos.containerCard}>
 
-                <Text style={Estilos.textosTitulos}>Nome</Text>
-                <TextInput style={Estilos.textosDados}>{dadosUsuario.nome}</TextInput>
+                {!card ? (<>
+                    <View>
+                        <Image source={require('../../assets/avatar.png')} />
+                    </View>
+                    <View style={Estilos.containerInformacoes}>
 
-                <Text style={Estilos.textosTitulos}>Data de Nascimento</Text>
-                <TextInput placeholder={dadosUsuario.nascimento}
-                    onChangeText={setNascimento}
-                    value={nascimento}
-                ></TextInput>
+                        <Text style={Estilos.textMinhasInformacoes}>Minhas Informações</Text>
 
-                <Text style={Estilos.textosTitulos}>Email</Text>
-                <Text style={Estilos.textosDados}>{dadosUsuario.email}</Text>
+                        <Text style={Estilos.textosTitulos}>Nome</Text>
+                        <TextInput style={Estilos.entrada}>{dadosUsuario.nome}</TextInput>
 
-                <Text style={Estilos.textosTitulos}>Telefone</Text>
-                <TextInput placeholder={dadosUsuario.celular}
-                    onChangeText={setCelular}
-                    value={celular}
-                ></TextInput>
+                        <Text style={Estilos.textosTitulos}>Data de Nascimento</Text>
+                        <TextInput style={Estilos.entrada} placeholder={dadosUsuario.nascimento}
+                            onChangeText={setNascimento}
+                            value={nascimento}
+                        ></TextInput>
+
+                        <Text style={Estilos.textosTitulos}>Email</Text>
+                        <Text style={Estilos.entrada}>{dadosUsuario.email}</Text>
+
+                        <Text style={Estilos.textosTitulos}>Telefone</Text>
+                        <TextInput style={Estilos.entrada} placeholder={dadosUsuario.celular}
+                            onChangeText={setCelular}
+                            value={celular}
+                        ></TextInput>
 
 
-                <TouchableOpacity
-                    style={Estilos.botaoSalvar}
-                    onPress={() => { update() }}>
-                    <Text style={Estilos.textoBotao}>Salvar</Text></TouchableOpacity>
-                <View style={Estilos.containerCard}>
-                {!card ? (
-                    <TouchableOpacity
-                    style={Estilos.botaoDeletar}
-                    onPress={Card}>
-                    <Text style={Estilos.textoBotao}>Deletar Conta</Text>
-                    </TouchableOpacity>
+                        <TouchableOpacity
+                            style={Estilos.botaoSalvar}
+                            onPress={() => { update() }}>
+                            <Text style={Estilos.textoBotao}>Salvar</Text>
+                        </TouchableOpacity>
 
-                ): (
+                        <TouchableOpacity
+                            style={Estilos.botaoDeletar}
+                            onPress={Card}>
+                            <Text style={Estilos.textoBotao}>Deletar Conta</Text>
+                        </TouchableOpacity>
+
+                    </View>
+                </>
+
+                ) : (
                     <CardDeletarPerfil
-                    navigation = {navigation}
+                        navigation={navigation}
                     />
 
                 )}
-                </View>
-                    
+
             </View>
+
         </View>
-        </ScrollView>
     )
 }
 
@@ -133,10 +138,10 @@ const Estilos = StyleSheet.create({
         justifyContent: 'center',
         alignSelf: 'center'
     },
-    botaoDeletar:{
+    botaoDeletar: {
         backgroundColor: "#DE3E26",
         marginTop: "3%",
-        marginBottom:"3%",
+        marginBottom: "3%",
         borderRadius: 20,
         width: 120,
         minwidth: "40%",
@@ -158,6 +163,7 @@ const Estilos = StyleSheet.create({
     containerInformacoes: {
         // backgroundColor:'green',
         width: '90%',
+        minWidth: '90%',
         marginTop: '1%'
     },
     containerCard: {
@@ -177,6 +183,8 @@ const Estilos = StyleSheet.create({
         fontSize: 18,
         fontWeight: '500',
         color: 'gray',
-        marginBottom: '1%'
+        marginBottom: '1%',
+        height: 20,
+        maxHeight: 20
     }
 })
