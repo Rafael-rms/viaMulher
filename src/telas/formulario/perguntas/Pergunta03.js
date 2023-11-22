@@ -43,8 +43,8 @@ export default function Pergunta03({ navigation }) {
         
     }
 
-    return (
-        <ScrollView contentContainerStyle={{flex:1}}>
+    return (<>
+        <ScrollView>
             <View style={styles.container}>
                 <Cabecalho
                     texto="Formulário"
@@ -91,5 +91,6 @@ export default function Pergunta03({ navigation }) {
                 </View>
             </View>
         </ScrollView>
+        </>
     )
 }

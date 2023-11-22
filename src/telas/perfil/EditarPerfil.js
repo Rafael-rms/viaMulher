@@ -70,10 +70,13 @@ export default function EditarPerfil({ navigation }) {
             <View style={Estilos.containerCard}>
 
                 {!card ? (<>
-                    <View>
+                    <ScrollView >
+                    <View style={{alignItems:'center'}}>
                         <Image source={require('../../assets/avatar.png')} />
                     </View>
+                    
                     <View style={Estilos.containerInformacoes}>
+                        
 
                         <Text style={Estilos.textMinhasInformacoes}>Minhas Informações</Text>
 
@@ -124,8 +127,10 @@ export default function EditarPerfil({ navigation }) {
                             onPress={Card}>
                             <Text style={Estilos.textoBotao}>Deletar Conta</Text>
                         </TouchableOpacity>
+                        
 
                     </View>
+                    </ScrollView>
                 </>
 
                 ) : (
@@ -178,13 +183,14 @@ const Estilos = StyleSheet.create({
     textMinhasInformacoes: {
         fontSize: 18,
         alignSelf: 'center',
-        fontWeight: "400"
+        fontWeight: "400",
     },
     containerInformacoes: {
         // backgroundColor:'green',
-        width: '90%',
-        minWidth: '90%',
-        marginTop: '1%'
+        width: '95%',
+        minWidth:'95%',
+        marginTop: '1%',
+        alignSelf:'center'
     },
     containerCard: {
         alignItems: 'center',
@@ -193,7 +199,10 @@ const Estilos = StyleSheet.create({
     },
     entrada: {
         height: 30,
-        maxHeight: 30
+        maxHeight: 30,
+        width:'100%',
+        minWidth:'100%',
+        alignSelf:'center'
     },
     textosTitulos: {
         fontSize: 20,
