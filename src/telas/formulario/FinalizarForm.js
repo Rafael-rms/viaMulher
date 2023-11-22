@@ -11,7 +11,7 @@ import { pergunta01, pergunta02, pergunta03, pergunta04,
     pergunta05, pergunta06, pergunta07, pergunta08, pergunta09, 
     pergunta10, pergunta11, pergunta12, pergunta13, pergunta14, pergunta15,
     pergunta16, pergunta17, pergunta18, pergunta19} from '../../mocks/perguntas'
-
+import imagem from "./testegraf.png"
 
 export default function ({ navigation }) {
     const [dadosFormulario, setDadosFormulario] = useState([])
@@ -49,12 +49,15 @@ export default function ({ navigation }) {
 	flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 0;
+    margin: 25px;
+	line-height: 1.6;
     }
 
     table {
     border-collapse: collapse;
     width: 500px;
+	align-items: "center";
+	justify-content: "center";
     }
 
     th, td {
@@ -62,20 +65,36 @@ export default function ({ navigation }) {
     padding: 8px;
     text-align: center;
     }
+
 	div.containerCapa {
-	background-image: linear-gradient(45deg, #2A0439 55%,#3E144D 55%,#71517D 55%,#5c2273 55%, white 25%, transparent);
-    margin: 15px;
+	background-image: linear-gradient(30deg, #2A0439 55%,#3E144D 55%,#71517D 55%,#5c2273 55%, white 25%, transparent)
+    
+	
 }
 	div.containerContraCapa{
 
-        background-image: linear-gradient(50deg,  #421b5100 1%,white 3%, #421b5100 2%,white 8%, #f8e7ff 3%, #f8e7ff 6%, transparent);
+        background-image: linear-gradient(106deg,  #421b5170 11%,white 20%, #421b5100 98%,white 75%, #f8e7ff 7%, #f8e7ff 13%, transparent)
 }
+	div.containerContraCapaa{
 
+        background-image: linear-gradient(18deg, #a764c1a8 88%, #b422bd26 94%, #563863 103%, #2b0839 257%, transparent)
+}
+	p{
+	text-indent: 2em;
+	}
+    li{
+	margin-bottom: 20px;
+	}
+	img{
+	width: 550px;
+	height:280px;
+	}
 </style>
 
     <body>
 <div class="containerCapa">
     <div class="containerContraCapa">
+	<div class="containerContraCapaa">
             <div></br>
             </br></br></br></br>
             </br></br></br></br>
@@ -96,17 +115,133 @@ export default function ({ navigation }) {
 
         <div></br></br></br></br>
         </br></br></br></br>
-        </br></br></br></br>
-        </br></br></br></br>
-        </br></br></br></br>
-        </br></br></br></br>
+        
+
+        
 
         </div>
     </div>
 </div>
+</div>
         
         <div>
+        </br></br></br></br>
+        </br></br></br></br>
 
+
+        <h2> 
+        O FORMULÁRIO DE
+        AVALIAÇÃO DE RISCO: UM
+        MODELO PARA O BRASIL
+        
+        </h2>
+        <p>
+        O formulário de avaliação de risco que se apresenta a seguir contempla as
+        características relacionadas às vítimas, aos agressores e ao contexto de violência
+        doméstica e familiar.
+		<p>
+        O modelo adota a abordagem moderna de avaliação de risco e emprega a
+        escala de gravidade de risco, combinando resultados da contabilidade dos fatores
+        de risco com a avaliação estruturada realizada por profissional qualificada(o)
+        e responsável pelo atendimento. Essa abordagem consubstancia-se, por um
+        lado, num instrumento que define os indicadores de risco a serem levados em
+        consideração e que informação deve ser recolhida. Por outro lado, a experiência
+        e a sensibilidade dos(as) profissionais são também consideradas, e a mulher é
+        colocada no centro da avaliação, com a sua situação e o seu contexto específicos.
+        Adicionalmente, considera-se ainda como fundamental a percepção da mulher
+        relativamente ao risco que corre, uma vez que é ela a especialista no seu próprio
+        caso.
+		</p>
+		<p>
+        Assim sendo, a articulação entre a percepção da mulher, o julgamento dos
+        profissionais e a avaliação baseada em fatores de risco resulta numa avaliação
+        mais precisa da situação de violência em que a mulher se encontra, ensejando a
+        tomada de medidas que contribuam para:
+		</p>
+        </p>
+
+        <ul>
+        <li>
+        a proteção da mulher frente ao risco imediato, com fundamentação
+        para as medidas protetivas de urgência e gestão do risco mediante as
+        medidas previstas na Lei Maria da Penha;
+        </li>
+
+        <li>
+        a adoção de procedimentos integrados para minimizar a repetição
+        da violência em curto prazo com aplicação de medidas previstas no
+        artigo 11 da Lei Maria da Penha, entre outros que serão adotados para
+        prevenção da violência por meio do acompanhamento na rede de
+        atendimento especializado;
+        </li>
+        
+        <li>
+        a melhoria das respostas institucionais para reduzir a incidência da
+        violência doméstica e familiar por meio do compartilhamento de
+        informações e encaminhamentos realizados a cada caso.
+        </li>
+        </ul>
+        <p>
+        Por se tratar de um complexo problema de origem social, diversos fatores
+        concorrem para que a violência ocorra e para potencializar ou minimizar o risco
+        de agravamento, e nenhum instrumento ou atendimento isoladamente dará
+        conta de prover uma compreensão ampla e a resposta integrada que possa ser
+        necessária. Daí a importância do atendimento multidisciplinar que poderá ser
+        oferecido pela rede de serviços especializados que organizará a gestão do risco
+        visando a ampliar a proteção para a mulher.
+		<p>
+        O modelo de formulário de risco consiste em 19 perguntas que devem ser
+        formuladas pelo(a) profissional diretamente à mulher durante seu atendimento.
+        Sua elaboração pautou-se pelo princípio da parcimônia, buscando, com o menor
+        número de perguntas possível, recolher a informação fundamental para uma
+        avaliação e gestão de risco eficazes. Pautou-se, também, pelo princípio do respeito
+        à vítima que não deve ser exposta a recontar muitas vezes sua história e a relembrar
+        aspectos que sejam dolorosos. Outrossim, o reduzido número de perguntas
+        contribui para um atendimento mais cuidadoso por parte dos profissionais que
+        não sentem a tarefa como um acréscimo de tempo desnecessário.
+		</p>
+        De forma complementar ao formulário, encontra-se uma escala de
+        classificação de risco que deverá orientar a/o profissional quanto às medidas a
+        serem adotadas. A escala adotada se inspira na metodologia empregada pelas
+        Forças de Segurança e o Ministério Público em Portugal, que adota escala de três
+        níveis de risco: baixo, médio ou elevado, assim considerados:
+        </p>
+
+        <ul>
+        <li>
+        <strong>Risco baixo:</strong> “os itens assinalados não indicam, em primeira análise,
+        a probabilidade da ocorrência de ofensas corporais graves ou de
+        homicídio a curto prazo (...)”.
+        </li>
+
+        <li>
+        <strong>Risco médio:</strong> “estão presentes fatores de risco que podem constituir
+        perigo real de ofensa corporal grave/homicídio se existirem mudanças
+        no contexto ou nas circunstâncias (...)”.
+        </li>
+        
+        <li>
+        <strong>Risco elevado:</strong> “refere-se à existência de fatores de risco que denotam
+        a probabilidade de ocorrer a prática de ofensa corporal grave ou
+        homicídio a qualquer momento”.
+        </li>
+        </ul>
+
+        <p>
+        Essa metodologia procura balancear as respostas positivas com a ausência
+        de informação, ou seja, baseia-se numa tabela cruzada em que o apuramento do nível de risco depende de duas condições: número de respostas positivas (SIM)
+        e número de itens para os quais não se dispõe de informação (NS/NA). A lógica
+        aqui subjacente é a de que a inexistência de informação não deve penalizar a
+        avaliação do nível de risco e é, por isso, incluída na contabilização de forma a não
+        subavaliar o risco.
+        </p>
+	
+	<img
+	src=${imagem}
+	/>	
+	</br></br></br>
+
+        
             <table>
             <thead>
                 <tr>
@@ -117,9 +252,10 @@ export default function ({ navigation }) {
                     Respostas
                     </td>
                 </tr>
-            
-            </thead>
+                </thead>
+
             <tbody>
+            
                 <tr>
                     <td>
                     ${pergunta01}

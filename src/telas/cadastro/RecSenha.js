@@ -1,11 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Text, Alert, TouchableOpacity, KeyboardAvoidingView, StyleSheet, Image, View, ScrollView } from 'react-native';
 import Entrada from './componentes/Entrada';
 import Botao from './componentes/Botao'
 import Cabecalho from '../../componentes/Cabecalho';
+import { getAuth, sendPasswordResetEmail } from "firebase/auth";
+
 
 // Criando o componente Cadastro
 export default Cadastro = ({ navigation }) => {
+const [ email, setEmail] = useState('')
+  
+async function recSenha(){
+if(email){
+
+const auth = getAuth();
+sendPasswordResetEmail(auth, email)
+    console.log ("Deu certo")
+
+  }
+else{
+  console.log("deu erro")
+}
+  }
+
+
+
+
+
   return (
     <>
       <KeyboardAvoidingView style={styles.container}>
@@ -28,11 +49,12 @@ export default Cadastro = ({ navigation }) => {
         {/* Chamada do componente Entrada (TextInput) */}
         <Entrada
           imagem={require('../../assets/cadastro/email.png')}
+          onChangeText={setEmail}
           placeholder="Email"
         />
         {/* Chamda do componente Botao */}
         <Botao
-          onpress={() => Alert.alert('Ok')}
+          onpress={() => {recSenha()}}
           textoBotao="Enviar"
         />
 

@@ -42,14 +42,17 @@ export default function EditarPerfil({ navigation }) {
 
 
     async function update() {
-
-        try {
-            await updateDoc(doc(db, 'usuarios', dadosUsuario.id), { nome, celular, nascimento })
+        if (nome){
+            await updateDoc(doc(db, 'usuarios', dadosUsuario.id),  {nome} )
         }
-        catch (err) {
-            console.log(err)
+        if(nascimento){
+            await updateDoc(doc(db, 'usuarios', dadosUsuario.id),  {nascimento} )
         }
-
+        if(celular){
+            await updateDoc(doc(db, 'usuarios', dadosUsuario.id),  {celular} )
+        }
+        
+        
         console.log(dadosUsuario)
     }
 
@@ -75,7 +78,18 @@ export default function EditarPerfil({ navigation }) {
                         <Text style={Estilos.textMinhasInformacoes}>Minhas Informações</Text>
 
                         <Text style={Estilos.textosTitulos}>Nome</Text>
-                        <TextInput style={Estilos.entrada}>{dadosUsuario.nome}</TextInput>
+                        <TextInput style={Estilos.entrada} placeholder={dadosUsuario.nome}
+                            onChangeText={setNome}
+                            value={nome}
+                        ></TextInput>
+
+                        <TouchableOpacity
+                            style={Estilos.botaoSalvar}
+                            onPress={() => { update() }}>
+                            <Text style={Estilos.textoBotao}>Salvar</Text>
+                        </TouchableOpacity>
+
+
 
                         <Text style={Estilos.textosTitulos}>Data de Nascimento</Text>
                         <TextInput style={Estilos.entrada} placeholder={dadosUsuario.nascimento}
@@ -83,8 +97,14 @@ export default function EditarPerfil({ navigation }) {
                             value={nascimento}
                         ></TextInput>
 
+                        <TouchableOpacity
+                            style={Estilos.botaoSalvar}
+                            onPress={() => { update() }}>
+                            <Text style={Estilos.textoBotao}>Salvar</Text>
+                        </TouchableOpacity>
+
                         <Text style={Estilos.textosTitulos}>Email</Text>
-                        <Text style={Estilos.entrada}>{dadosUsuario.email}</Text>
+                        <Text style={Estilos.textosDados}>{dadosUsuario.email}</Text>
 
                         <Text style={Estilos.textosTitulos}>Telefone</Text>
                         <TextInput style={Estilos.entrada} placeholder={dadosUsuario.celular}
