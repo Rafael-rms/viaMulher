@@ -7,7 +7,6 @@ import { auth } from "../../config/firebase";
 import { Button, TextInput } from "react-native-paper";
 import { db } from "../../config/firebase";
 import { updateDoc, doc } from "firebase/firestore";
-import { getAuth, updateEmail, updateProfile, reauthenticateWithCredential } from "firebase/auth";
 import CardDeletarPerfil from "./CardDeletarPerfil";
 
 export default function EditarPerfil({ navigation }) {

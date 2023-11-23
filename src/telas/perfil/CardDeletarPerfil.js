@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
 import { getAuth, deleteUser } from "firebase/auth";
+import CardReautenticar from './CardReautenticar';
 
 const auth = getAuth();
 const user = auth.currentUser;
@@ -18,6 +19,17 @@ async function Deletar() {
 
 export default CardDeletarPerfil = ({ onPress }) => {
 
+    const [card, setCard] = useState(false);
+
+    const Card = () => {
+        setCard(!card);
+    };
+
+    const fecharCard = () => {
+        setCard(!card);
+    };
+
+
     return (
         <View style={Estilos.card}>
 
@@ -26,7 +38,8 @@ export default CardDeletarPerfil = ({ onPress }) => {
             </View>
             <TouchableOpacity
                 style={Estilos.botao}
-                onPress={() => { Deletar()}}>
+                disabled={card}
+                onPress={Card}>
                 <Text style={Estilos.textoBotao}>Sim</Text>
             </TouchableOpacity>
             <TouchableOpacity
@@ -34,6 +47,7 @@ export default CardDeletarPerfil = ({ onPress }) => {
                 onPress={onPress}>
                 <Text style={Estilos.textoBotao}>Não</Text>
             </TouchableOpacity>
+            {card && <CardReautenticar onPress={fecharCard}/>}
         </View>
     );
 };
