@@ -16,7 +16,7 @@ async function Deletar() {
     });
 }
 
-export default CardDeletarPerfil = ({ navigation }) => {
+export default CardDeletarPerfil = ({ onPress }) => {
 
     return (
         <View style={Estilos.card}>
@@ -31,7 +31,7 @@ export default CardDeletarPerfil = ({ navigation }) => {
             </TouchableOpacity>
             <TouchableOpacity
                 style={Estilos.botao}
-                onPress={() => { navigation.navigate('EditarPerfil') }}>
+                onPress={onPress}>
                 <Text style={Estilos.textoBotao}>Não</Text>
             </TouchableOpacity>
         </View>
@@ -47,6 +47,8 @@ const Estilos = StyleSheet.create({
         alignItems: 'center',
         padding: 10,
         borderRadius: 20,
+        position:'absolute',
+        marginBottom:40
     
     },
     containerEntrada: {

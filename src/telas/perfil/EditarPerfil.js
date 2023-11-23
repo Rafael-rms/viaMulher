@@ -23,6 +23,11 @@ export default function EditarPerfil({ navigation }) {
         setCard(!card);
     };
 
+    const fecharCard = () => {
+        setCard(!card);
+    };
+
+
 
 
     useEffect(() => {
@@ -68,82 +73,79 @@ export default function EditarPerfil({ navigation }) {
             />
             <Linha />
             <View style={Estilos.containerCard}>
-
-                {!card ? (<>
-                    <ScrollView >
-                    <View style={{alignItems:'center'}}>
+                <ScrollView>
+                    <View style={{ alignItems: 'center' }}>
                         <Image source={require('../../assets/avatar.png')} />
                     </View>
-                    
+    
                     <View style={Estilos.containerInformacoes}>
-                        
-
                         <Text style={Estilos.textMinhasInformacoes}>Minhas Informações</Text>
-
+    
                         <Text style={Estilos.textosTitulos}>Nome</Text>
-                        <TextInput style={Estilos.entrada} placeholder={dadosUsuario.nome}
+                        <TextInput
+                            style={Estilos.entrada}
+                            placeholder={dadosUsuario.nome}
                             onChangeText={setNome}
                             value={nome}
                         ></TextInput>
-
+    
                         <TouchableOpacity
                             style={Estilos.botaoSalvar}
-                            onPress={() => { update() }}>
+                            onPress={() => {
+                                update();
+                            }}>
                             <Text style={Estilos.textoBotao}>Salvar</Text>
                         </TouchableOpacity>
-
-
-
+    
                         <Text style={Estilos.textosTitulos}>Data de Nascimento</Text>
-                        <TextInput style={Estilos.entrada} placeholder={dadosUsuario.nascimento}
+                        <TextInput
+                            style={Estilos.entrada}
+                            placeholder={dadosUsuario.nascimento}
                             onChangeText={setNascimento}
                             value={nascimento}
                         ></TextInput>
-
+    
                         <TouchableOpacity
                             style={Estilos.botaoSalvar}
-                            onPress={() => { update() }}>
+                            onPress={() => {
+                                update();
+                            }}>
                             <Text style={Estilos.textoBotao}>Salvar</Text>
                         </TouchableOpacity>
-
+    
                         <Text style={Estilos.textosTitulos}>Email</Text>
                         <Text style={Estilos.textosDados}>{dadosUsuario.email}</Text>
-
+    
                         <Text style={Estilos.textosTitulos}>Telefone</Text>
-                        <TextInput style={Estilos.entrada} placeholder={dadosUsuario.celular}
+                        <TextInput
+                            style={Estilos.entrada}
+                            placeholder={dadosUsuario.celular}
                             onChangeText={setCelular}
                             value={celular}
-                        ></TextInput>
-
-
+                        />
+    
                         <TouchableOpacity
                             style={Estilos.botaoSalvar}
-                            onPress={() => { update() }}>
+                            onPress={() => {
+                                update();
+                            }}
+                            disabled={card}>
                             <Text style={Estilos.textoBotao}>Salvar</Text>
                         </TouchableOpacity>
-
+    
                         <TouchableOpacity
                             style={Estilos.botaoDeletar}
-                            onPress={Card}>
+                            onPress={Card}
+                            disabled={card}>
                             <Text style={Estilos.textoBotao}>Deletar Conta</Text>
                         </TouchableOpacity>
-                        
-
                     </View>
-                    </ScrollView>
-                </>
-
-                ) : (
-                    <CardDeletarPerfil
-                        navigation={navigation}
-                    />
-
-                )}
-
+                </ScrollView>
+    
+                {card && <CardDeletarPerfil onPress={fecharCard}/>}
             </View>
-
         </View>
-    )
+    );
 }
 
 const Estilos = StyleSheet.create({
