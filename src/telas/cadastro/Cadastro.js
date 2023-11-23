@@ -93,19 +93,21 @@ export default function Cadastro({ navigation }) {
           placeholder="Nome Completo"
           value={dados.nome}
           onChangeText={valor => alteraDados('nome', valor, dados, setDados)}
-
+          autoCapitalize='word'
         />
         <Entrada
           imagem={require('../../assets/cadastro/celular.png')}
           placeholder="Celular"
           value={dados.celular}
           onChangeText={valor => alteraDados('celular', valor, dados, setDados)}
+          keyboardType="numeric"
         />
         <Entrada
           imagem={require('../../assets/cadastro/nascimento.png')}
           placeholder="Nascimento"
           value={dados.nascimento}
           onChangeText={valor => alteraDados('nascimento', valor, dados, setDados)}
+          keyboardType="numeric"
         />
         <Entrada
           imagem={require('../../assets/cadastro/email.png')}
@@ -122,6 +124,7 @@ export default function Cadastro({ navigation }) {
           onChangeText={valor => alteraDados('senha', valor, dados, setDados)}
           error={statusError == 'senha'}
           messageError={mensageError}
+          secureTextEntry={true}
         />
         <Entrada
           imagem={require('../../assets/cadastro/senha.png')}
@@ -130,6 +133,7 @@ export default function Cadastro({ navigation }) {
           onChangeText={valor => alteraDados('confirmaSenha', valor, dados, setDados)}
           error={statusError == 'confirmaSenha'}
           messageError={mensageError}
+          secureTextEntry={true}
         />
 
         {/* Chamada do componente Botao */}
@@ -152,7 +156,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "#FFDFDF",
     alignItems: "center",
-    flex:1
+    flexGrow:1
   },
   imgCadastrar: {
     width: 160,

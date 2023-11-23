@@ -485,7 +485,7 @@ const Estilos = StyleSheet.create({
     containerCard: {
         backgroundColor: '#EDCECE',
         width: '90%',
-        height: '60%',
+        height: '70%',
         borderRadius: 20,
         alignItems: 'center',
         justifyContent: 'center',

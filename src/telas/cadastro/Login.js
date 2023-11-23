@@ -100,6 +100,7 @@ export default function Login({ navigation }) {
           onChangeText={valor => alteraDados('senha', valor, dados, setDados)}
           error={statusError == 'senha'}
           messageError={mensagemError}
+          secureTextEntry={true}
         />
         {/* View com texto e botão que navega para a tela de cadastro */}
         <View style={styles.containerBtnCadastar}>
