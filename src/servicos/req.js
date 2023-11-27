@@ -90,7 +90,6 @@ export async function capturaDadosUsuario(id) {
 }
 
 export async function capturaDadosFormulario(id) {
-
     try {
         const docRef = doc(db, "formulario", id);
         const docSnap = await getDoc(docRef);
@@ -116,6 +115,23 @@ export async function salvarContatos(data) {
         console.log('Erro ao cadastrar contato', error)
         return 'error'
     }
+}
+
+// Capturar dados dos contatos
+export async function capturaDadosContatos(id) {
+    try {
+        const docRef = doc(db, "contatos", id);
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+            console.log("Documento existente", docSnap.data());
+            return docSnap.data()
+        }
+    } catch (error) {
+        console.log(error)
+        return error
+    }
+
 }
 
 

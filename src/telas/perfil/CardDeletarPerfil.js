@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
 import { getAuth, deleteUser } from "firebase/auth";
-import CardReautenticar from './CardReautenticar';
+
 
 const auth = getAuth();
 const user = auth.currentUser;

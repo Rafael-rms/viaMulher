@@ -128,3 +128,6 @@ const Estilos = StyleSheet.create({
     color: 'white'
   }
 });
+
+
+

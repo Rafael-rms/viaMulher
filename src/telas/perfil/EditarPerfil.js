@@ -46,17 +46,37 @@ export default function EditarPerfil({ navigation }) {
 
 
     async function update() {
-        if (nome){
-            await updateDoc(doc(db, 'usuarios', dadosUsuario.id),  {nome} )
+        if (nome === '' && nascimento === '' && celular === '') {
+            navigation.navigate('Perfil')
         }
-        if(nascimento){
-            await updateDoc(doc(db, 'usuarios', dadosUsuario.id),  {nascimento} )
+        if (nome === '') {
+            if (nome === '' && nascimento === '') {
+                await updateDoc(doc(db, 'usuarios', dadosUsuario.id), { celular })
+            } else if (nome === '' && celular === '') {
+                await updateDoc(doc(db, 'usuarios', dadosUsuario.id), { nascimento })
+            }
         }
-        if(celular){
-            await updateDoc(doc(db, 'usuarios', dadosUsuario.id),  {celular} )
+
+        if (nascimento === '') {
+            if (nascimento === '' && celular === '') {
+                await updateDoc(doc(db, 'usuarios', dadosUsuario.id), { nome })
+            } else if (nascimento === '' && nome === '') {
+                await updateDoc(doc(db, 'usuarios', dadosUsuario.id), { celular })
+            }
         }
         
-        
+        if(celular === ''){        
+        if (celular === '' && nome === '') {
+            await updateDoc(doc(db, 'usuarios', dadosUsuario.id), { nascimento })
+        } else if (celular === '' && nascimento === '') {
+            await updateDoc(doc(db, 'usuarios', dadosUsuario.id), { nome })
+        }
+}
+        else {
+            await updateDoc(doc(db, 'usuarios', dadosUsuario.id), { nome, nascimento, celular })
+        }
+
+
         console.log(dadosUsuario)
     }
 
@@ -76,10 +96,10 @@ export default function EditarPerfil({ navigation }) {
                     <View style={{ alignItems: 'center' }}>
                         <Image source={require('../../assets/avatar.png')} />
                     </View>
-    
+
                     <View style={Estilos.containerInformacoes}>
                         <Text style={Estilos.textMinhasInformacoes}>Minhas Informações</Text>
-    
+
                         <Text style={Estilos.textosTitulos}>Nome</Text>
                         <TextInput
                             style={Estilos.entrada}
@@ -87,15 +107,15 @@ export default function EditarPerfil({ navigation }) {
                             onChangeText={setNome}
                             value={nome}
                         ></TextInput>
-    
-                        <TouchableOpacity
+
+                        {/* <TouchableOpacity
                             style={Estilos.botaoSalvar}
                             onPress={() => {
                                 update();
                             }}>
                             <Text style={Estilos.textoBotao}>Salvar</Text>
                         </TouchableOpacity>
-    
+     */}
                         <Text style={Estilos.textosTitulos}>Data de Nascimento</Text>
                         <TextInput
                             style={Estilos.entrada}
@@ -103,18 +123,18 @@ export default function EditarPerfil({ navigation }) {
                             onChangeText={setNascimento}
                             value={nascimento}
                         ></TextInput>
-    
-                        <TouchableOpacity
+
+                        {/* <TouchableOpacity
                             style={Estilos.botaoSalvar}
                             onPress={() => {
                                 update();
                             }}>
                             <Text style={Estilos.textoBotao}>Salvar</Text>
-                        </TouchableOpacity>
-    
+                        </TouchableOpacity> */}
+
                         <Text style={Estilos.textosTitulos}>Email</Text>
                         <Text style={Estilos.textosDados}>{dadosUsuario.email}</Text>
-    
+
                         <Text style={Estilos.textosTitulos}>Telefone</Text>
                         <TextInput
                             style={Estilos.entrada}
@@ -122,7 +142,7 @@ export default function EditarPerfil({ navigation }) {
                             onChangeText={setCelular}
                             value={celular}
                         />
-    
+
                         <TouchableOpacity
                             style={Estilos.botaoSalvar}
                             onPress={() => {
@@ -131,7 +151,7 @@ export default function EditarPerfil({ navigation }) {
                             disabled={card}>
                             <Text style={Estilos.textoBotao}>Salvar</Text>
                         </TouchableOpacity>
-    
+
                         <TouchableOpacity
                             style={Estilos.botaoDeletar}
                             onPress={Card}
@@ -140,8 +160,8 @@ export default function EditarPerfil({ navigation }) {
                         </TouchableOpacity>
                     </View>
                 </ScrollView>
-    
-                {card && <CardDeletarPerfil onPress={fecharCard}/>}
+
+                {card && <CardDeletarPerfil onPress={fecharCard} />}
             </View>
         </View>
     );
@@ -189,9 +209,9 @@ const Estilos = StyleSheet.create({
     containerInformacoes: {
         // backgroundColor:'green',
         width: '95%',
-        minWidth:'95%',
+        minWidth: '95%',
         marginTop: '1%',
-        alignSelf:'center'
+        alignSelf: 'center'
     },
     containerCard: {
         alignItems: 'center',
@@ -201,9 +221,9 @@ const Estilos = StyleSheet.create({
     entrada: {
         height: 30,
         maxHeight: 30,
-        width:'100%',
-        minWidth:'100%',
-        alignSelf:'center'
+        width: '100%',
+        minWidth: '100%',
+        alignSelf: 'center'
     },
     textosTitulos: {
         fontSize: 20,
