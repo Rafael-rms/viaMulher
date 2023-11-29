@@ -44,7 +44,7 @@ export default CardFormulario = ({navigation}) => {
 
         <TouchableOpacity 
             style={Estilos.botaoCadastrar} 
-            onPress={() => navigation.navigate('FinalizarForm')}>
+            onPress={() => navigation.navigate('Pergunta1')}>
           <Text style={Estilos.textoIniciar}>Iniciar</Text>
         </TouchableOpacity>
       </View>

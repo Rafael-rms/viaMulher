@@ -1,5 +1,7 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
+
+import Anuncio from '../telas/anuncio/Anuncio';
 import Login from '../telas/cadastro/Login';
 import Cadastro from '../telas/cadastro/Cadastro';
 import RecSenha from '../telas/cadastro/RecSenha';
@@ -37,6 +39,7 @@ import FinalizarForm from '../telas/formulario/FinalizarForm';
 
 
 
+
 const Stack = createNativeStackNavigator();
 
 
@@ -44,7 +47,13 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='Login'>
+      <Stack.Navigator initialRouteName='Anuncio'>
+
+      <Stack.Screen
+          name="Anuncio" component={Anuncio}
+          //options={{title:"Login",}}
+          options={{ headerShown: false }} />
+
         <Stack.Screen
           name="Login" component={Login}
           //options={{title:"Login",}}

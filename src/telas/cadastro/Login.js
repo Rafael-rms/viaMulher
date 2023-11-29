@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, KeyboardAvoidingView, Image, TouchableOpacity, Alert } from 'react-native';
+import { StyleSheet, Text, View, KeyboardAvoidingView, Image, TouchableOpacity, Alert, ScrollView } from 'react-native';
 import Entrada from './componentes/Entrada';
 import Botao from './componentes/Botao';
 import { auth } from '../../config/firebase';
@@ -64,7 +64,8 @@ export default function Login({ navigation }) {
     )
   }
   return (
-    <KeyboardAvoidingView style={styles.container}>
+    <KeyboardAvoidingView style={{flex:1}}>
+      <ScrollView contentContainerStyle={styles.container}>
 
       {/* View que contém a Imagem exibida na tela de Login */}
       <View style={styles.containerLogo}>
@@ -84,6 +85,7 @@ export default function Login({ navigation }) {
           onChangeText={valor => alteraDados('email', valor, dados, setDados)}
           error={statusError == 'email'}
           messageError={mensagemError}
+          keyboardType='email-address'
         />
         {/* Botão com texto que navega para a tela de recuperar senha */}
         <TouchableOpacity
@@ -119,6 +121,7 @@ export default function Login({ navigation }) {
         />
 
       </View>
+      </ScrollView>
     </KeyboardAvoidingView>
   );
 }
@@ -127,7 +130,7 @@ export default function Login({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "#FFDFDF",
-    flex: 1,
+    flexGrow: 1,
     justifyContent: "center",
     alignItems: "center"
   },

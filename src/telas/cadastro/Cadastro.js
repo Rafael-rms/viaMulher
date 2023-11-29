@@ -93,14 +93,13 @@ export default function Cadastro({ navigation }) {
           placeholder="Nome Completo"
           value={dados.nome}
           onChangeText={valor => alteraDados('nome', valor, dados, setDados)}
-          autoCapitalize='word'
         />
         <Entrada
           imagem={require('../../assets/cadastro/celular.png')}
           placeholder="Celular"
           value={dados.celular}
           onChangeText={valor => alteraDados('celular', valor, dados, setDados)}
-          keyboardType="numeric"
+          keyboardType="phone-pad"
         />
         <Entrada
           imagem={require('../../assets/cadastro/nascimento.png')}
@@ -116,6 +115,7 @@ export default function Cadastro({ navigation }) {
           onChangeText={valor => alteraDados('email', valor, dados, setDados)}
           error={statusError == 'email'}
           messageError={mensageError}
+          keyboardType='email-address'
         />
         <Entrada
           imagem={require('../../assets/cadastro/senha.png')}

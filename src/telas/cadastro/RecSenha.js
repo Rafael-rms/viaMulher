@@ -23,13 +23,9 @@ else{
 }
   }
 
-
-
-
-
   return (
-    <>
-      <KeyboardAvoidingView style={styles.container}>
+      <KeyboardAvoidingView style={{flex:1}}>
+        <ScrollView contentContainerStyle={styles.container}>
         {/* Chamada do componente Cabecalho */}
         <Cabecalho
           imagemEsquerda={require('../../assets/voltar.png')}
@@ -51,15 +47,16 @@ else{
           imagem={require('../../assets/cadastro/email.png')}
           onChangeText={setEmail}
           placeholder="Email"
+          keyboardType='email-address'
         />
         {/* Chamda do componente Botao */}
         <Botao
           onpress={() => {recSenha()}}
           textoBotao="Enviar"
         />
+        </ScrollView>
 
       </KeyboardAvoidingView>
-    </>
   )
 }
 
@@ -67,7 +64,7 @@ else{
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "#FFDFDF",
-    flex: 1,
+    flexGrow: 1,
     alignItems: "center",
   },
   imgRecSenha: {
