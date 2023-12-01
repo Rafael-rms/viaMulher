@@ -3,17 +3,25 @@ import { View, StyleSheet, TouchableOpacity, Text, ImageBackground, Button } fro
 import CardContatos from './componentes/CardContatos';
 import Cabecalho from '../../componentes/Cabecalho';
 import Linha from '../../componentes/Linha';
-import * as SMS from 'expo-sms';
 import { auth } from '../../config/firebase';
 import {capturaDadosUsuario, capturaDadosContatos } from '../../servicos/req';
 import { apiSms } from '../../servicos/apiSms';
+import { requestForegroundPermissionsAsync,
+    getCurrentPositionAsync,
+    } from 'expo-location'
 
 // Criando o componente Contatos
 export default Contatos = ({ navigation }) => {
+
+
+
     // Utiliza o useState para controlar o estado do componente, começando como falso
     const [card, setCard] = useState(false);
     const [dadosUsuario, setDadosUsuario] = useState([])
     const [telefoneContatos, setTelefoneContatos] = useState([])
+    const [localizacao, setLocalizacao] = useState([])
+
+
     useEffect(() => {
         auth.onAuthStateChanged(usuario => {
             if (usuario) {
@@ -27,6 +35,8 @@ export default Contatos = ({ navigation }) => {
                     setDadosUsuario(users)
                 }
                 carregarDadosFirestore()
+                permissaoLocalizacao()
+
             }
         })
     }, [])
@@ -36,31 +46,43 @@ export default Contatos = ({ navigation }) => {
         setCard(!card);
     };
 
-    async function sms() {
-        try {
-            // const { result } = await SMS.sendSMSAsync(
-            //     [telefoneContatos.celular],
-            //     'My sample HelloWorld message')
-            apiSms.post('/channels/sms/messages', {
-                from: 'hill-substance',
-                to: '5511972324044',
-                contents: [{
-                    type: 'text',
-                    text:"Teste de envios"
-                }]
+    async function permissaoLocalizacao(){
+        const {granted} = await requestForegroundPermissionsAsync()
 
-            }, {
-                headers: {
-                'X-API-TOKEN':" Zptn4IwxijdaYMIOVKM-EfQDYijyaDTN8x4I"
-                }
-            }).then(res => console.log("sucesso", res))
-                .catch(er => console.log(er))
+        if (granted){
+            const pegarLocalizacao = await getCurrentPositionAsync()
+            setLocalizacao(pegarLocalizacao)
             
-        }
-        catch (er) {
-            console.log(er)
-        }
+            
 
+        }
+    }
+
+    async function sms() {
+            try {
+                apiSms.post('/channels/sms/messages', {
+                    from: 'hill-substance',
+                    to: `${telefoneContatos.celular}`,
+                    contents: [{
+                        type: 'text',
+                        text:`Oi, sou ${dadosUsuario.nome} e nesse momento estou
+                        Precisando de ajuda, estou no endereço: https://www.google.com/maps/search/?api=1&query=${localizacao.coords.latitude},${localizacao.coords.longitude} `
+                    }]
+
+                }, {
+                    headers: {
+                    'X-API-TOKEN':" Zptn4IwxijdaYMIOVKM-EfQDYijyaDTN8x4I"
+                    }
+                }).then(res => console.log("sucesso", res))
+                    .catch(er => console.log(er))
+                
+            }
+            catch (er) {
+                console.log(er)
+            }
+
+        console.log(localizacao.coords.latitude)
+        console.log(localizacao.coords.longitude)
 
     }
 
@@ -103,6 +125,10 @@ export default Contatos = ({ navigation }) => {
                     )}
 
                 </View>
+
+                <TouchableOpacity style={Estilos.botaoListar}
+                    onPress={() => navigation.navigate('NovosContatos')}
+                ><Text style={Estilos.textoBotaoListar}>Listar Contatos</Text></TouchableOpacity>
             </>
         </ImageBackground>
     )
@@ -134,6 +160,24 @@ const Estilos = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         flex: 1
+    },
+    botaoListar:{
+        backgroundColor:"#D69595",
+        marginTop:"1%",
+        marginBottom:"2%",
+        borderRadius:20,
+        width:135,
+        minwidth:"40%",
+        height:30,
+        alignItems:"center",
+        justifyContent:'center',
+        alignSelf:'center'
+    },
+    textoBotaoListar: {
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: 'white'
     }
+
 })
 

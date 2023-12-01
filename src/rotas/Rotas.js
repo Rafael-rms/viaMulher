@@ -1,15 +1,14 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
-
 import Anuncio from '../telas/anuncio/Anuncio';
 import Login from '../telas/cadastro/Login';
 import Cadastro from '../telas/cadastro/Cadastro';
 import RecSenha from '../telas/cadastro/RecSenha';
 import Home from '../telas/home/Home'
-import Pergunta01 from '../telas/formulario/perguntas/Pergunta01';
 import Denuncias from '../telas/denuncias/Denuncias'
 import Sobre from '../telas/sobre/Sobre';
 import Contatos from '../telas/contatos/Contatos';
+import NovosContatos from '../telas/contatos/NovosContatos';
 import Informacoes from '../telas/informacoes/Informacoes';
 import CardContatos from '../telas/contatos/componentes/CardContatos';
 import Perfil from '../telas/perfil/Perfil';
@@ -17,6 +16,7 @@ import EditarPerfil from '../telas/perfil/EditarPerfil'
 import CardDeletarPerfil from '../telas/perfil/CardDeletarPerfil';
 import Formulario from '../telas/formulario/Formulario';
 import Configuracoes from '../telas/configuracoes/Configuracoes';
+import Pergunta01 from '../telas/formulario/perguntas/Pergunta01';
 import Pergunta02 from '../telas/formulario/perguntas/Pergunta02';
 import Pergunta03 from '../telas/formulario/perguntas/Pergunta03';
 import Pergunta04 from '../telas/formulario/perguntas/Pergunta04';
@@ -84,11 +84,15 @@ export default function App() {
           options={{ headerShown: false }} />
 
         <Stack.Screen
-          name="Informacoes" component={Informacoes}
+          name="NovosContatos" component={NovosContatos}
           options={{ headerShown: false }} />
 
         <Stack.Screen
           name="CardContatos" component={CardContatos}
+          options={{ headerShown: false }} />
+
+        <Stack.Screen
+          name="Informacoes" component={Informacoes}
           options={{ headerShown: false }} />
 
         <Stack.Screen

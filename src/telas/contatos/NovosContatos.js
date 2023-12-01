@@ -1,8 +1,33 @@
 import { View, StyleSheet, TouchableOpacity, Text, ImageBackground, Button } from 'react-native';
 import Cabecalho from '../../componentes/Cabecalho';
 import Linha from '../../componentes/Linha';
+import { useEffect, useState } from 'react';
+import { auth } from '../../config/firebase';
+import { capturaDadosUsuario, capturaDadosContatos } from '../../servicos/req';
 
 export default NovosContatos = ({ navigation }) => {
+    const [dadosUsuario, setDadosUsuario] = useState([])
+    const [telefoneContatos, setTelefoneContatos] = useState([])
+
+
+    useEffect(() => {
+        auth.onAuthStateChanged(usuario => {
+            if (usuario) {
+                const result = usuario.uid
+                //console.log(result)
+                // Função para carregar os dados do Firestore
+                async function carregarDadosFirestore() {
+                    const users = await capturaDadosUsuario(result)
+                    const contatos = await capturaDadosContatos(result)
+                    setTelefoneContatos(contatos)
+                    setDadosUsuario(users)
+                }
+                carregarDadosFirestore()
+            }
+        })
+    }, [])
+
+
     return (
         // utilizando uma imagem como plano de fundo
         <ImageBackground source={require('../../assets/contatosFundo.png')} style={Estilos.container} resizeMode="contain">
@@ -19,14 +44,14 @@ export default NovosContatos = ({ navigation }) => {
             <View style={Estilos.cards}>
                 <View style={Estilos.card} >
                     <Text style={Estilos.textoCard}>Nome:   </Text>
-                    <Text style={Estilos.textoCard}>Nome Dele(a)</Text>
+                    <Text style={Estilos.textoCard}>{telefoneContatos.nome}</Text>
                 </View>
                 <View style={Estilos.card} >
                     <Text style={Estilos.textoCard}>Celular:   </Text>
-                    <Text style={Estilos.textoCard}>Celular</Text>
+                    <Text style={Estilos.textoCard}>{telefoneContatos.celular}</Text>
                 </View>    
             </View>
-            <View style={Estilos.cards}>
+            {/* <View style={Estilos.cards}>
                 <View style={Estilos.card} >
                     <Text style={Estilos.textoCard}>Nome:   </Text>
                     <Text style={Estilos.textoCard}>Nome Dele(a)</Text>
@@ -45,7 +70,7 @@ export default NovosContatos = ({ navigation }) => {
                     <Text style={Estilos.textoCard}>Celular:   </Text>
                     <Text style={Estilos.textoCard}>Celular</Text>
                 </View>    
-            </View>
+            </View> */}
 
             
             

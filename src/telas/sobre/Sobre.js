@@ -22,11 +22,11 @@ export default Sobre = ({navigation})=>{
                 <Caixa
                     titulo={tituloPSP}
                     texto={textoPSP}
-                 />
-                 <Caixa
+                />
+                <Caixa
                     titulo={tituloCF}
                     texto={textoCF}
-                 />
+                />
             </View>
         </ScrollView>
     )

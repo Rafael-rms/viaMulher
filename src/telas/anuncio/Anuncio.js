@@ -1,12 +1,86 @@
 
+import { useEffect, useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image  } from "react-native";
+import { auth } from "../../config/firebase";
+import {capturaDadosContatos, capturaDadosUsuario} from '../../servicos/req'
+import { apiSms } from "../../servicos/apiSms";
+import { requestForegroundPermissionsAsync,
+    getCurrentPositionAsync,
+    } from 'expo-location';
 
 
-export default function Anuncio ({navigation}) {
+function Anuncio ({navigation}) {
+
+    const [telefoneContatos, setTelefoneContatos] = useState([])
+    const [dadosUsuario, setDadosUsuario] = useState([])
+    const [localizacao, setLocalizacao] = useState([])
+
+
+useEffect(() => {
+        auth.onAuthStateChanged(usuario => {
+            if (usuario) {
+                const result = usuario.uid
+                //console.log(result)
+                // Função para carregar os dados do Firestore
+                async function carregarDadosFirestore() {
+                    const users = await capturaDadosUsuario(result)
+                    const contatos = await capturaDadosContatos(result)
+                    setTelefoneContatos(contatos)
+                    setDadosUsuario(users)
+                }
+                carregarDadosFirestore()
+                permissaoLocalizacao()
+
+            }
+        })
+    }, [])
+
+    async function permissaoLocalizacao(){
+        const {granted} = await requestForegroundPermissionsAsync()
+
+        if (granted){
+            const pegarLocalizacao = await getCurrentPositionAsync()
+            setLocalizacao(pegarLocalizacao)
+            
+            
+
+        }
+    }
+
+    async function sms() {
+            try {
+                apiSms.post('/channels/sms/messages', {
+                    from: 'hill-substance',
+                    to: `${telefoneContatos.celular}`,
+                    contents: [{
+                        type: 'text',
+                        text:`Oi, sou ${dadosUsuario.nome} e nesse momento estou
+                        Precisando de ajuda, estou no endereço: https://www.google.com/maps/search/?api=1&query=${localizacao.coords.latitude},${localizacao.coords.longitude} `
+                    }]
+
+                }, {
+                    headers: {
+                    'X-API-TOKEN':" Zptn4IwxijdaYMIOVKM-EfQDYijyaDTN8x4I"
+                    }
+                }).then(res => console.log("sucesso", res))
+                    .catch(er => console.log(er))
+                
+            }
+            catch (er) {
+                console.log(er)
+            }
+
+        console.log(localizacao.coords.latitude)
+        console.log(localizacao.coords.longitude)
+
+    }
+
+
+
     return(
         <View style={Estilos.container}>
             <TouchableOpacity style={Estilos.imagem}>
-            <Image style={Estilos.imagem} source={require('../../assets/Anuncio2.jpg')}/>
+            <Image style={Estilos.imagem} source={require('../../assets/Anuncio2.jpg')} onPress={() => {sms()}}/>
             </TouchableOpacity>
             
             <TouchableOpacity style={Estilos.botaoFechar} onPress={()=>{navigation.navigate('Login')}}>
@@ -29,13 +103,18 @@ const Estilos = StyleSheet.create({
         alignSelf:'center'
     },
     botaoFechar:{
-        backgroundColor:'black',
+        backgroundColor:'rgba(87, 89, 110, 0.7)',
+        borderRadius: 20,
         position:'absolute',
         right:'2%',
-        top:'4%'
-        
+        top:'4%',
+        height:'3.5%',
+        width:'14.5%'
     },
     textoBotao:{
+        textAlign:'center',
         color:'white'
     }
 })
+
+export default Anuncio
