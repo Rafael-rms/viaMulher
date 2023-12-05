@@ -44,9 +44,10 @@ export default function ({ navigation }) {
     </head>
 
 <style>
+@media print{
+
+
     body {
-	display: flex;
-	flex-direction: column;
     align-items: center;
     justify-content: center;
     margin: 25px;
@@ -55,9 +56,14 @@ export default function ({ navigation }) {
 
     table {
     border-collapse: collapse;
-    width: 700px;
-	align-items: "center";
-	justify-content: "center";
+    width: 500px;
+	align-items: center;
+	justify-content: center;
+    page-break-inside: auto;
+    }
+
+    tr{
+        page-break-inside: avoid;
     }
 
     th, td {
@@ -79,6 +85,7 @@ export default function ({ navigation }) {
 
         background-image: linear-gradient(18deg, #a764c1a8 88%, #b422bd26 94%, #563863 103%, #2b0839 257%, transparent)
 }
+
 	p{
 	text-indent: 2em;
 	}
@@ -89,6 +96,21 @@ export default function ({ navigation }) {
 	width: 550px;
 	height:280px;
 	}
+    .linha {
+        border-top: 1px solid #000; 
+        margin-top: 32px 
+}
+hr {
+    height: 1px; /* Altura da linha */
+    width:200px;
+    border-width: 0; /* Largura da borda (0 para remover a borda) */
+    background-color: #ccc; /* Cor de fundo da linha */
+    margin: 60px 0; /* Margem superior e inferior da linha */
+}
+.profissional{
+    display: flex;
+    flex-direction: row;
+}
 </style>
 
     <body>
@@ -236,14 +258,13 @@ export default function ({ navigation }) {
         subavaliar o risco.
         </p>
 	
-	<img
-	src=${imagem}
-	/>	
-	</br></br></br>
+	
 
-        
+        <div class="tabela"/>
+        <h3>Nome da Usuária: ${ dadosUsuario.nome} </h3>
+        <h3>Data de realização do Formulário: ${ dadosFormulario.diaRealizado}</h3>
             <table>
-            <thead>
+            
                 <tr>
                     <td>
                     Perguntas
@@ -252,7 +273,7 @@ export default function ({ navigation }) {
                     Respostas
                     </td>
                 </tr>
-                </thead>
+                
 
             <tbody>
             
@@ -411,12 +432,147 @@ export default function ({ navigation }) {
             <tbody>
 
             </table>
+
+            <img src="https://uploaddeimagens.com.br/imagens/cewqvSo" alt="Descrição img">	
+	</br></br></br>
+
+    <h2>Avaliação estruturada realizada pela(o) profissional</h2>
+
+    <p>Nesta parte do formulário a profissional responsável pelo atendimento deverá registrar
+    informações consideradas relevantes para a compreensão global da situação. O documento de
+    avaliação estruturada consiste em um conjunto de perguntas que serão respondidas de forma
+    descritiva e sucinta pelo(a) profissional. O registro se fará com base em informações que já
+    foram prestadas pela vítima acrescentadas aquelas sobre suas condições físicas, emocionais
+    e psicológicas. Ao fim, um campo aberto permite o registro de informações adicionais e que
+    sejam consideradas relevantes para entendimento da gravidade da situação e medidas que
+    adicionalmente deverão ser consideradas para a proteção da mulher.</p>
+
+    </br></br></br>
+        <p>Durante o atendimento, a mulher demonstra percepção de risco sobre sua situação? A percepção
+        é de existência ou inexistência do risco? (Por exemplo, ela diz que o agressor pode matá-la, ou
+        ela justifica o comportamento do agressor ou naturaliza o comportamento violento?) Anote a
+        percepção e explique.</p>
+
+        <div class="linha"></div>
+        <div class="linha"></div>
+        <div class="linha"></div>
+        <div class="linha"></div>
+        <div class="linha"></div>
+
+            <p>
+            Existem outras informações relevantes com relação ao contexto ou situação da vítima e que
+            possam indicar risco de novas agressões? (Por exemplo, a mulher tem novo(a) companheiro(a)
+            ou tomou decisões que anunciam um rompimento definitivo com o agressor – ou pretende mudar
+            de casa, bairro, cidade.) Anote e explique.
+            </p>
+
+            <div class="linha"></div>
+            <div class="linha"></div>
+            <div class="linha"></div>
+            <div class="linha"></div>
+            <div class="linha"></div>
+
+            <p>
+            Como a mulher se apresenta física e emocionalmente? (Tem sinais de esgotamento emocional, está
+            tomando medicação controlada, necessita de acompanhamento psicológico e/ou psiquiátrico?)
+            Descreva.
+            </p>
+
+            <div class="linha"></div>
+            <div class="linha"></div>
+            <div class="linha"></div>
+            <div class="linha"></div>
+            <div class="linha"></div>
+
+
+            <p>
+            Existe o risco de a mulher tentar suicídio ou há informações de que tenha tentado se matar?
+            </p>
+
+            <div class="linha"></div>
+            <div class="linha"></div>
+            <div class="linha"></div>
+            <div class="linha"></div>
+            <div class="linha"></div>
+
+
+            <p>
+            A mulher ainda reside com o(a) agressor(a) ou ele(a) tem acesso fácil à sua residência? Explique
+            a situação.
+            </p>
+
+            <div class="linha"></div>
+            <div class="linha"></div>
+            <div class="linha"></div>
+            <div class="linha"></div>
+            <div class="linha"></div>
+
+            <p>
+            Descreva outras circunstâncias que, na sua opinião, poderão representar risco de novas agressões
+            e deverão ser observadas no fluxo de atendimento e ensejar a reavaliação de risco por outros
+            profissionais. Descreva de forma sucinta a situação ou aspecto que chamou sua atenção.
+            </p>
+
+            <div class="linha"></div>
+            <div class="linha"></div>
+            <div class="linha"></div>
+            <div class="linha"></div>
+            <div class="linha"></div>
+
+            <p>
+            Tendo em conta a informação recolhida e a sua experiência profissional, que nível de risco atribui
+            a este caso? (Baixo; Médio; Elevado). Justifique.
+            </p>
+
+            <div class="linha"></div>
+            <div class="linha"></div>
+            <div class="linha"></div>
+            <div class="linha"></div>
+            <div class="linha"></div>
+
+            <p>
+            Quais os encaminhamentos sugeridos para a mulher?
+            </p>
+
+            <div class="linha"></div>
+            <div class="linha"></div>
+            <div class="linha"></div>
+            <div class="linha"></div>
+            <div class="linha"></div>
+
+            <p>
+            A usuária concordou com os encaminhamentos? Sim ( ) Não ( ) Por quê?
+            </p>
+
+            <div class="linha"></div>
+            <div class="linha"></div>
+            <div class="linha"></div>
+            <div class="linha"></div>
+            <div class="linha"></div>
+
+            <p>
+            A usuária demonstra interesse em aderir aos encaminhamentos? Sim ( ) Não ( ) Por quê?
+            </p>
+
+            <div class="linha"></div>
+            <div class="linha"></div>
+            <div class="linha"></div>
+            <div class="linha"></div>
+            <div class="linha"></div>
         
         </div>
+        <div class="profissional">
+        <p class=''>Nome do(a) profissional:<hr></p> <p class=''>Cargo/Função: <hr></p>
+        </div>
+        <div class="profissional">
+        <p class=''>Data de Preenchimento:<hr></p> <p class=''>Serviço/Órgão: <hr></p>
+        </div>
+        
         </body>
 
     </html>
     `;
+
 
 
     const [selectedPrinter, setSelectedPrinter] = useState([]);

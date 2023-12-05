@@ -7,7 +7,7 @@ export const luaDeMel = "Esta fase se caracteriza pelo arrependimento do agresso
 
 
 //Textos da tela de Informações do carrossel B
-export const justiceiras = "As voluntarias juridicas do “Justiceiras” prestam orientações para mulheres em situação de violencia domestica. Podendo entrar em contato pelo Whatsapp, ou pelo site. Há preenchimento de formulario de pedido de ajuda com informações relevantes a situação de violencia da solicitante, que receberá apoio em até 48hrs, a depender da urgencia do caso"
+export const justiceiras = "As voluntarias juridicas do “Justiceiras” prestam orientações para mulheres em situação de violencia domestica. Podendo entrar em contato pelo Whatsapp, ou pelo site. Há preenchimento de formulario de pedido de ajuda com informações relevantes a situação de violencia da solicitante, que receberá apoio em até 48hrs, a depender da urgencia do caso. Você pode acessar o site para efetuar o preenchimento do formulário https://justiceiras.org.br/"
 
 export const casaDaMulher = "A Casa da Mulher Brasileira, na cidade de São Paulo, atende 24 horas por dia, oferecendo serviços integrais e humanizados para mulheres em situação de violência.As mulheres em situação de violência que procuram a Casa da Mulher Brasileira encontram serviços de acolhimento e escuta qualificada, por meio de uma equipe multidisciplinar, que oferece atendimento psicossocial e brinquedoteca, para crianças de zero a 12 anos.Rua Vieira Ravasco, 26, Cambuci, São Paulo (SP).Horário de funcionamento: 24 horasTelefone: (11) 3275-8000"
 

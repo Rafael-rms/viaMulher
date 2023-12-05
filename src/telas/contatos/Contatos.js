@@ -58,34 +58,6 @@ export default Contatos = ({ navigation }) => {
         }
     }
 
-    async function sms() {
-            try {
-                apiSms.post('/channels/sms/messages', {
-                    from: 'hill-substance',
-                    to: `${telefoneContatos.celular}`,
-                    contents: [{
-                        type: 'text',
-                        text:`Oi, sou ${dadosUsuario.nome} e nesse momento estou
-                        Precisando de ajuda, estou no endereço: https://www.google.com/maps/search/?api=1&query=${localizacao.coords.latitude},${localizacao.coords.longitude} `
-                    }]
-
-                }, {
-                    headers: {
-                    'X-API-TOKEN':" Zptn4IwxijdaYMIOVKM-EfQDYijyaDTN8x4I"
-                    }
-                }).then(res => console.log("sucesso", res))
-                    .catch(er => console.log(er))
-                
-            }
-            catch (er) {
-                console.log(er)
-            }
-
-        console.log(localizacao.coords.latitude)
-        console.log(localizacao.coords.longitude)
-
-    }
-
     return (
         // utilizando uma imagem como plano de fundo
         <ImageBackground source={require('../../assets/contatosFundo.png')} style={Estilos.container} resizeMode="contain">
@@ -99,11 +71,6 @@ export default Contatos = ({ navigation }) => {
 
 
             <Linha />
-            <Button title='Teste'
-                onPress={() => { sms() }}
-            // Token api: 70ekWV0kyn2SUxUWXzcjwWVvOJ-Z5uunEtnK
-            ></Button>
-
             <>
 
                 {/* Renderiza o botão adicionar contatos ou o card de contatos */}
@@ -125,10 +92,14 @@ export default Contatos = ({ navigation }) => {
                     )}
 
                 </View>
+                        { telefoneContatos &&(
+                            <TouchableOpacity style={Estilos.botaoListar}
+                        onPress={() => navigation.navigate('NovosContatos')}
+                        ><Text style={Estilos.textoBotaoListar}>Listar Contatos</Text></TouchableOpacity>
+                        )
 
-                <TouchableOpacity style={Estilos.botaoListar}
-                    onPress={() => navigation.navigate('NovosContatos')}
-                ><Text style={Estilos.textoBotaoListar}>Listar Contatos</Text></TouchableOpacity>
+                        }
+                
             </>
         </ImageBackground>
     )
@@ -164,16 +135,17 @@ const Estilos = StyleSheet.create({
     botaoListar:{
         backgroundColor:"#D69595",
         marginTop:"1%",
-        marginBottom:"2%",
+        marginBottom:"10%",
         borderRadius:20,
         width:135,
         minwidth:"40%",
         height:30,
         alignItems:"center",
         justifyContent:'center',
-        alignSelf:'center'
+        
     },
     textoBotaoListar: {
+        textAlign: 'center',
         fontSize: 18,
         fontWeight: 'bold',
         color: 'white'

@@ -1,18 +1,41 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, StyleSheet, TouchableOpacity, Text, ImageBackground } from 'react-native'
 import CardFormulario from './componentes/CardFormulario';
 import Cabecalho from '../../componentes/Cabecalho';
 import Linha from '../../componentes/Linha';
-
+import { auth } from '../../config/firebase';
+import { capturaDadosFormulario } from '../../servicos/req';
 
 // Criando componente Formulario
 export default Formulario = ({ navigation }) => {
     // Utiliza o useState para controlar o estado do componente, começando como falso
     const [card, setCard] = useState(false);
+    const [dadosFormulario, setDadosFormulario] = useState([])
 
     const Card = () => {
         setCard(!card);
     };
+    useEffect(() => {
+        auth.onAuthStateChanged(usuario => {
+            if (usuario) {
+                const result = usuario.uid
+                //console.log(result)
+                // Função para carregar os dados do Firestore
+                async function carregarDadosFirestore() {
+                    
+                    const form = await capturaDadosFormulario(result)
+                    setDadosFormulario(form)
+                    
+                    
+                }
+                carregarDadosFirestore()
+                
+                } 
+            
+
+
+        })
+    }, [])
 
     return (
         // utilizando uma imagem como plano de fundo
@@ -46,6 +69,15 @@ export default Formulario = ({ navigation }) => {
 
                     )}
                 </View>
+
+                {dadosFormulario && (
+
+                        <TouchableOpacity 
+                        style={Estilos.botaoExibirForm}
+                        onPress={()=> {navigation.navigate('FinalizarForm')}}
+                        >
+                            <Text style={Estilos.textoBotaoExibirForm}>Exibir Formulário</Text>
+                        </TouchableOpacity>)}
             </>
         </ImageBackground>
     )
@@ -77,6 +109,21 @@ const Estilos = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         flex: 1
+    },
+    botaoExibirForm: {
+        backgroundColor: '#D69595',
+        height: 40,
+        width: 168,
+        borderRadius: 20,
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginBottom: '5%'
+    },
+    textoBotaoExibirForm: {
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: 'white'
     }
 })
+
 

@@ -49,13 +49,14 @@ useEffect(() => {
 
     async function sms() {
             try {
-                apiSms.post('/channels/sms/messages', {
-                    from: 'hill-substance',
+                apiSms.post('/channels/whatsapp/messages', {
+                    from: 'carnelian-keeper',
                     to: `${telefoneContatos.celular}`,
                     contents: [{
                         type: 'text',
                         text:`Oi, sou ${dadosUsuario.nome} e nesse momento estou
-                        Precisando de ajuda, estou no endereço: https://www.google.com/maps/search/?api=1&query=${localizacao.coords.latitude},${localizacao.coords.longitude} `
+                        Precisando de ajuda, estou no endereço: https://www.google.com/maps/search/?api=1&query=${localizacao.coords.latitude},${localizacao.coords.longitude}
+                        se nao acessar a rota, estou na LATITUDE: ${localizacao.coords.latitude} e na LONGITUDE: ${localizacao.coords.longitude}`
                     }]
 
                 }, {
@@ -79,8 +80,8 @@ useEffect(() => {
 
     return(
         <View style={Estilos.container}>
-            <TouchableOpacity style={Estilos.imagem}>
-            <Image style={Estilos.imagem} source={require('../../assets/Anuncio2.jpg')} onPress={() => {sms()}}/>
+            <TouchableOpacity style={Estilos.imagem} onPress={() => {sms()}}>
+            <Image style={Estilos.imagem} source={require('../../assets/Anuncio2.jpg')} />
             </TouchableOpacity>
             
             <TouchableOpacity style={Estilos.botaoFechar} onPress={()=>{navigation.navigate('Login')}}>

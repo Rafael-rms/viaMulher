@@ -6,7 +6,7 @@ export default function Botao({onPress, texto, ativo, onDesativar}) {
     const pressionado = () => {
         onDesativar(); 
         onPress();
-      };
+    };
     
     return (
         <View>
@@ -36,10 +36,10 @@ const Estilos = StyleSheet.create({
         fontWeight:'bold'
     },
     textoPressinado:{
-        fontSize:45,
+        fontSize:25,
         color: 'white'
     },
     botaoPressionado: {
-        backgroundColor: "#D69595", 
-      },
+        backgroundColor: "#E6AFAF", 
+    },
 })

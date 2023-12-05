@@ -21,7 +21,7 @@ export default function Pergunta01({ navigation }) {
     };
 
     const [dadosUsuario, setDadosUsuario] = useState([])
-    let dia = moment().format('DD/MM/YYYY')
+    let diaRealizado = moment().format('DD/MM/YYYY')
 
     useEffect(() => {
         auth.onAuthStateChanged(usuario => {
@@ -44,7 +44,7 @@ export default function Pergunta01({ navigation }) {
         Alert.alert("Selecione uma resposta")
     }else{
         const id = dadosUsuario.id
-        const resul = await salvarFormulario({dadosUsuario, resposta01, id})
+        const resul = await salvarFormulario({dadosUsuario, resposta01, id, diaRealizado})
         console.log(resul)
         navigation.navigate('Pergunta02')
         
@@ -72,7 +72,7 @@ export default function Pergunta01({ navigation }) {
 
                 <>
                     <Text style={[styles.textUsuario, { fontSize: 22 }]}>{dadosUsuario.nome}</Text>
-                    <Text style={styles.textData}>Data de Preenchimento: {dia}</Text>
+                    <Text style={styles.textData}>Data de Preenchimento: {diaRealizado}</Text>
                     <Text style={[styles.textUsuario, { marginLeft: '70%' }]}>01/19</Text>
                 </>
 
