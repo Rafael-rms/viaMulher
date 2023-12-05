@@ -55,7 +55,7 @@ export default function ({ navigation }) {
 
     table {
     border-collapse: collapse;
-    width: 500px;
+    width: 700px;
 	align-items: "center";
 	justify-content: "center";
     }
@@ -485,11 +485,11 @@ const Estilos = StyleSheet.create({
     containerCard: {
         backgroundColor: '#EDCECE',
         width: '90%',
-        height: '70%',
+        height: '80%',
         borderRadius: 20,
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: 60
+        marginTop: 30
     },
     textosTitulos: {
         fontSize: 30,

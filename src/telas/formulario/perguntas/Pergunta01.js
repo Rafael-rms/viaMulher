@@ -13,6 +13,13 @@ import { pergunta01 } from '../../../mocks/perguntas'
 export default function Pergunta01({ navigation }) {
 
     const [resposta01, setResposta1] = useState('')
+    const [botaoAtivo, setBotaoAtivo] = useState(null);
+
+    const botaoPressionado = (resposta) => {
+        setResposta1(resposta);
+        setBotaoAtivo(resposta);
+    };
+
     const [dadosUsuario, setDadosUsuario] = useState([])
     let dia = moment().format('DD/MM/YYYY')
 
@@ -70,23 +77,36 @@ export default function Pergunta01({ navigation }) {
                 </>
 
                 {/* caixa de perguntas do formulário */}
-                {/* <Caixa 
-                texto='A senhora/você tem filhos(as) com o(a) agressor(a)? (Caso não tenham filhos em comum, o registro não se aplica)
-                Em caso afirmativo, estão vivendo algum conflito com relação àguarda dos filhos, visitas ou pagamento de pensão pelo agressor?'/> */}
                 <Caixa
                     texto={pergunta01}/>
 
                 <View>
                     {/* Botões do formulário */}
-                    <Botao onPress={() => {setResposta1("Sim")}} texto="Sim"></Botao>
-                    <Botao onPress={() => {setResposta1("Não")}} texto="Não"></Botao>
-                    <Botao onPress={() => {setResposta1("Não sabe")}} texto="Não sabe"></Botao>
-                    <Botao onPress={() => {setResposta1("Não se aplica")}} texto="Não se aplica"></Botao>
+                    <Botao
+                        onPress={() => botaoPressionado("Sim")}
+                        texto="Sim"
+                        ativo={botaoAtivo === "Sim"}
+                        onDesativar={() => setBotaoAtivo(null)}
+                    />
+                    <Botao
+                        onPress={() => botaoPressionado("Não")}
+                        texto="Não"
+                        ativo={botaoAtivo === "Não"}
+                        onDesativar={() => setBotaoAtivo(null)}
+                    />
+                    <Botao
+                        onPress={() => botaoPressionado("Não sabe")}
+                        texto="Não sabe"
+                        ativo={botaoAtivo === "Não sabe"}
+                        onDesativar={() => setBotaoAtivo(null)}
+                    />
+                    <Botao
+                        onPress={() => botaoPressionado("Não se aplica")}
+                        texto="Não se aplica"
+                        ativo={botaoAtivo === "Não se aplica"}
+                        onDesativar={() => setBotaoAtivo(null)}
+                    />
 
-                    {/* <Botao
-                        onPress={() => { }}
-                        texto='Próximo' 
-                        style={[styles.botaoProximo]}/> */}
 
                     <TouchableOpacity
                         onPress={() => { pegarResposta() }}

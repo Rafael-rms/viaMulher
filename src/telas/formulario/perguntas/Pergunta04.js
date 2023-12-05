@@ -14,6 +14,15 @@ import { Alert } from 'react-native'
 
 export default function Pergunta04({ navigation }) {
     const [resposta04, setResposta4] = useState('')
+    const botaoPressionado = (resposta) => {
+        setResposta4(resposta);
+        setBotaoAtivo(resposta);
+    };
+
+
+    const [botaoAtivo, setBotaoAtivo] = useState(null);
+
+    
     const [dadosUsuario, setDadosUsuario] = useState([])
     let dia = moment().format('DD/MM/YYYY')
     
@@ -73,10 +82,30 @@ export default function Pergunta04({ navigation }) {
 
                 <View>
                     {/* Botões do formulário */}
-                    <Botao onPress={() => {setResposta4("Sim")}} texto="Sim"></Botao>
-                    <Botao onPress={() => {setResposta4("Não")}} texto="Não"></Botao>
-                    <Botao onPress={() => {setResposta4("Não sabe")}} texto="Não sabe"></Botao>
-                    <Botao onPress={() => {setResposta4("Não se aplica")}} texto="Não se aplica"></Botao>
+                    <Botao
+                        onPress={() => botaoPressionado("Sim")}
+                        texto="Sim"
+                        ativo={botaoAtivo === "Sim"}
+                        onDesativar={() => setBotaoAtivo(null)}
+                    />
+                    <Botao
+                        onPress={() => botaoPressionado("Não")}
+                        texto="Não"
+                        ativo={botaoAtivo === "Não"}
+                        onDesativar={() => setBotaoAtivo(null)}
+                    />
+                    <Botao
+                        onPress={() => botaoPressionado("Não sabe")}
+                        texto="Não sabe"
+                        ativo={botaoAtivo === "Não sabe"}
+                        onDesativar={() => setBotaoAtivo(null)}
+                    />
+                    <Botao
+                        onPress={() => botaoPressionado("Não se aplica")}
+                        texto="Não se aplica"
+                        ativo={botaoAtivo === "Não se aplica"}
+                        onDesativar={() => setBotaoAtivo(null)}
+                    />
 
 
                     {/* <Botao

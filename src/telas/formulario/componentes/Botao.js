@@ -1,14 +1,20 @@
 import React from "react";
 import { StyleSheet, View, TouchableOpacity, Text } from "react-native";
 
-export default function Botao({onPress, texto}) {
+export default function Botao({onPress, texto, ativo, onDesativar}) {
+
+    const pressionado = () => {
+        onDesativar(); 
+        onPress();
+      };
+    
     return (
         <View>
             {/* Botões do formulário */}
             <TouchableOpacity
-                onPress={onPress}
-                style={Estilos.botaoPergunta}>
-                <Text style={Estilos.texto}>{texto}</Text>
+                onPress={pressionado}
+                style={[Estilos.botaoPergunta, ativo ? Estilos.botaoPressionado : null]}>
+                <Text style={[Estilos.texto, ativo ? Estilos.textoPressinado : null]}>{texto}</Text>
             </TouchableOpacity>
 
         </View>
@@ -26,6 +32,14 @@ const Estilos = StyleSheet.create({
         margin:'2%',
     },
     texto:{
-        fontSize:25
+        fontSize:25,
+        fontWeight:'bold'
     },
+    textoPressinado:{
+        fontSize:45,
+        color: 'white'
+    },
+    botaoPressionado: {
+        backgroundColor: "#D69595", 
+      },
 })
