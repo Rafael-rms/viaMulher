@@ -61,7 +61,8 @@ useEffect(() => {
 
                 }, {
                     headers: {
-                    'X-API-TOKEN':" Zptn4IwxijdaYMIOVKM-EfQDYijyaDTN8x4I"
+                    'X-API-TOKEN':"7xjkY2Kvj2iur1Rh4aVWQACf6hXOsNmAgKJi "
+                    // Token antigoZptn4IwxijdaYMIOVKM-EfQDYijyaDTN8x4I
                     }
                 }).then(res => console.log("sucesso", res))
                     .catch(er => console.log(er))
